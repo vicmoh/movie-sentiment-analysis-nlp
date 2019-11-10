@@ -13,4 +13,3 @@ Graph.plot(xData, data2, label='Second')
 Graph.bar(xData, data1, label='Bar', color='grey')
 Graph.legend()  # Graph.legend(['First', 'Second])
 Graph.show()
-
