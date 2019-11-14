@@ -4,6 +4,7 @@ import glob
 
 
 # Debug condition.
+_SHOW_DEBUG_FOR_READ_FILE = False
 _SHOW_DEBUG = True
 
 
@@ -20,7 +21,7 @@ class Util:
         for line in file:
             lines.append(line.strip())
         file.close()
-        if _SHOW_DEBUG:
+        if _SHOW_DEBUG_FOR_READ_FILE:
             print('Reading file: ' + filePath)
             for each in lines:
                 print(each)
@@ -31,22 +32,23 @@ class Util:
     # @numFiles to read. If it's 5 then 5it will read 5 files.
     # If it is -1
     # returns the list of docs with list of lines in the file.
-    def readAllFilesInFolder(self, folderPath, numFiles=-1):
+    def readAllFilesInFolder(self, folderPath, numFiles=0):
         docs = []
         if folderPath == None:
             return docs
-        numFiles = 0
+        countFiles = 0
         for files in glob.glob(folderPath):
-            numFiles += 1
+            # Check if it need to read number of files.
+            if numFiles > 0:
+                countFiles += 1
+            # Read the files
             file = self.readFile(files)
             lines = []
             for line in file:
                 lines.append(line.strip())
             docs.append(lines)
             # Check the number of files to read.
-            if numFiles < 0:
-                continue
-            elif numFiles >= numFiles:
+            if countFiles >= numFiles:
                 break
         # Print for debuggin.
         if _SHOW_DEBUG:
@@ -56,4 +58,5 @@ class Util:
                 print('Doc#: ' + str(fileNum))
                 for line in docs:
                     print('line: ' + str(line))
+                print()
         return docs
