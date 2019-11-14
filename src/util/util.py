@@ -13,7 +13,7 @@ class Util:
             return lines
         file = open(filePath)
         for line in file:
-            lines.append(line)
+            lines.append(line.strip())
         file.close()
         if _SHOW_DEBUG:
             print("Reading file: " + filePath)

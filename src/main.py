@@ -12,7 +12,7 @@ from matplotlib import pyplot as _matplot
 import scipy
 import numpy
 # For the debug statement
-_FILE_EXAMPLE = "./assets/txt_sentoken/pos/cv000_29590.txt"
+_FILE_EXAMPLE = "./assets/review_polarity/txt_sentoken/pos/cv000_29590.txt"
 
 # Main function
 def main():
