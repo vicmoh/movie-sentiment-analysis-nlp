@@ -18,7 +18,5 @@ _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 # Main function
 def main():
     print('Running script...')
-    Plot().runExample()
-    # Util.readFile(_FILE_EXAMPLE)
     Util().readAllFilesInFolder(_POS_FOLDER, numFiles=2)
 main()
