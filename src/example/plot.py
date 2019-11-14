@@ -1,7 +1,8 @@
 from matplotlib import pyplot as _matplot
 
-
-class Graph:
+class Plot:
+    def __init__(self):
+        super().__init__()
     # run matplot example
     def runExample():
         # init variable
