@@ -4,12 +4,15 @@
 from util.util import Util
 from sklearn.feature_extraction.text import CountVectorizer
 
+# Default folder for the positive path
+_POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
+
+
 class Process:
-    _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
     filePath = ''
     docs = []
 
-    def __init__(self, filePath):
+    def __init__(self, filePath=None):
         super().__init__()
         if filePath == None:
             self.filePath = filePath
