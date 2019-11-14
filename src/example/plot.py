@@ -1,15 +1,19 @@
-from matplotlib import pyplot as Graph
+from matplotlib import pyplot as _matplot
 
-data1 = [3, 4, 5, 6, 7, 8]
-data2 = [4, 5, 6, 7, 8, 9]
-xData = [1, 2, 3, 4, 5, 6]
 
-# Line graph
-Graph.xlabel('X Label')
-Graph.ylabel('Y label')
-Graph.title('Testing')
-Graph.plot(xData, data1, label='First')
-Graph.plot(xData, data2, label='Second')
-Graph.bar(xData, data1, label='Bar', color='grey')
-Graph.legend()  # Graph.legend(['First', 'Second])
-Graph.show()
+class Graph:
+    # run matplot example
+    def runExample():
+        # init variable
+        data1 = [3, 4, 5, 6, 7, 8]
+        data2 = [4, 5, 6, 7, 8, 9]
+        xData = [1, 2, 3, 4, 5, 6]
+        # graph the model
+        _matplot.xlabel('X Label')
+        _matplot.ylabel('Y label')
+        _matplot.title('Testing')
+        _matplot.plot(xData, data1, label='First')
+        _matplot.plot(xData, data2, label='Second')
+        _matplot.bar(xData, data1, label='Bar', color='grey')
+        _matplot.legend()  # _matplot.legend(['First', 'Second])
+        _matplot.show()
