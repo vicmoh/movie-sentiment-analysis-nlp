@@ -1,10 +1,7 @@
 # Import my files
 import sys
-sys.path.append('./src')
-sys.path.append('./src/lib')
-sys.path.append('./src/util')
-from util import Util
-from pos import POSTagging, POSData
+from util.util import Util
+from lib.pos import POSTagging
 # Import lib
 from sklearn import svm
 from sklearn import datasets
@@ -18,6 +15,6 @@ _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 # Main function
 def main():
     print('Running script...')
-    Util().readAllFilesInFolder(_POS_FOLDER, numFiles=2)
+    Util.readAllFilesInFolder(_POS_FOLDER, numFiles=2)
     POSTagging().runExample()
 main()

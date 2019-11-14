@@ -1,4 +1,5 @@
 # Utility class to help code for python
+
 # Import libs
 import glob as _glob
 
@@ -9,11 +10,9 @@ _SHOW_DEBUG = True
 
 
 class Util:
-    def __init__(self):
-        super().__init__()
-
     # Read file from @filePath and return the list of string for each lines.
-    def readFile(self, filePath):
+    @staticmethod
+    def readFile(filePath):
         lines = []
         if filePath == None:
             return lines
@@ -32,7 +31,8 @@ class Util:
     # @numFiles to read. If it's 5 then 5it will read 5 files.
     # If it is -1
     # returns the list of docs with list of lines in the file.
-    def readAllFilesInFolder(self, folderPath, numFiles=0):
+    @staticmethod
+    def readAllFilesInFolder(folderPath, numFiles=0):
         docs = []
         if folderPath == None:
             return docs
@@ -42,7 +42,7 @@ class Util:
             if numFiles > 0:
                 countFiles += 1
             # Read the files
-            file = self.readFile(files)
+            file = Util.readFile(files)
             lines = []
             for line in file:
                 lines.append(line.strip())
