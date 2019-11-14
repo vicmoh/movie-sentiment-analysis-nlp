@@ -1,8 +1,8 @@
 # Import my files
 import sys
-sys.path.append("./src")
-sys.path.append("./src/example")
-sys.path.append("./src/util")
+sys.path.append('./src')
+sys.path.append('./src/example')
+sys.path.append('./src/util')
 from util import Util
 from plot import Plot
 # Import lib
@@ -12,11 +12,13 @@ from matplotlib import pyplot as _matplot
 import scipy
 import numpy
 # For the debug statement
-_FILE_EXAMPLE = "./assets/review_polarity/txt_sentoken/pos/cv000_29590.txt"
+_FILE_EXAMPLE = './assets/review_polarity/txt_sentoken/pos/cv000_29590.txt'
+_POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 
 # Main function
 def main():
-    print("Running script...")
-    Plot.runExample()
-    Util.readFile(_FILE_EXAMPLE)
+    print('Running script...')
+    Plot().runExample()
+    # Util.readFile(_FILE_EXAMPLE)
+    Util().readAllFilesInFolder(_POS_FOLDER)
 main()

@@ -4,7 +4,7 @@ class Plot:
     def __init__(self):
         super().__init__()
     # run matplot example
-    def runExample():
+    def runExample(self):
         # init variable
         data1 = [3, 4, 5, 6, 7, 8]
         data2 = [4, 5, 6, 7, 8, 9]
