@@ -19,7 +19,7 @@ class Process:
             self.filePath = filePath
         else:
             self.filePath = _POS_FOLDER
-        self.docs = Util.readAllFilesInFolder(_POS_FOLDER)    
+        self.docs = Util.readAllFilesInFolder(_POS_FOLDER)
 
     # Function to run and process the movie
     def run(self):
