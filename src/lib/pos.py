@@ -1,0 +1,24 @@
+# This lib is for the POS-tagging and other
+import nltk as _pos
+
+# Download nltk dependencies
+# if you 'nltk.download()' wihout param
+# it will open gui for downloading list of other
+_pos.download('punkt')
+_pos.download('averaged_perceptron_tagger')
+
+class POSTagging:
+    def __init__(self):
+        super().__init__()
+
+    # Test the pos tagging
+    def runExample(self):
+        tokens = _pos.word_tokenize(
+            'Can you please buy me an Arizona Ice Tea? It\'s $0.99')
+        print('POSTagging.runExample(): tokens = ', tokens)
+        print('POSTagging.runExample(): pos_tag() = ', _pos.pos_tag(tokens))
+    
+    # Run the POS tagging.
+    # @doc document strings to be tagged
+    def run(self, doc):
+        return _pos.pos_tag(_pos.word_tokenize(doc))

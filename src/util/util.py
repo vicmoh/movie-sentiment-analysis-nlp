@@ -1,6 +1,6 @@
 # Utility class to help code for python
 # Import libs
-import glob
+import glob as _glob
 
 
 # Debug condition.
@@ -37,7 +37,7 @@ class Util:
         if folderPath == None:
             return docs
         countFiles = 0
-        for files in glob.glob(folderPath):
+        for files in _glob.glob(folderPath):
             # Check if it need to read number of files.
             if numFiles > 0:
                 countFiles += 1
