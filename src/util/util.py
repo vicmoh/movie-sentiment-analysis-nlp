@@ -28,8 +28,8 @@ class Util:
 
     # Read all docs in the file.
     # @folderPath is the string file path e. '*.txt'.
-    # @numFiles to read. If it's 5 then 5it will read 5 files.
-    # If it is -1
+    # @numFiles to read. If it's 5 then it will read 5 files.
+    # If it is less then or equal to 0, read all files.
     # returns the list of docs with list of lines in the file.
     @staticmethod
     def readAllFilesInFolder(folderPath, numFiles=0):

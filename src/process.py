@@ -14,12 +14,13 @@ class Process:
 
     def __init__(self, filePath=None):
         super().__init__()
+        print('Processing...')
         if filePath == None:
             self.filePath = filePath
         else:
             self.filePath = _POS_FOLDER
-        self.docs = Util.readAllFilesInFolder(_POS_FOLDER)
+        self.docs = Util.readAllFilesInFolder(_POS_FOLDER)    
 
     # Function to run and process the movie
     def run(self):
-        print('Processing...')
+        
