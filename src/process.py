@@ -1,4 +1,5 @@
-# This file is used to process the movie
+# Author: Vicky Mohammad
+# Description: This file is used to process the movie
 # classification, using other classes.
 
 from util.util import Util

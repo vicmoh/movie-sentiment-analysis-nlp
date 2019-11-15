@@ -1,4 +1,6 @@
-# Utility class to help code for python
+# Author: Vicky Mohammad
+# Description: File containing helper function
+# other utilities.
 
 # Import libs
 import glob as _glob

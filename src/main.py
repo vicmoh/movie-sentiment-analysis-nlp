@@ -1,4 +1,6 @@
-# Main file to run the program.
+# Author: Vicky Mohammad
+# Description: File containing the main to
+# to run the program.
 
 # Import my files
 import sys

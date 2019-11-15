@@ -1,3 +1,6 @@
+# Author: Vicky Mohammad
+# Description: File for proccessing the POS tagging.
+
 # This lib is for the POS-tagging and other
 import nltk as _pos
 
