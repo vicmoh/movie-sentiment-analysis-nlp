@@ -22,22 +22,22 @@ class Process:
         else:
             self.filePath = _POS_FOLDER
 
-    # Remove punctuation
-    # @word string to be checked
-    # Return true if it is punctuation else return false
     @staticmethod
     def isPunc(word):
+        """Remove punctuation
+        @word string to be checked
+        Return true if it is punctuation else return false"""
         if len(word) is not 1:
             return False
         if _regex.match(_REPLACE_NO_SPACE, word) is not None:
             return True
         return False
 
-    # Remove punctuation in sentence
-    # @sentence to be edited
-    # Return the edited string
     @staticmethod
     def removePuncInLine(sentence):
+        """Remove punctuation in sentence
+        @sentence to be edited
+        Return the edited string"""
         _FUNC_DEBUG = True
         newSen = ''
         splitted = _regex.compile(_WHITE_SPACE).split(sentence)
@@ -48,8 +48,8 @@ class Process:
                 newSen += word + ' '
         return newSen.strip()
 
-    # Function to run and process the movie
     def run(self):
+        """Function to run and process the movie"""
         print('Running...')
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,

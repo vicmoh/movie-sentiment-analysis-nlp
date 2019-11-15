@@ -10,9 +10,9 @@ _SHOW_DEBUG_FOR_READ_ALL_FLE = True
 
 
 class Util:
-    # Read file from @filePath and return the list of string for each lines.
     @staticmethod
     def readFile(filePath):
+        """Read file from @filePath and return the list of string for each lines."""
         lines = []
         if filePath == None:
             return lines
@@ -26,18 +26,18 @@ class Util:
                 print(each)
         return lines
 
-    # Read all docs in the file.
-    # @folderPath is the string file path e. '*.txt'.
-    # @numFiles to read. If it's 5 then it will read 5 files.
-    # @eachLineCallBack param callbacks the line it's currently parsing
-    # If it is less then or equal to 0, read all files.
-    # returns the list of docs with list of lines in the file.
     @staticmethod
     def readAllFilesInFolder(
-        folderPath, 
-        numFiles=0, 
+        folderPath,
+        numFiles=0,
         eachLineCallback=None
     ):
+        """Read all docs in the file.
+        @folderPath is the string file path e. '*.txt'.
+        @numFiles to read. If it's 5 then it will read 5 files.
+        @eachLineCallBack param callbacks the line it's currently parsing
+        If it is less then or equal to 0, read all files.
+        returns the list of docs with list of lines in the file."""
         docs = []
         if folderPath == None:
             return docs

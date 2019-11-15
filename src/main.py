@@ -22,7 +22,6 @@ class main:
         super().__init__()
         Process().run()
 
-    # Test function
     @staticmethod
     def testReadFile():
         print('Running script...')

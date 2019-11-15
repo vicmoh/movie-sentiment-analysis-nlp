@@ -1,9 +1,10 @@
 from matplotlib import pyplot as _matplot
 
+
 class Plot:
     def __init__(self):
         super().__init__()
-    # run matplot example
+
     def runExample(self):
         # init variable
         data1 = [3, 4, 5, 6, 7, 8]
