@@ -2,7 +2,7 @@
 import nltk as _pos
 
 # Download nltk dependencies
-# if you 'nltk.download()' wihout param
+# if you 'nltk.download()' without param
 # it will open gui for downloading list of other
 _pos.download('punkt')
 _pos.download('averaged_perceptron_tagger')

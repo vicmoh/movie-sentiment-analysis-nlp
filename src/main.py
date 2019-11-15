@@ -26,7 +26,7 @@ class main:
     @staticmethod
     def testReadFile():
         print('Running script...')
-        Util.readAllFilesInFolder(_POS_FOLDER, numFiles=2)
+        Util.readAllFilesInFolder(_POS_FOLDER, numFile=2)
         POSTagging().runExample()
 
 

@@ -29,10 +29,15 @@ class Util:
     # Read all docs in the file.
     # @folderPath is the string file path e. '*.txt'.
     # @numFiles to read. If it's 5 then it will read 5 files.
+    # @eachLineCallBack param callbacks the line it's currently parsing
     # If it is less then or equal to 0, read all files.
     # returns the list of docs with list of lines in the file.
     @staticmethod
-    def readAllFilesInFolder(folderPath, numFiles=0):
+    def readAllFilesInFolder(
+        folderPath, 
+        numFiles=0, 
+        eachLineCallback=None
+    ):
         docs = []
         if folderPath == None:
             return docs
@@ -45,6 +50,8 @@ class Util:
             file = Util.readFile(files)
             lines = []
             for line in file:
+                if eachLineCallback != None:
+                    line = eachLineCallback(line)
                 lines.append(line.strip())
             docs.append(lines)
             # Check the number of files to read.
