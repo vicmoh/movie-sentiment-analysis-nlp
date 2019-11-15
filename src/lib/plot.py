@@ -1,5 +1,5 @@
 # Author: Vicky Mohammad
-# Program: Plot file for graphing
+# Program: Plot file for graphing.
 
 # The plots and bars
 from matplotlib import pyplot as _matplot
