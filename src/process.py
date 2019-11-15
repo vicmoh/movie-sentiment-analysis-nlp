@@ -11,7 +11,6 @@ _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 class Process:
     filePath = ''
     docs = []
-
     def __init__(self, filePath=None):
         super().__init__()
         print('Processing...')
