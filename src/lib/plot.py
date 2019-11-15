@@ -6,11 +6,11 @@ class Plot:
         super().__init__()
 
     def runExample(self):
-        # init variable
+        # Init variable
         data1 = [3, 4, 5, 6, 7, 8]
         data2 = [4, 5, 6, 7, 8, 9]
         xData = [1, 2, 3, 4, 5, 6]
-        # graph the model
+        # Graph the model
         _matplot.xlabel('X Label')
         _matplot.ylabel('Y label')
         _matplot.title('Testing')
