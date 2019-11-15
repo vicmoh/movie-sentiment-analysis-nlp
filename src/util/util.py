@@ -6,7 +6,7 @@ import glob as _glob
 
 # Debug condition.
 _SHOW_DEBUG_FOR_READ_FILE = False
-_SHOW_DEBUG = True
+_SHOW_DEBUG_FOR_READ_ALL_FLE = False
 
 
 class Util:
@@ -51,7 +51,7 @@ class Util:
             if countFiles >= numFiles:
                 break
         # Print for debuggin.
-        if _SHOW_DEBUG:
+        if _SHOW_DEBUG_FOR_READ_ALL_FLE:
             fileNum = 0
             for doc in docs:
                 fileNum += 1
