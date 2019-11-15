@@ -6,7 +6,7 @@ import glob as _glob
 
 # Debug condition.
 _SHOW_DEBUG_FOR_READ_FILE = False
-_SHOW_DEBUG_FOR_READ_ALL_FLE = False
+_SHOW_DEBUG_FOR_READ_ALL_FLE = True
 
 
 class Util:
@@ -50,7 +50,7 @@ class Util:
             file = Util.readFile(files)
             lines = []
             for line in file:
-                if eachLineCallback != None:
+                if eachLineCallback is not None:
                     line = eachLineCallback(line)
                 lines.append(line.strip())
             docs.append(lines)

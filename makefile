@@ -6,6 +6,11 @@ git:
 	git commit -m "[AUTO]"
 	git push
 
+push:
+	git add -A
+	git commit -m "$(m)"
+	git push
+
 dependencies:
 	pip3 install numpy
 	pip3 install scipy

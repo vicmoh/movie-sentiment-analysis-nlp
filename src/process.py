@@ -2,11 +2,12 @@
 # classification, using other classes.
 
 from util.util import Util
-from sklearn.feature_extraction.text import CountVectorizer
+import re as _regex
 
 # Default folder for the positive path
 _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 _REPLACE_NO_SPACE = "[.;:!\'?,\"()\[\]]"
+_WHITE_SPACE = "[\r\n]+|[\n]+|[\t]+|[ ]+"
 
 
 class Process:
@@ -20,16 +21,37 @@ class Process:
             self.filePath = filePath
         else:
             self.filePath = _POS_FOLDER
-        self.docs = Util.readAllFilesInFolder(_POS_FOLDER, numFiles=2)
 
     # Remove punctuation
-    def isPunc(self, word):
-        if len(word) == 1:
+    # @word string to be checked
+    # Return true if it is punctuation else return false
+    @staticmethod
+    def isPunc(word):
+        if len(word) is not 1:
             return False
-        if word.match(_REPLACE_NO_SPACE, case=False):
+        if _regex.match(_REPLACE_NO_SPACE, word) is not None:
             return True
         return False
+
+    # Remove punctuation in sentence
+    # @sentence to be edited
+    # Return the edited string
+    @staticmethod
+    def removePuncInLine(sentence):
+        _FUNC_DEBUG = True
+        newSen = ''
+        splitted = _regex.compile(_WHITE_SPACE).split(sentence)
+        for word in splitted:
+            if (_FUNC_DEBUG):
+                print('word: ' + word)
+            if Process.isPunc(word) is not True:
+                newSen += word + ' '
+        return newSen.strip()
 
     # Function to run and process the movie
     def run(self):
         print('Running...')
+        self.docs = Util.readAllFilesInFolder(
+            _POS_FOLDER,
+            numFiles=2,
+            eachLineCallback=Process.removePuncInLine)
