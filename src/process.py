@@ -8,7 +8,7 @@ import re as _regex
 # Default folder for the positive path
 _DEFAULT_STOP_WORDS_PATH = './assets/stopwords.txt'
 _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
-_REPLACE_NO_SPACE = "[.;:!\'?,\"()\[\]]"
+_PUNC_REGEX = '[^\w0-9]'  # "[.;:!\'?,\"()\[\]-\+=#\$\*]"
 _WHITE_SPACE = "[\r\n]+|[\n]+|[\t]+|[ ]+"
 
 
@@ -31,7 +31,7 @@ class Process:
         if word is None or listOfWords is None:
             return False
         for each in listOfWords:
-            if each is word:
+            if each.strip() == word.strip():
                 return True
         return False
 
@@ -42,7 +42,7 @@ class Process:
         Return true if it is punctuation else return false."""
         if len(word) is not 1:
             return False
-        if _regex.match(_REPLACE_NO_SPACE, word) is not None:
+        if _regex.match(_PUNC_REGEX, word) is not None:
             return True
         return False
 
@@ -58,10 +58,12 @@ class Process:
         for word in splitted:
             if (FUNC_DEBUG):
                 print('word: ' + word)
+            if word.strip()[0] is not '\'':
+                word = _regex.sub(_PUNC_REGEX, '', word.strip())
             # Remove punctuation
-            if Process.isPunc(word) is not True and Process.isWordInList(word, andListOfWords) is not True:
+            if (Process.isPunc(word) or Process.isWordInList(word, andListOfWords)) is not True:
                 newSen += word + ' '
-        return newSen.strip()
+        return _regex.sub('[ \t]+', ' ', newSen.strip())
 
     def readStopWords(self, filePath=None):
         """Read the stop words from the assets folder.
@@ -79,7 +81,7 @@ class Process:
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,
             numFiles=3,
-            eachLineCallback=lambda line: Process.removePuncInLine(line, self.stopWords))
+            eachLineCallback=lambda line: Process.removePuncInLine(line, andListOfWords=self.stopWords))
 
     def toString(self):
         """To string function to for printing the docs."""
