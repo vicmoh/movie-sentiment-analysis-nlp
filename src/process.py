@@ -66,7 +66,8 @@ class Process:
         return _regex.sub('[ \t]+', ' ', newSen.strip())
 
     def readStopWords(self, filePath=None):
-        """Read the stop words from the assets folder.
+        """Read the stop words from the assets folder
+        or from @filePath.
         Return list of stop words."""
         path = _DEFAULT_STOP_WORDS_PATH
         if filePath is not None:
@@ -84,7 +85,7 @@ class Process:
             eachLineCallback=lambda line: Process.removePuncInLine(line, andListOfWords=self.stopWords))
 
     def toString(self):
-        """To string function to for printing the docs."""
+        """To string of what's in the docs."""
         toBeReturn = ''
         for doc in self.docs:
             for line in doc:
