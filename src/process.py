@@ -39,7 +39,7 @@ class Process:
         """Remove punctuation in sentence
         @sentence to be edited
         Return the edited string"""
-        _FUNC_DEBUG = True
+        _FUNC_DEBUG = False
         newSen = ''
         splitted = _regex.compile(_WHITE_SPACE).split(sentence)
         for word in splitted:
@@ -54,5 +54,13 @@ class Process:
         print('Running...')
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,
-            numFiles=2,
+            numFiles=3,
             eachLineCallback=Process.removePuncInLine)
+
+    def toString(self):
+        """To string function to for printing the docs"""
+        toBeReturn = ''
+        for doc in self.docs:
+           for line in doc:
+               toBeReturn += line + '\n'
+        return toBeReturn

@@ -8,7 +8,7 @@ import glob as _glob
 
 # Debug condition.
 _SHOW_DEBUG_FOR_READ_FILE = False
-_SHOW_DEBUG_FOR_READ_ALL_FLE = True
+_SHOW_DEBUG_FOR_READ_ALL_FILE = True
 
 
 class Util:
@@ -40,16 +40,23 @@ class Util:
         @eachLineCallBack param callbacks the line it's currently parsing
         If it is less then or equal to 0, read all files.
         returns the list of docs with list of lines in the file."""
+        # Check if path exist and setup
         docs = []
         if folderPath == None:
             return docs
         countFiles = 0
-        for files in _glob.glob(folderPath):
+        fileNames = _glob.glob(folderPath)
+
+        # Loop through the files
+        for fileName in fileNames:
+            if _SHOW_DEBUG_FOR_READ_ALL_FILE:
+                print(fileName)
             # Check if it need to read number of files.
             if numFiles > 0:
                 countFiles += 1
+
             # Read the files
-            file = Util.readFile(files)
+            file = Util.readFile(fileName)
             lines = []
             for line in file:
                 if eachLineCallback is not None:
@@ -59,13 +66,16 @@ class Util:
             # Check the number of files to read.
             if countFiles >= numFiles:
                 break
+
         # Print for debuggin.
-        if _SHOW_DEBUG_FOR_READ_ALL_FLE:
+        print()
+        if _SHOW_DEBUG_FOR_READ_ALL_FILE:
             fileNum = 0
             for doc in docs:
                 fileNum += 1
-                print('Doc#: ' + str(fileNum))
-                for line in docs:
-                    print('line: ' + str(line))
-                print()
+                print(doc)
+                # print('Doc#: ' + str(fileNum))
+                # for line in docs:
+                    # print('line: ' + str(line))
+                # print()
         return docs
