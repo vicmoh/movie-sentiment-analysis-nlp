@@ -22,6 +22,7 @@ class Util:
         for line in file:
             lines.append(line.strip())
         file.close()
+        # Debug printing
         if _SHOW_DEBUG_FOR_READ_FILE:
             print('Reading file: ' + filePath)
             for each in lines:

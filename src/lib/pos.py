@@ -23,6 +23,6 @@ class POSTagging:
 
     def run(self, doc):
         """Run the POS tagging.
-        @doc document strings to be tagged
-        return list of tuples, index 0 is the word, 1 is the tag"""
+        @doc document strings to be tagged.
+        return list of tuples, index 0 is the word, 1 is the tag."""
         return _pos.pos_tag(_pos.word_tokenize(doc))

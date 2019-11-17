@@ -13,6 +13,7 @@ _WHITE_SPACE = "[\r\n]+|[\n]+|[\t]+|[ ]+"
 
 class Process:
     filePath = ''
+    stopWords = []
     docs = []
 
     def __init__(self, filePath=None):
@@ -25,9 +26,9 @@ class Process:
 
     @staticmethod
     def isPunc(word):
-        """Remove punctuation
-        @word string to be checked
-        Return true if it is punctuation else return false"""
+        """Remove punctuation.
+        @word string to be checked.
+        Return true if it is punctuation else return false."""
         if len(word) is not 1:
             return False
         if _regex.match(_REPLACE_NO_SPACE, word) is not None:
@@ -36,9 +37,9 @@ class Process:
 
     @staticmethod
     def removePuncInLine(sentence):
-        """Remove punctuation in sentence
-        @sentence to be edited
-        Return the edited string"""
+        """Remove punctuation in sentence.
+        @sentence to be edited.
+        Return the edited string."""
         _FUNC_DEBUG = False
         newSen = ''
         splitted = _regex.compile(_WHITE_SPACE).split(sentence)
@@ -49,8 +50,14 @@ class Process:
                 newSen += word + ' '
         return newSen.strip()
 
+    def readStopWords(self):
+        """Read the stop words from the assets folder.
+        Return list of stop words."""
+        self.stopWords = Util.readFile('../assets/stopwords.txt')
+        return self.stopWords
+
     def run(self):
-        """Function to run and process the movie"""
+        """Function to run and process the movie."""
         print('Running...')
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,
@@ -58,9 +65,9 @@ class Process:
             eachLineCallback=Process.removePuncInLine)
 
     def toString(self):
-        """To string function to for printing the docs"""
+        """To string function to for printing the docs."""
         toBeReturn = ''
         for doc in self.docs:
-           for line in doc:
-               toBeReturn += line + '\n'
+            for line in doc:
+                toBeReturn += line + '\n'
         return toBeReturn
