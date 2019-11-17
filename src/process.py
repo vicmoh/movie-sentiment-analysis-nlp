@@ -27,7 +27,7 @@ class Process:
 
     @staticmethod
     def isWordInList(word, listOfWords):
-        """Check if word is in @listOfWords. Return true if it is."""
+        """Check if @word is in @listOfWords. Return true if it is."""
         if word is None or listOfWords is None:
             return False
         for each in listOfWords:
@@ -75,10 +75,11 @@ class Process:
     def run(self):
         """Function to run and process the movie."""
         print('Running...')
+        self.readStopWords()
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,
             numFiles=3,
-            eachLineCallback=Process.removePuncInLine)
+            eachLineCallback=lambda line: Process.removePuncInLine(line, self.stopWords))
 
     def toString(self):
         """To string function to for printing the docs."""
