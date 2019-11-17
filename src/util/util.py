@@ -44,7 +44,7 @@ class Util:
         docs = []
         if folderPath == None:
             return docs
-        countFiles = 0
+        countFiles = 1
         fileNames = _glob.glob(folderPath)
 
         # Loop through the files
@@ -68,14 +68,12 @@ class Util:
                 break
 
         # Print for debuggin.
-        print()
         if _SHOW_DEBUG_FOR_READ_ALL_FILE:
+            print()
             fileNum = 0
             for doc in docs:
                 fileNum += 1
+                print('Doc#: ' + str(fileNum))
                 print(doc)
-                # print('Doc#: ' + str(fileNum))
-                # for line in docs:
-                    # print('line: ' + str(line))
-                # print()
+                print()
         return docs
