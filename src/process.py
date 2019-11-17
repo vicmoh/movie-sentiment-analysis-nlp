@@ -6,6 +6,7 @@ from util.util import Util
 import re as _regex
 
 # Default folder for the positive path
+_DEFAULT_STOP_WORDS_PATH = './assets/stopwords.txt'
 _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 _REPLACE_NO_SPACE = "[.;:!\'?,\"()\[\]]"
 _WHITE_SPACE = "[\r\n]+|[\n]+|[\t]+|[ ]+"
@@ -50,10 +51,13 @@ class Process:
                 newSen += word + ' '
         return newSen.strip()
 
-    def readStopWords(self):
+    def readStopWords(self, filePath=None):
         """Read the stop words from the assets folder.
         Return list of stop words."""
-        self.stopWords = Util.readFile('../assets/stopwords.txt')
+        path = _DEFAULT_STOP_WORDS_PATH
+        if filePath is not None:
+            path = filePath
+        self.stopWords = Util.readFile(path)
         return self.stopWords
 
     def run(self):
