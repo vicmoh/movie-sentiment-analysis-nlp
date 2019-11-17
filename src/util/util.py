@@ -45,7 +45,7 @@ class Util:
         docs = []
         if folderPath == None:
             return docs
-        countFiles = 1
+        countFiles = 0
         fileNames = _glob.glob(folderPath)
 
         # Loop through the files

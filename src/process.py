@@ -80,7 +80,7 @@ class Process:
         self.readStopWords()
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,
-            numFiles=3,
+            numFiles=2,
             eachLineCallback=lambda line: Process.removePuncInLine(line, andListOfWords=self.stopWords))
 
     def toString(self):
