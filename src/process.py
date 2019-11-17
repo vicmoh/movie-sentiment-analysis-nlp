@@ -14,7 +14,7 @@ _WHITE_SPACE = "[\r\n]+|[\n]+|[\t]+|[ ]+"
 
 class Process:
     filePath = ''
-    stopWords = []
+    stopWords = {}
     docs = []
 
     def __init__(self, filePath=None):
@@ -26,13 +26,12 @@ class Process:
             self.filePath = _POS_FOLDER
 
     @staticmethod
-    def isWordInList(word, listOfWords):
-        """Check if @word is in @listOfWords. Return true if it is."""
-        if word is None or listOfWords is None:
+    def isWordInList(word, mapOfWords):
+        """Check if @word is in @mapOfWords. Return true if it is."""
+        if word is None or mapOfWords is None:
             return False
-        for each in listOfWords:
-            if each.strip() == word.strip():
-                return True
+        if word in mapOfWords:
+            return True
         return False
 
     @staticmethod
@@ -47,10 +46,10 @@ class Process:
         return False
 
     @staticmethod
-    def removePuncInLine(sentence, andListOfWords=None):
+    def removePuncInLine(sentence, wordsToBeRemoved=None):
         """Remove punctuation in sentence.
         @sentence to be edited.
-        @andListOfWords to be removed.
+        @wordsToBeRemoved is a map.
         Return the edited string."""
         FUNC_DEBUG = False
         newSen = ''
@@ -58,21 +57,21 @@ class Process:
         for word in splitted:
             if (FUNC_DEBUG):
                 print('word: ' + word)
-            if word.strip()[0] is not '\'':
-                word = _regex.sub(_PUNC_REGEX, '', word.strip())
             # Remove punctuation
-            if (Process.isPunc(word) or Process.isWordInList(word, andListOfWords)) is not True:
+            if (Process.isPunc(word) or Process.isWordInList(word, wordsToBeRemoved)) is not True:
                 newSen += word + ' '
         return _regex.sub('[ \t]+', ' ', newSen.strip())
 
     def readStopWords(self, filePath=None):
         """Read the stop words from the assets folder
         or from @filePath.
-        Return list of stop words."""
+        Return map of stop words."""
         path = _DEFAULT_STOP_WORDS_PATH
         if filePath is not None:
             path = filePath
-        self.stopWords = Util.readFile(path)
+        stopWordsList = Util.readFile(path)
+        for each in stopWordsList:
+            self.stopWords[each] = True
         return self.stopWords
 
     def run(self):
@@ -82,7 +81,7 @@ class Process:
         self.docs = Util.readAllFilesInFolder(
             _POS_FOLDER,
             numFiles=2,
-            eachLineCallback=lambda line: Process.removePuncInLine(line, andListOfWords=self.stopWords))
+            eachLineCallback=lambda line: Process.removePuncInLine(line, wordsToBeRemoved=self.stopWords))
 
     def toString(self):
         """To string of what's in the docs."""
