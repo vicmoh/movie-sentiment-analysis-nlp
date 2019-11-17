@@ -41,11 +41,11 @@ class Process:
         """Remove punctuation in sentence.
         @sentence to be edited.
         Return the edited string."""
-        _FUNC_DEBUG = False
+        FUNC_DEBUG = False
         newSen = ''
         splitted = _regex.compile(_WHITE_SPACE).split(sentence)
         for word in splitted:
-            if (_FUNC_DEBUG):
+            if (FUNC_DEBUG):
                 print('word: ' + word)
             if Process.isPunc(word) is not True:
                 newSen += word + ' '
