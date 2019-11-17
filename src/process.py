@@ -26,6 +26,16 @@ class Process:
             self.filePath = _POS_FOLDER
 
     @staticmethod
+    def isWordInList(word, listOfWords):
+        """Check if word is in @listOfWords. Return true if it is."""
+        if word is None or listOfWords is None:
+            return False
+        for each in listOfWords:
+            if each is word:
+                return True
+        return False
+
+    @staticmethod
     def isPunc(word):
         """Remove punctuation.
         @word string to be checked.
@@ -37,9 +47,10 @@ class Process:
         return False
 
     @staticmethod
-    def removePuncInLine(sentence):
+    def removePuncInLine(sentence, andListOfWords=None):
         """Remove punctuation in sentence.
         @sentence to be edited.
+        @andListOfWords to be removed.
         Return the edited string."""
         FUNC_DEBUG = False
         newSen = ''
@@ -47,7 +58,8 @@ class Process:
         for word in splitted:
             if (FUNC_DEBUG):
                 print('word: ' + word)
-            if Process.isPunc(word) is not True:
+            # Remove punctuation
+            if Process.isPunc(word) is not True and Process.isWordInList(word, andListOfWords) is not True:
                 newSen += word + ' '
         return newSen.strip()
 
