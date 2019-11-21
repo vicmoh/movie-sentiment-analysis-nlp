@@ -1,6 +1,9 @@
 run:
 	python3 ./src/main.py
 
+example:
+	python3 ./src/example/sen_example.py
+
 git:
 	git add -A
 	git commit -m "[AUTO]"
