@@ -5,16 +5,19 @@ import pandas as pd
 import os
 import re
 
+_TRAIN_PATH = './src/example/movie_data/full_train.txt'
+_TEST_PATH = './src/example/movie_data/full_test.txt'
+
 # ---------------------------------------------------------------------------- #
 #                             Step 1, read the data                            #
 # ---------------------------------------------------------------------------- #
 
 reviews_train = []
-for line in open('./src/example/movie_data/full_train.txt', 'r'):
+for line in open(_TRAIN_PATH, 'r'):
     reviews_train.append(line.strip())
 
 reviews_test = []
-for line in open('./src/example/movie_data/full_test.txt', 'r'):
+for line in open(_TEST_PATH, 'r'):
     reviews_test.append(line.strip())
 
 # ---------------------------------------------------------------------------- #
@@ -103,5 +106,4 @@ for best_negative in sorted(
 #     ('awful', -1.0277001734353677)
 #     ('poorly', -0.8748317895742782)
 #     ('boring', -0.8587249740682945)
-
 

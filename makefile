@@ -1,8 +1,11 @@
 run:
 	python3 ./src/main.py
 
-example:
+sen_example:
 	python3 ./src/example/sen_example.py
+
+scikit_example:
+	python3 ./src/example/scikit_example.py
 
 git:
 	git add -A
