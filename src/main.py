@@ -7,6 +7,7 @@ import sys
 from process import Process
 from util.util import Util
 from lib.pos import POSTagging
+from sk_learn import SkLearn
 # Import lib
 from sklearn import svm
 from sklearn import datasets
@@ -21,12 +22,12 @@ _POS_FOLDER = './assets/review_polarity/txt_sentoken/pos/*.txt'
 
 class Main:
     def __init__(self):
+        """Class to run a specific programs."""
         super().__init__()
-        Main.run()
 
     @staticmethod
     def run():
-        Process().run()
+        SkLearn()
 
     @staticmethod
     def testReadFile():
@@ -35,4 +36,4 @@ class Main:
         POSTagging().runExample()
 
 
-Main()
+Main.run()

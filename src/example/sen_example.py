@@ -5,8 +5,8 @@ import pandas as pd
 import os
 import re
 
-_TRAIN_PATH = './src/example/movie_data/full_train.txt'
-_TEST_PATH = './src/example/movie_data/full_test.txt'
+_TRAIN_PATH = './assets/movie_data/full_train.txt'
+_TEST_PATH = './assets/movie_data/full_test.txt'
 
 # ---------------------------------------------------------------------------- #
 #                             Step 1, read the data                            #
