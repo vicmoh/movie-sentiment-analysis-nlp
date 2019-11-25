@@ -6,6 +6,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
 import sklearn.datasets as _SkData
 import numpy as _Numpy
 import pandas as _Panda
@@ -28,10 +30,10 @@ class SkLearn():
         super().__init__()
         X, y = SkLearn.loadData(pathFolder)
         docs = SkLearn.preprocess(X)
-        X = SkLearn.bagOfWords(docs, self.stopwords)
+        X, cv = SkLearn.bagOfWords(docs, self.stopwords)
         X = SkLearn.tfidfProcess(X, docs, self.stopwords)
         X_train, X_test, y_train, y_test = SkLearn.trainSplit(X, y)
-        y_pred = Classifier.randomForestClassifier(X_train, X_test, y_train)
+        y_pred = Classifier.LinearSVC(X_train, X_test, y_train)
         SkLearn.printResult(y_test, y_pred)
 
     @staticmethod
@@ -67,9 +69,9 @@ class SkLearn():
 
     @staticmethod
     def bagOfWords(docs, stopwords):
-        return CountVectorizer(
-            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords
-        ).fit_transform(docs).toarray()
+        cv = CountVectorizer(max_features=1500, min_df=5,
+                             max_df=0.7, ngram_range=(1, 3), stop_words=stopwords)
+        return cv.fit_transform(docs).toarray(), cv
 
     @staticmethod
     def tfidfProcess(X, docs, stopwords):
@@ -100,4 +102,18 @@ class Classifier():
         classifier = RandomForestClassifier(n_estimators=1000, random_state=0)
         classifier.fit(X_train, y_train)
         y_pred = classifier.predict(X_test)
+        return y_pred
+
+    @staticmethod
+    def logisticRegression(X_train, X_test, y_train, C=1):
+        model = LogisticRegression(C=C)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        return y_pred
+
+    @staticmethod
+    def LinearSVC(X_train, X_test, y_train, C=1):
+        svm = LinearSVC(C=C)
+        svm.fit(X_train, y_train)
+        y_pred = svm.predict(X_test)
         return y_pred
