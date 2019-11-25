@@ -3,6 +3,7 @@
         "numpy",
         "pyplot",
         "scipy",
-        "sklearn"
+        "sklearn",
+        "toarray"
     ]
 }
