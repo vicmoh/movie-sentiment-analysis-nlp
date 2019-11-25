@@ -4,6 +4,7 @@
         "pyplot",
         "scipy",
         "sklearn",
+        "tfidfconverter",
         "toarray"
     ]
 }

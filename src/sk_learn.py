@@ -1,8 +1,10 @@
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 import sklearn.datasets as _SkData
 import numpy as _Numpy
@@ -19,6 +21,9 @@ _REPLACE_NO_SPACE = "[.;:!\'?,\"()\[\]]"
 
 
 class SkLearn():
+    pathFolder = ''
+    stopwords = stopwords.words('english')
+
     def __init__(self, pathFolder=None):
         super().__init__()
         self.pathFolder = _PATH
@@ -26,33 +31,26 @@ class SkLearn():
             self.pathFolder = pathFolder
         reviewFile = _SkData.load_files(self.pathFolder)
         X, y = reviewFile.data, reviewFile.target
-        X = bagOfWords(SkLearn.preprocess(X, stopwords.words('english')))
+        docs = SkLearn.preprocess(X)
+        X = SkLearn.bagOfWords(docs, self.stopwords)
+        X = SkLearn.tfidfProcess(X, docs, stopwords)
         X_train, X_test, y_train, y_test = trainSplit(X, y)
-
+        y_pred = Classifier.randomForestClassifier(X_train, X_test, y_train)
+        SkLearn.printResult(y_test, y_pred)
 
     @staticmethod
-    def splitDataForTrain(posData, negData):
-        """Split data for training and development sets.
-        """
-        trainPos, valPos, trainNeg, valNeg = train_test_split(
-            posData, negData, train_size=0.85, random_state=0)
-        trainData = trainPos.concat(trainNeg)
-        testData = valPos.concat(valNeg)
-
-        train = ''
-        test = ''
-        for each in trainData:
-            train += re.sub('[ \r\n]+|[\n]+', '', each)
-        for each in testData:
-            test += re.sub('[ \r\n]+|[\n]+', '', each)
-        return train, test
+    def tfidfProcess(X, docs, stopwords):
+        tfidfconverter = TfidfTransformer()
+        X = tfidfconverter.fit_transform(X).toarray()
+        tfidfconverter = TfidfVectorizer(
+            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords)
+        X = tfidfconverter.fit_transform(docs).toarray()
+        return X
 
     @staticmethod
     def bagOfWords(docs, stopwords):
         vectorizer = CountVectorizer(
-            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords.words('english'))
-        # Convert using TFxIDF
-        X = TfidfTransformer().fit_transform(docs).toarray()
+            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords)
         return vectorizer.fit_transform(docs).toarray()
 
     @staticmethod
@@ -85,9 +83,17 @@ class SkLearn():
             docs.append(doc)
         return docs
 
+    @staticmethod
+    def printResult(y_test, y_pred):
+        print(confusion_matrix(y_test, y_pred))
+        print(classification_report(y_test, y_pred))
+        print(accuracy_score(y_test, y_pred))
+
 
 class Classifier():
     @staticmethod
-    def randomForestClassifier(X_train, y_train):
+    def randomForestClassifier(X_train, X_test, y_train):
         classifier = RandomForestClassifier(n_estimators=1000, random_state=0)
         classifier.fit(X_train, y_train)
+        y_pred = classifier.predict(X_test)
+        return y_pred

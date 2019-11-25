@@ -1,6 +1,9 @@
 run:
 	python3 ./src/main.py
 
+stackbuse_example:
+	python3 ./src/example/stackbuse.py
+
 sen_example:
 	python3 ./src/example/sen_example.py
 
