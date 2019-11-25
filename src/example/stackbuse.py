@@ -69,15 +69,26 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 tfidfconverter = TfidfVectorizer(max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords.words('english'))
 X = tfidfconverter.fit_transform(documents).toarray()
 
+# ---------------------------------------------------------------------------- #
+#                           Training and Testing Sets                          #
+# ---------------------------------------------------------------------------- #
+
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# ---------------------------------------------------------------------------- #
+#          Training Text Classification Model and Predicting Sentiment         #
+# ---------------------------------------------------------------------------- #
 
 classifier = RandomForestClassifier(n_estimators=1000, random_state=0)
 classifier.fit(X_train, y_train) 
 y_pred = classifier.predict(X_test)
 
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+# ---------------------------------------------------------------------------- #
+#                                 Print result                                 #
+# ---------------------------------------------------------------------------- #
 
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 print(confusion_matrix(y_test,y_pred))
 print(classification_report(y_test,y_pred))
 print(accuracy_score(y_test, y_pred))

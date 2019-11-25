@@ -26,38 +26,20 @@ class SkLearn():
 
     def __init__(self, pathFolder=None):
         super().__init__()
-        self.pathFolder = _PATH
-        if pathFolder is not None:
-            self.pathFolder = pathFolder
-        reviewFile = _SkData.load_files(self.pathFolder)
-        X, y = reviewFile.data, reviewFile.target
+        X, y = SkLearn.loadData(pathFolder)
         docs = SkLearn.preprocess(X)
         X = SkLearn.bagOfWords(docs, self.stopwords)
-        X = SkLearn.tfidfProcess(X, docs, stopwords)
-        X_train, X_test, y_train, y_test = trainSplit(X, y)
+        X = SkLearn.tfidfProcess(X, docs, self.stopwords)
+        X_train, X_test, y_train, y_test = SkLearn.trainSplit(X, y)
         y_pred = Classifier.randomForestClassifier(X_train, X_test, y_train)
         SkLearn.printResult(y_test, y_pred)
 
     @staticmethod
-    def tfidfProcess(X, docs, stopwords):
-        tfidfconverter = TfidfTransformer()
-        X = tfidfconverter.fit_transform(X).toarray()
-        tfidfconverter = TfidfVectorizer(
-            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords)
-        X = tfidfconverter.fit_transform(docs).toarray()
-        return X
-
-    @staticmethod
-    def bagOfWords(docs, stopwords):
-        vectorizer = CountVectorizer(
-            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords)
-        return vectorizer.fit_transform(docs).toarray()
-
-    @staticmethod
-    def trainSplit(data, target):
-        X_train, X_test, y_train, y_test = train_test_split(
-            data, target, train_size=0.85, random_state=0)
-        return X_train, X_test, y_train, y_test
+    def loadData(pathFolder=None):
+        if pathFolder is None:
+            pathFolder = _PATH
+        reviewFile = _SkData.load_files(pathFolder)
+        return reviewFile.data, reviewFile.target
 
     @staticmethod
     def preprocess(data):
@@ -82,6 +64,28 @@ class SkLearn():
             doc = ' '.join(doc)
             docs.append(doc)
         return docs
+
+    @staticmethod
+    def bagOfWords(docs, stopwords):
+        return CountVectorizer(
+            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords
+        ).fit_transform(docs).toarray()
+
+    @staticmethod
+    def tfidfProcess(X, docs, stopwords):
+        # Transform
+        X = TfidfTransformer().fit_transform(X).toarray()
+        # Convert
+        X = TfidfVectorizer(
+            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords
+        ).fit_transform(docs).toarray()
+        return X
+
+    @staticmethod
+    def trainSplit(data, target):
+        X_train, X_test, y_train, y_test = train_test_split(
+            data, target, train_size=0.85, random_state=0)
+        return X_train, X_test, y_train, y_test
 
     @staticmethod
     def printResult(y_test, y_pred):
