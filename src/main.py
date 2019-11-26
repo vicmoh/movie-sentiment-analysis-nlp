@@ -31,6 +31,14 @@ class Main:
         SkLearn(classifier=Classifier.kNearestNeighbors)
         print('\nRunning linear SVC...')
         SkLearn(classifier=Classifier.linearSVC)
+        print('\nRunning gaussian naive bayes...')
+        SkLearn(classifier=Classifier.gaussianNB)
+        print('\nRunning multinomial naive bayes...')
+        SkLearn(classifier=Classifier.multiNB)
+        print('\nRunning complement naive bayes...')
+        SkLearn(classifier=Classifier.complementNB)
+        print('\nRunning bernoulli naive bayes...')
+        SkLearn(Classifier=Classifier.BernoulliNB)
 
     @staticmethod
     def run():

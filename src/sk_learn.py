@@ -15,6 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
+from sklearn.naive_bayes import GaussianNB, MultinomialNB, ComplementNB, BernoulliNB
 from sklearn import metrics
 import sklearn.datasets as _SkData
 import numpy as _Numpy
@@ -159,3 +160,20 @@ class Classifier():
         knn.fit(X_train, y_train)
         y_pred = knn.predict(X_test)
         return y_pred
+
+    @staticmethod
+    def gaussianNB(X_train, X_test, y_train):
+        return GaussianNB().fit(X_train, y_train).predict(X_test)
+
+    @staticmethod
+    def multiNB(X_train, X_test, y_train):
+        return MultinomialNB().fit(X_train, y_train).predict(X_test)
+
+    @staticmethod
+    def complementNB(X_train, X_test, y_train):
+        return ComplementNB().fit(X_train, y_train).predict(X_test)
+
+    @staticmethod
+    def BernoulliNB(X_train, X_test, y_train):
+        return BernoulliNB().fit(X_train, y_train).predict(X_test)
+
