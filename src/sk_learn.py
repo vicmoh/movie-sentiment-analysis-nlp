@@ -3,21 +3,28 @@
 # the file contains SkLearn class for the processing,
 # and the Classifier for the model being used.
 
+# Stop words
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from nltk.stem import snowball
+from nltk.stem import PorterStemmer
+from nltk.stem import lancaster
+# Sklearn libs
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_validate
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
+# Classifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import LinearSVC
+from sklearn.svm import LinearSVC, SVC, NuSVC
 from sklearn.naive_bayes import GaussianNB, MultinomialNB, ComplementNB, BernoulliNB
 from sklearn import metrics
 import sklearn.datasets as _SkData
+# Others
 import numpy as _Numpy
 import pandas as _Panda
 import os
@@ -148,6 +155,10 @@ class Classifier():
         return y_pred
 
     @staticmethod
+    def standardSVC(X_train, X_test, y_train):
+        return SVC().fit(X_train, y_train).predict(X_test)
+
+    @staticmethod
     def linearSVC(X_train, X_test, y_train, C=1):
         svm = LinearSVC(C=C)
         svm.fit(X_train, y_train)
@@ -155,8 +166,12 @@ class Classifier():
         return y_pred
 
     @staticmethod
+    def nuSVC(X_train, X_test, y_train, C=1):
+        return NuSVC().fit(X_train, y_train).predict(X_test)
+
+    @staticmethod
     def kNearestNeighbors(X_train, X_test, y_train):
-        knn = KNeighborsClassifier(n_neighbors=5)
+        knn = KNeighborsClassifier(n_neighbors=500)
         knn.fit(X_train, y_train)
         y_pred = knn.predict(X_test)
         return y_pred
@@ -176,4 +191,3 @@ class Classifier():
     @staticmethod
     def BernoulliNB(X_train, X_test, y_train):
         return BernoulliNB().fit(X_train, y_train).predict(X_test)
-
