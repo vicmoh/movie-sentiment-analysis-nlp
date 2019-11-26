@@ -19,10 +19,10 @@ class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
-        Main.runAll()
+        Main.runAllModels()
 
     @staticmethod
-    def runAll():
+    def runAllModels():
         print('\nRunning logistic regression...')
         SkLearn(classifier=Classifier.logisticRegression)
         print('\nRunning random forest classifier...')
@@ -31,6 +31,10 @@ class Main:
         SkLearn(classifier=Classifier.kNearestNeighbors)
         print('\nRunning linear SVC...')
         SkLearn(classifier=Classifier.linearSVC)
+        print('\nRunning passive aggressive classifier...')
+        SkLearn(classifier=Classifier.passiveAggressive)
+        print('\nRunning ridge classifier..')
+        SkLearn(classifier=Classifier.ridgeClassifier)
         print('\nRunning multi-class SVC...')
         SkLearn(classifier=Classifier.nuSVC)
         print('\nRunning gaussian naive bayes...')

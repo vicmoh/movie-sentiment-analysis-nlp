@@ -18,7 +18,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 # Classifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, RidgeClassifier, PassiveAggressiveClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC, SVC, NuSVC
 from sklearn.naive_bayes import GaussianNB, MultinomialNB, ComplementNB, BernoulliNB
@@ -152,10 +152,29 @@ class Classifier():
 
     @staticmethod
     def logisticRegression(X_train, X_test, y_train, C=1):
-        model = LogisticRegression(C=C)
+        model = LogisticRegression(C=C, class_weight=None, dual=False, fit_intercept=True,
+                                   intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+                                   penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+                                   verbose=0, warm_start=False)
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
         return y_pred
+
+    @staticmethod
+    def passiveAggressive(X_train, X_test, y_train):
+        return PassiveAggressiveClassifier(
+            C=1.0, average=False, class_weight=None,
+            fit_intercept=True, loss='hinge', max_iter=None, n_iter=None,
+            n_jobs=1, random_state=None, shuffle=True, tol=None,
+            verbose=0, warm_start=False
+        ).fit(X_train, y_train).predict(X_test)
+
+    @staticmethod
+    def ridgeClassifier(X_train, X_test, y_train):
+        return RidgeClassifier(
+            alpha=1.0, class_weight=None, copy_X=True, fit_intercept=True,
+            max_iter=None, normalize=False, random_state=None, solver='auto'
+        ).fit(X_train, y_train).predict(X_test)
 
     @staticmethod
     def standardSVC(X_train, X_test, y_train):
@@ -163,13 +182,16 @@ class Classifier():
 
     @staticmethod
     def linearSVC(X_train, X_test, y_train, C=1):
-        svm = LinearSVC(C=C)
+        svm = LinearSVC(class_weight=None, dual=True, fit_intercept=True,
+                        intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+                        multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+                        verbose=0, C=C)
         svm.fit(X_train, y_train)
         y_pred = svm.predict(X_test)
         return y_pred
 
     @staticmethod
-    def nuSVC(X_train, X_test, y_train, C=1):
+    def nuSVC(X_train, X_test, y_train):
         return NuSVC().fit(X_train, y_train).predict(X_test)
 
     @staticmethod
