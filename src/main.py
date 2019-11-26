@@ -49,4 +49,4 @@ class Main:
         POSTagging().runExample()
 
 
-Main.run()
+Main()
