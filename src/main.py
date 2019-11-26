@@ -25,7 +25,7 @@ class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
-        Main.runAll
+        Main.runAll()
 
     @staticmethod
     def runAll():
