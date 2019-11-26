@@ -149,7 +149,7 @@ class Classifier():
         return y_pred
 
     @staticmethod
-    def kNeighbors(X_train, X_test, y_train):
+    def kNearestNeighbors(X_train, X_test, y_train):
         knn = KNeighborsClassifier(n_neighbors=5)
         knn.fit(X_train, y_train)
         y_pred = knn.predict(X_test)

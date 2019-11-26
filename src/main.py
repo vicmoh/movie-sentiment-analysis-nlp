@@ -8,6 +8,7 @@ from process import Process
 from util.util import Util
 from lib.pos import POSTagging
 from sk_learn import SkLearn
+from sk_learn import Classifier
 # Import lib
 from sklearn import svm
 from sklearn import datasets
@@ -24,6 +25,18 @@ class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
+        Main.runAll
+
+    @staticmethod
+    def runAll():
+        print('\nRunning logistic regression...')
+        SkLearn(classifier=Classifier.logisticRegression)
+        print('\nRunning random forest classifier...')
+        SkLearn(classifier=Classifier.randomForestClassifier)
+        print('\nRunning k nearest neighbors...')
+        SkLearn(classifier=Classifier.kNearestNeighbors)
+        print('\nRunning linear SVC...')
+        SkLearn(classifier=Classifier.linearSVC)
 
     @staticmethod
     def run():
