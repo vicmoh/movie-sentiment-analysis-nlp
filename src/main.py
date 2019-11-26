@@ -20,6 +20,10 @@ class Main:
         """Class to run a specific programs."""
         super().__init__()
         Main.runAllModels()
+    
+    @staticmethod
+    def runSelectedModels():
+        print('\nMain.runSelectedModels(): ')
 
     @staticmethod
     def runAllModels():
