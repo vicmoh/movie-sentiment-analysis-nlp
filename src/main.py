@@ -38,7 +38,7 @@ class Main:
         print('\nRunning complement naive bayes...')
         SkLearn(classifier=Classifier.complementNB)
         print('\nRunning bernoulli naive bayes...')
-        SkLearn(Classifier=Classifier.BernoulliNB)
+        SkLearn(classifier=Classifier.BernoulliNB)
 
     @staticmethod
     def run():
