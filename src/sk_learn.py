@@ -62,6 +62,7 @@ class SkLearn():
         X_train, X_test, y_train, y_test = SkLearn.trainSplit(X, y)
         # Run classifier and print the result
         y_pred = classifier(X_train, X_test, y_train)
+        SkLearn.kFold(X_train, y_train)
         SkLearn.printResult(y_test, y_pred)
 
     @staticmethod
@@ -129,6 +130,22 @@ class SkLearn():
         X_train, X_test, y_train, y_test = train_test_split(
             data, target, train_size=0.85, random_state=0)
         return X_train, X_test, y_train, y_test
+
+    @staticmethod
+    def kFold(X_digit, y_digit, num_folds=5):
+        import numpy as np
+        X_folds = np.array_split(X_digit, num_folds)
+        y_folds = np.array_split(y_digit, num_folds)
+        scores = list()
+        for k in range(num_folds):
+            X_train = list(X_folds)
+            X_test = X_train.pop(k)
+            X_train = np.concatenate(X_train)
+            y_train = list(y_folds)
+            y_test = y_train.pop(k)
+            y_train = np.concatenate(y_train)
+            scores.append(LinearSVC().fit(X_train, y_train).score(X_test, y_test))
+        print(scores)  
 
     @staticmethod
     def printResult(y_test, y_pred):
