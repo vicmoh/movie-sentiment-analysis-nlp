@@ -12,6 +12,7 @@ from sklearn import datasets
 
 # For the debug statement
 _FILE_EXAMPLE = './assets/review_polarity/txt_sentoken/pos/cv000_29590.txt'
+_PATH = './assets/review_polarity/txt_sentoken/'
 
 
 class Main:
