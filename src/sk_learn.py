@@ -106,9 +106,9 @@ class SkLearn():
         """Create a bag of words, using n-gram model, to determine
         the document and term frequency. Return the data and count vectorizer object
         that is used to process the bag of words."""
-        cv = CountVectorizer(max_features=1500, min_df=5,
-                             max_df=0.7, ngram_range=(1, 3), stop_words=stopwords)
-        return cv.fit_transform(docs).toarray(), cv
+        vec = CountVectorizer(max_features=1500, min_df=5,
+                              max_df=0.7, ngram_range=(1, 3), stop_words=stopwords)
+        return vec.fit_transform(docs).toarray(), vec
 
     @staticmethod
     def tfidfProcess(data, docs, stopwords):
@@ -117,10 +117,10 @@ class SkLearn():
         # Transform
         data = TfidfTransformer().fit_transform(data).toarray()
         # Convert
-        data = TfidfVectorizer(
-            max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords
-        ).fit_transform(docs).toarray()
-        return data
+        vec = TfidfVectorizer(max_features=1500, min_df=5,
+                              max_df=0.7, stop_words=stopwords)
+        data = vec.fit_transform(docs).toarray()
+        return data, vec
 
     @staticmethod
     def trainSplit(data, target):
@@ -144,8 +144,9 @@ class SkLearn():
             y_train = list(y_folds)
             y_test = y_train.pop(k)
             y_train = np.concatenate(y_train)
-            scores.append(LinearSVC().fit(X_train, y_train).score(X_test, y_test))
-        print(scores)  
+            scores.append(LinearSVC().fit(
+                X_train, y_train).score(X_test, y_test))
+        print(scores)
 
     @staticmethod
     def printResult(y_test, y_pred):
