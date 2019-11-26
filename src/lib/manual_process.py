@@ -12,7 +12,7 @@ _PUNC_REGEX = '[^\w0-9]'  # "[.;:!\'?,\"()\[\]-\+=#\$\*]"
 _WHITE_SPACE = "[\r\n]+|[\n]+|[\t]+|[ ]+"
 
 
-class Process:
+class ManualProcess:
     filePath = ''
     stopWords = {}
     docs = []

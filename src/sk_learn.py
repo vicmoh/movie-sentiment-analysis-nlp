@@ -1,3 +1,8 @@
+# Author: Vicky Mohammad
+# Description: File for processing the sentiment analysis,
+# the file contains SkLearn class for the processing,
+# and the Classifier for the model being used.
+
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
@@ -118,7 +123,7 @@ class SkLearn():
         return X_train, X_test, y_train, y_test
 
     @staticmethod
-    def printResult(y_test, y_pred): 
+    def printResult(y_test, y_pred):
         """Print the y test and y predicted data of the
         confusion matrix, classification report, and accuracy score."""
         print(confusion_matrix(y_test, y_pred))
