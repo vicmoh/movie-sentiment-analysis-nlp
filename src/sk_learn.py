@@ -2,12 +2,15 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_validate
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
+from sklearn import metrics
 import sklearn.datasets as _SkData
 import numpy as _Numpy
 import pandas as _Panda
@@ -26,18 +29,33 @@ class SkLearn():
     pathFolder = ''
     stopwords = stopwords.words('english')
 
-    def __init__(self, pathFolder=None):
+    def __init__(self, pathFolder=None, classifier=None):
+        """Scikit learn class for processing the sentiment analysis to
+        determine if it is negative or positive data. @pathFolder is the
+        folder of the data containing 'pos' and 'neg' folder of the txt files.
+        @classifier is callback function that takes in classifier function in
+        the Classifier() object, by default if none it will run logistic regression."""
         super().__init__()
+        # Check if the classifier is empty
+        if classifier is None:
+            classifier = Classifier.logisticRegression
+        # Load the data and preprcess the word
         X, y = SkLearn.loadData(pathFolder)
         docs = SkLearn.preprocess(X)
+        # N-gram bag of words and tf idf the data
         X, cv = SkLearn.bagOfWords(docs, self.stopwords)
         X = SkLearn.tfidfProcess(X, docs, self.stopwords)
+        # Split the data for training and testing
         X_train, X_test, y_train, y_test = SkLearn.trainSplit(X, y)
-        y_pred = Classifier.LinearSVC(X_train, X_test, y_train)
+        # Run classifier and print the result
+        y_pred = classifier(X_train, X_test, y_train)
         SkLearn.printResult(y_test, y_pred)
 
     @staticmethod
     def loadData(pathFolder=None):
+        """Load data from the @pathFolder that contain 
+        'pos' and 'neg' folder of the txt files.
+        Returns data, target."""
         if pathFolder is None:
             pathFolder = _PATH
         reviewFile = _SkData.load_files(pathFolder)
@@ -45,6 +63,8 @@ class SkLearn():
 
     @staticmethod
     def preprocess(data):
+        """Preprocess the @data and return documents that
+        has been processed through stemmed."""
         docs = []
         stemmer = WordNetLemmatizer()
         for sen in range(0, len(data)):
@@ -69,28 +89,38 @@ class SkLearn():
 
     @staticmethod
     def bagOfWords(docs, stopwords):
+        """Create a bag of words, using n-gram model, to determine
+        the document and term frequency. Return the data and count vectorizer object
+        that is used to process the bag of words."""
         cv = CountVectorizer(max_features=1500, min_df=5,
                              max_df=0.7, ngram_range=(1, 3), stop_words=stopwords)
         return cv.fit_transform(docs).toarray(), cv
 
     @staticmethod
-    def tfidfProcess(X, docs, stopwords):
+    def tfidfProcess(data, docs, stopwords):
+        """Go through the TFxIDF process similar for the
+        document and term frequency. Return the data proccessed."""
         # Transform
-        X = TfidfTransformer().fit_transform(X).toarray()
+        data = TfidfTransformer().fit_transform(data).toarray()
         # Convert
-        X = TfidfVectorizer(
+        data = TfidfVectorizer(
             max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords
         ).fit_transform(docs).toarray()
-        return X
+        return data
 
     @staticmethod
     def trainSplit(data, target):
+        """Split the data for training and testing.
+        Return X data for train, X data for text, y data for train,
+        y data for test."""
         X_train, X_test, y_train, y_test = train_test_split(
             data, target, train_size=0.85, random_state=0)
         return X_train, X_test, y_train, y_test
 
     @staticmethod
-    def printResult(y_test, y_pred):
+    def printResult(y_test, y_pred): 
+        """Print the y test and y predicted data of the
+        confusion matrix, classification report, and accuracy score."""
         print(confusion_matrix(y_test, y_pred))
         print(classification_report(y_test, y_pred))
         print(accuracy_score(y_test, y_pred))
@@ -112,8 +142,15 @@ class Classifier():
         return y_pred
 
     @staticmethod
-    def LinearSVC(X_train, X_test, y_train, C=1):
+    def linearSVC(X_train, X_test, y_train, C=1):
         svm = LinearSVC(C=C)
         svm.fit(X_train, y_train)
         y_pred = svm.predict(X_test)
+        return y_pred
+
+    @staticmethod
+    def kNeighbors(X_train, X_test, y_train):
+        knn = KNeighborsClassifier(n_neighbors=5)
+        knn.fit(X_train, y_train)
+        y_pred = knn.predict(X_test)
         return y_pred

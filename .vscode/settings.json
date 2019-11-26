@@ -1,5 +1,6 @@
 {
     "cSpell.ignoreWords": [
+        "ngram",
         "numpy",
         "pyplot",
         "scipy",
