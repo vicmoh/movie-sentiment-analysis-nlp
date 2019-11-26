@@ -140,6 +140,9 @@ class SkLearn():
 
 
 class Classifier():
+    """Function containing static methods used as a lambda calls
+    for the classification for the SkLearn."""
+
     @staticmethod
     def randomForestClassifier(X_train, X_test, y_train):
         classifier = RandomForestClassifier(n_estimators=1000, random_state=0)
