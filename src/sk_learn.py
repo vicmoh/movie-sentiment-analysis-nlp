@@ -164,7 +164,7 @@ class Classifier():
     def passiveAggressive(X_train, X_test, y_train):
         return PassiveAggressiveClassifier(
             C=1.0, average=False, class_weight=None,
-            fit_intercept=True, loss='hinge', max_iter=None, n_iter=None,
+            fit_intercept=True, loss='hinge', max_iter=None,
             n_jobs=1, random_state=None, shuffle=True, tol=None,
             verbose=0, warm_start=False
         ).fit(X_train, y_train).predict(X_test)
