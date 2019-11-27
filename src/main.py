@@ -20,8 +20,8 @@ class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
-        # Main.runSelectedModels()
         Main.dataAnalysis()
+        Main.runSelectedModels()
 
     @staticmethod
     def dataAnalysis():
@@ -34,12 +34,30 @@ class Main:
     @staticmethod
     def runSelectedModels():
         sk = SkLearn()
-        print('\nRunning logistic regression...')
-        sk.run(classifier=Classifier.logisticRegression)
-        print('\nRunning random forest classifier...')
-        sk.run(classifier=Classifier.randomForestClassifier)
-        print('\nRunning linear SVC...')
-        sk.run(classifier=Classifier.linearSVC)
+        # Run with TFxIDF vectorizer
+        print('---------- Running with TFxIDF feature selection ----------')
+        for f_size in [100, 1000, 1500, 2000, 2500, 3000]:
+            print('\nRunning logistic regression...')
+            sk.run(classifier=Classifier.logisticRegression,
+                   featureSize=f_size, isTfidfVec=True)
+            print('\nRunning random forest classifier...')
+            sk.run(classifier=Classifier.randomForestClassifier,
+                   featureSize=f_size, isTfidfVec=True)
+            print('\nRunning linear SVC...')
+            sk.run(classifier=Classifier.linearSVC,
+                   featureSize=f_size, isTfidfVec=True)
+        # Run with count vectorizer
+        print('---------- Running with count vectorizer feature selection ----------')
+        for f_size in [100, 1000, 1500, 2000, 2500, 3000]:
+            print('\nRunning logistic regression...')
+            sk.run(classifier=Classifier.logisticRegression,
+                   featureSize=f_size, isCountVec=True)
+            print('\nRunning random forest classifier...')
+            sk.run(classifier=Classifier.randomForestClassifier,
+                   featureSize=f_size, isCountVec=True)
+            print('\nRunning linear SVC...')
+            sk.run(classifier=Classifier.linearSVC,
+                   featureSize=f_size, isCountVec=True)
 
     @staticmethod
     def run():

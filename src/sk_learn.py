@@ -62,14 +62,17 @@ class SkLearn():
         self.X, self.y = SkLearn.loadData(dataFolderPath)
         self.X_test, self.y_test = SkLearn.loadData(testFolderPath)
 
-    def run(self, classifier=None, num_kFold=5):
+    def run(self, classifier=None, num_kFold=5, featureSize=500, isTfidfVec=False, isCountVec=False):
         # Check if the classifier is empty
         if classifier is None:
             classifier = Classifier.logisticRegression
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
         # N-gram bag of words and tf idf the data
-        X = SkLearn.featureSelectionProcess(X, self.stopwords)
+        X = SkLearn.featureSelectionProcess(
+            X, self.stopwords, featureSize=featureSize)
         # Cross validation
+        print('Number of K-fold: ', num_kFold)
+        print('Feature size: ', featureSize)
         print('Cross validating with ' +
               str(num_kFold) + ' Stratified K-Fold...')
         scores, fMeasures = SkLearn.kFold(
@@ -81,7 +84,7 @@ class SkLearn():
 
     @staticmethod
     def loadData(pathFolder):
-        """Load data from the @pathFolder that contain 
+        """Load data from the @pathFolder that contain
         'pos' and 'neg' folder of the txt files.
         Returns data, target."""
         reviewFile = _SkData.load_files(pathFolder)
@@ -114,32 +117,38 @@ class SkLearn():
         return docs
 
     @staticmethod
-    def bagOfWords(docs, stopwords):
+    def bagOfWords(docs, stopwords, feature_size=500):
         """Create a bag of words, using n-gram model, to determine
         the document and term frequency. Return the data and count vectorizer object
         that is used to process the bag of words."""
-        vec = CountVectorizer(max_features=1500, min_df=5,
-                              max_df=0.7, ngram_range=(1, 3), stop_words=stopwords)
+        vec = CountVectorizer(max_features=feature_size,
+                              ngram_range=(1, 3), stop_words=stopwords)
         return vec.fit_transform(docs).toarray(), vec
 
     @staticmethod
-    def tfidfProcess(data, docs, stopwords):
+    def tfidfProcess(data, docs, stopwords, feature_size=500):
         """Go through the TFxIDF process similar for the
         document and term frequency. Return the data proccessed."""
         # Transform
         data = TfidfTransformer().fit_transform(data).toarray()
         # Convert
-        vec = TfidfVectorizer(max_features=1500, min_df=5,
-                              max_df=0.7, stop_words=stopwords)
+        vec = TfidfVectorizer(max_features=feature_size, stop_words=stopwords)
         data = vec.fit_transform(docs).toarray()
         return data, vec
 
     @staticmethod
-    def featureSelectionProcess(X, stopwords):
+    def featureSelectionProcess(X, stopwords, isCountVec=False, isTfidfVec=False):
+        # Check type of selection being used
+        if isCountVec is False and isTfidfVec is False:
+            isCountVec = True
+            isTfidfVec = True
         docs = SkLearn.preprocess(X)
         # N-gram bag of words and tf idf the data
-        X, model = SkLearn.bagOfWords(docs, stopwords)
-        X, model = SkLearn.tfidfProcess(X, docs, stopwords)
+        X, model = None
+        if isCountVec:
+            X, model = SkLearn.bagOfWords(docs, stopwords)
+        if isTfidfVec:
+            X, model = SkLearn.tfidfProcess(X, docs, stopwords)
         return X
 
     @staticmethod
