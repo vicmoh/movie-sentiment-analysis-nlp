@@ -1,6 +1,9 @@
 run:
 	python3 ./src/main.py
 
+split_data:
+	python3 ./src/split_data.py
+
 stackbuse_example:
 	python3 ./src/example/stackbuse.py
 

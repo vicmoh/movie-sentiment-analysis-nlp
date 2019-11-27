@@ -11,11 +11,8 @@ from nltk.stem import PorterStemmer
 from nltk.stem import lancaster
 # Sklearn libs
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_validate
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split, cross_validate, StratifiedKFold
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer, TfidfVectorizer
 # Classifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression, RidgeClassifier, PassiveAggressiveClassifier
@@ -61,9 +58,8 @@ class SkLearn():
         # Split the data for training and testing
         X_train, X_test, y_train, y_test = SkLearn.trainSplit(X, y)
         # Run classifier and print the result
-        y_pred = classifier(X_train, X_test, y_train)
-        SkLearn.kFold(X_train, y_train)
-        SkLearn.printResult(y_test, y_pred)
+        # y_pred = classifier(X_train, X_test, y_train)
+        SkLearn.kFold(X, y)
 
     @staticmethod
     def loadData(pathFolder=None):
@@ -132,7 +128,22 @@ class SkLearn():
         return X_train, X_test, y_train, y_test
 
     @staticmethod
-    def kFold(X_digit, y_digit, num_folds=5):
+    def kFold(data, target, num_splits=5, classifier=None):
+        """Function for k-fold. Return the list of scores."""
+        if classifier is None:
+            classifier = Classifier.logisticRegression
+        kf = StratifiedKFold(n_splits=num_splits)
+        scores = list()
+        for train_index, test_index in kf.split(data, target):
+            X_train, X_test = data[train_index], data[test_index]
+            y_train, y_test = target[train_index], target[test_index]
+            y_pred, model = classifier(X_train, X_test, y_train)
+            scores.append(model.score(X_test, y_test))
+            SkLearn.printResult(y_test, y_pred)
+        return scores
+
+    @staticmethod
+    def CustomKFoldExample(X_digit, y_digit, num_folds=5):
         import numpy as np
         X_folds = np.array_split(X_digit, num_folds)
         y_folds = np.array_split(y_digit, num_folds)
@@ -163,10 +174,10 @@ class Classifier():
 
     @staticmethod
     def randomForestClassifier(X_train, X_test, y_train):
-        classifier = RandomForestClassifier(n_estimators=1000, random_state=0)
-        classifier.fit(X_train, y_train)
-        y_pred = classifier.predict(X_test)
-        return y_pred
+        model = RandomForestClassifier(n_estimators=1000, random_state=0)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        return y_pred, model
 
     @staticmethod
     def logisticRegression(X_train, X_test, y_train, C=1):
@@ -176,59 +187,14 @@ class Classifier():
                                    verbose=0, warm_start=False)
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
-        return y_pred
-
-    @staticmethod
-    def passiveAggressive(X_train, X_test, y_train):
-        return PassiveAggressiveClassifier(
-            C=1.0, average=False, fit_intercept=True, loss='hinge',
-            n_jobs=1, shuffle=True, warm_start=False
-        ).fit(X_train, y_train).predict(X_test)
-
-    @staticmethod
-    def ridgeClassifier(X_train, X_test, y_train):
-        return RidgeClassifier(
-            alpha=1.0, class_weight=None, copy_X=True, fit_intercept=True,
-            max_iter=None, normalize=False, random_state=None, solver='auto'
-        ).fit(X_train, y_train).predict(X_test)
-
-    @staticmethod
-    def standardSVC(X_train, X_test, y_train):
-        return SVC().fit(X_train, y_train).predict(X_test)
+        return y_pred, model
 
     @staticmethod
     def linearSVC(X_train, X_test, y_train, C=1):
-        svm = LinearSVC(class_weight=None, dual=True, fit_intercept=True,
-                        intercept_scaling=1, loss='squared_hinge', max_iter=1000,
-                        multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
-                        verbose=0, C=C)
-        svm.fit(X_train, y_train)
-        y_pred = svm.predict(X_test)
-        return y_pred
-
-    @staticmethod
-    def nuSVC(X_train, X_test, y_train):
-        return NuSVC().fit(X_train, y_train).predict(X_test)
-
-    @staticmethod
-    def kNearestNeighbors(X_train, X_test, y_train):
-        knn = KNeighborsClassifier(n_neighbors=500)
-        knn.fit(X_train, y_train)
-        y_pred = knn.predict(X_test)
-        return y_pred
-
-    @staticmethod
-    def gaussianNB(X_train, X_test, y_train):
-        return GaussianNB().fit(X_train, y_train).predict(X_test)
-
-    @staticmethod
-    def multiNB(X_train, X_test, y_train):
-        return MultinomialNB().fit(X_train, y_train).predict(X_test)
-
-    @staticmethod
-    def complementNB(X_train, X_test, y_train):
-        return ComplementNB().fit(X_train, y_train).predict(X_test)
-
-    @staticmethod
-    def BernoulliNB(X_train, X_test, y_train):
-        return BernoulliNB().fit(X_train, y_train).predict(X_test)
+        model = LinearSVC(class_weight=None, dual=True, fit_intercept=True,
+                          intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+                          multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+                          verbose=0, C=C)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        return y_pred, model

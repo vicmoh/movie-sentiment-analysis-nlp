@@ -19,11 +19,17 @@ class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
-        Main.testKFold()
+        Main.runSelectedModels()
 
     @staticmethod
     def runSelectedModels():
-        print('\nMain.runSelectedModels(): ')
+        print('\nMain.runSelectedModels(): \n')
+        print('\nRunning logistic regression...')
+        SkLearn(classifier=Classifier.logisticRegression)
+        print('\nRunning random forest classifier...')
+        SkLearn(classifier=Classifier.randomForestClassifier)
+        print('\nRunning linear SVC...')
+        SkLearn(classifier=Classifier.linearSVC)
 
     @staticmethod
     def testKFold():
