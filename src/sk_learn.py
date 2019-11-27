@@ -63,8 +63,6 @@ class SkLearn():
         # Split the data for training and testing
         print(SkLearn.kFold(X, y))
         # Validate with the test file
-        
-        
 
     @staticmethod
     def loadData(pathFolder):
