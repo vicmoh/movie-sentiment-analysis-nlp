@@ -11,7 +11,7 @@ from nltk.stem import PorterStemmer
 from nltk.stem import lancaster
 # Sklearn libs
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
-from sklearn.model_selection import train_test_split, cross_validate, StratifiedKFold
+from sklearn.model_selection import train_test_split, cross_validate, StratifiedKFold, KFold
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer, TfidfVectorizer
 # Classifier
 from sklearn.ensemble import RandomForestClassifier
@@ -20,6 +20,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC, SVC, NuSVC
 from sklearn.naive_bayes import GaussianNB, MultinomialNB, ComplementNB, BernoulliNB
 from sklearn import metrics
+from sklearn.metrics import f1_score
 import sklearn.datasets as _SkData
 # Others
 import numpy as _Numpy
@@ -29,19 +30,18 @@ import re
 import nltk
 nltk.download('stopwords')
 
-_PATH = './assets/review_polarity/txt_sentoken'
-_TRAIN_PATH = './src/example/movie_data/full_train.txt'
-_TEST_PATH = './src/example/movie_data/full_test.txt'
+_PATH_DATA = './assets/review_polarity/data'
+_PATH_TEST = './assets/review_polarity/test'
 _REPLACE_NO_SPACE = "[.;:!\'?,\"()\[\]]"
 
 
 class SkLearn():
-    pathFolder = ''
+    dataFolderPath = ''
     stopwords = stopwords.words('english')
 
-    def __init__(self, pathFolder=None, classifier=None):
+    def __init__(self, dataFolderPath=None, testFolderPath=None, classifier=None):
         """Scikit learn class for processing the sentiment analysis to
-        determine if it is negative or positive data. @pathFolder is the
+        determine if it is negative or positive data. @dataFolderPath is the
         folder of the data containing 'pos' and 'neg' folder of the txt files.
         @classifier is callback function that takes in classifier function in
         the Classifier() object, by default if none it will run logistic regression."""
@@ -49,25 +49,28 @@ class SkLearn():
         # Check if the classifier is empty
         if classifier is None:
             classifier = Classifier.logisticRegression
+        if dataFolderPath is None:
+            dataFolderPath = _PATH_DATA
+        if testFolderPath is None:
+            testFolderPath = _PATH_TEST
         # Load the data and preprcess the word
-        X, y = SkLearn.loadData(pathFolder)
+        X, y = SkLearn.loadData(dataFolderPath)
+        X_test, y_test = SkLearn.loadData(testFolderPath)
         docs = SkLearn.preprocess(X)
         # N-gram bag of words and tf idf the data
-        X, cv = SkLearn.bagOfWords(docs, self.stopwords)
-        X = SkLearn.tfidfProcess(X, docs, self.stopwords)
+        X, model = SkLearn.bagOfWords(docs, self.stopwords)
+        X, model = SkLearn.tfidfProcess(X, docs, self.stopwords)
         # Split the data for training and testing
-        X_train, X_test, y_train, y_test = SkLearn.trainSplit(X, y)
-        # Run classifier and print the result
-        # y_pred = classifier(X_train, X_test, y_train)
-        SkLearn.kFold(X, y)
+        print(SkLearn.kFold(X, y))
+        # Validate with the test file
+        
+        
 
     @staticmethod
-    def loadData(pathFolder=None):
+    def loadData(pathFolder):
         """Load data from the @pathFolder that contain 
         'pos' and 'neg' folder of the txt files.
         Returns data, target."""
-        if pathFolder is None:
-            pathFolder = _PATH
         reviewFile = _SkData.load_files(pathFolder)
         return reviewFile.data, reviewFile.target
 
@@ -143,7 +146,9 @@ class SkLearn():
         return scores
 
     @staticmethod
-    def CustomKFoldExample(X_digit, y_digit, num_folds=5):
+    def CustomKFoldExample(X_digit, y_digit, num_folds=5, sk_classifier=None):
+        if sk_classifier is None:
+            sk_classifier = LinearSVC
         import numpy as np
         X_folds = np.array_split(X_digit, num_folds)
         y_folds = np.array_split(y_digit, num_folds)
@@ -155,7 +160,7 @@ class SkLearn():
             y_train = list(y_folds)
             y_test = y_train.pop(k)
             y_train = np.concatenate(y_train)
-            scores.append(LinearSVC().fit(
+            scores.append(sk_classifier().fit(
                 X_train, y_train).score(X_test, y_test))
         print(scores)
 

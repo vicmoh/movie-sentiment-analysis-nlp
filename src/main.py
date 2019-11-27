@@ -10,10 +10,6 @@ from sk_learn import Classifier
 from sklearn import svm
 from sklearn import datasets
 
-# For the debug statement
-_FILE_EXAMPLE = './assets/review_polarity/txt_sentoken/pos/cv000_29590.txt'
-_PATH = './assets/review_polarity/txt_sentoken/'
-
 
 class Main:
     def __init__(self):
@@ -23,47 +19,12 @@ class Main:
 
     @staticmethod
     def runSelectedModels():
-        print('\nMain.runSelectedModels(): \n')
         print('\nRunning logistic regression...')
         SkLearn(classifier=Classifier.logisticRegression)
         print('\nRunning random forest classifier...')
         SkLearn(classifier=Classifier.randomForestClassifier)
         print('\nRunning linear SVC...')
         SkLearn(classifier=Classifier.linearSVC)
-
-    @staticmethod
-    def testKFold():
-        print('\nTesting K-fold...')
-        SkLearn(classifier=Classifier.linearSVC)
-
-    @staticmethod
-    def runAllModels():
-        print('\nRunning logistic regression...')
-        SkLearn(classifier=Classifier.logisticRegression)
-        print('\nRunning random forest classifier...')
-        SkLearn(classifier=Classifier.randomForestClassifier)
-        print('\nRunning k-nearest neighbors...')
-        SkLearn(classifier=Classifier.kNearestNeighbors)
-        print('\nRunning linear SVC...')
-        SkLearn(classifier=Classifier.linearSVC)
-        print('\nRunning passive aggressive classifier...')
-        SkLearn(classifier=Classifier.passiveAggressive)
-        print('\nRunning ridge classifier..')
-        SkLearn(classifier=Classifier.ridgeClassifier)
-        print('\nRunning multi-class SVC...')
-        SkLearn(classifier=Classifier.nuSVC)
-        print('\nRunning gaussian naive bayes...')
-        SkLearn(classifier=Classifier.gaussianNB)
-        print('\nRunning multinomial naive bayes...')
-        SkLearn(classifier=Classifier.multiNB)
-        print('\nRunning complement naive bayes...')
-        SkLearn(classifier=Classifier.complementNB)
-        print('\nRunning bernoulli naive bayes...')
-        SkLearn(classifier=Classifier.BernoulliNB)
-
-    @staticmethod
-    def run():
-        SkLearn()
 
 
 Main()

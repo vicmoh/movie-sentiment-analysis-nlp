@@ -3,9 +3,9 @@
 
 import os
 import shutil
-path_pos = './assets/review_polarity/txt_sentoken/pos/'
+path_pos = './assets/review_polarity/data/pos/'
 moveTo_pos = './assets/review_polarity/test/pos/'
-path_neg = './assets/review_polarity/txt_sentoken/neg/'
+path_neg = './assets/review_polarity/data/neg/'
 moveTo_neg = './assets/review_polarity/test/neg/'
 
 
