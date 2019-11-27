@@ -35,29 +35,31 @@ class Main:
     def runSelectedModels():
         sk = SkLearn()
         # Run with TFxIDF vectorizer
-        print('---------- Running with TFxIDF feature selection ----------')
-        for f_size in [100, 1000, 1500, 2000, 2500, 3000]:
-            print('\nRunning logistic regression...')
-            sk.run(classifier=Classifier.logisticRegression,
-                   featureSize=f_size, isTfidfVec=True)
-            print('\nRunning random forest classifier...')
-            sk.run(classifier=Classifier.randomForestClassifier,
-                   featureSize=f_size, isTfidfVec=True)
-            print('\nRunning linear SVC...')
-            sk.run(classifier=Classifier.linearSVC,
-                   featureSize=f_size, isTfidfVec=True)
+        print('\n---------- Running with TFxIDF feature selection ----------\n')
+        for kFoldSize in [5, 10]:
+            for f_size in [500, 1000, 1500, 2000, 2500, 3000]:
+                print('\nRunning logistic regression...')
+                sk.run(classifier=Classifier.logisticRegression,
+                       featureSize=f_size, isTfidfVec=True, num_kFold=kFoldSize)
+                print('\nRunning random forest classifier...')
+                sk.run(classifier=Classifier.randomForestClassifier,
+                       featureSize=f_size, isTfidfVec=True, num_kFold=kFoldSize)
+                print('\nRunning linear SVC...')
+                sk.run(classifier=Classifier.linearSVC,
+                       featureSize=f_size, isTfidfVec=True, num_kFold=kFoldSize)
         # Run with count vectorizer
-        print('---------- Running with count vectorizer feature selection ----------')
-        for f_size in [100, 1000, 1500, 2000, 2500, 3000]:
-            print('\nRunning logistic regression...')
-            sk.run(classifier=Classifier.logisticRegression,
-                   featureSize=f_size, isCountVec=True)
-            print('\nRunning random forest classifier...')
-            sk.run(classifier=Classifier.randomForestClassifier,
-                   featureSize=f_size, isCountVec=True)
-            print('\nRunning linear SVC...')
-            sk.run(classifier=Classifier.linearSVC,
-                   featureSize=f_size, isCountVec=True)
+        print('\n---------- Running with count vectorizer feature selection ----------\n')
+        for kFoldSize in [5, 10]:
+            for f_size in [500, 1000, 1500, 2000, 2500, 3000]:
+                print('\nRunning logistic regression...')
+                sk.run(classifier=Classifier.logisticRegression,
+                       featureSize=f_size, isCountVec=True, num_kFold=kFoldSize)
+                print('\nRunning random forest classifier...')
+                sk.run(classifier=Classifier.randomForestClassifier,
+                       featureSize=f_size, isCountVec=True, num_kFold=kFoldSize)
+                print('\nRunning linear SVC...')
+                sk.run(classifier=Classifier.linearSVC,
+                       featureSize=f_size, isCountVec=True, num_kFold=kFoldSize)
 
     @staticmethod
     def run():

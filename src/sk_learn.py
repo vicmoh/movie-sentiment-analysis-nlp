@@ -71,7 +71,6 @@ class SkLearn():
         X = SkLearn.featureSelectionProcess(
             X, self.stopwords, featureSize=featureSize)
         # Cross validation
-        print('Number of K-fold: ', num_kFold)
         print('Feature size: ', featureSize)
         print('Cross validating with ' +
               str(num_kFold) + ' Stratified K-Fold...')
@@ -117,38 +116,41 @@ class SkLearn():
         return docs
 
     @staticmethod
-    def bagOfWords(docs, stopwords, feature_size=500):
+    def bagOfWords(docs, stopwords, featureSize=500):
         """Create a bag of words, using n-gram model, to determine
         the document and term frequency. Return the data and count vectorizer object
         that is used to process the bag of words."""
-        vec = CountVectorizer(max_features=feature_size,
-                              ngram_range=(1, 3), stop_words=stopwords)
+        vec = CountVectorizer(max_features=featureSize, min_df=5,
+                              max_df=0.7, ngram_range=(1, 3), stop_words=stopwords)
         return vec.fit_transform(docs).toarray(), vec
 
     @staticmethod
-    def tfidfProcess(data, docs, stopwords, feature_size=500):
+    def tfidfProcess(data, docs, stopwords, featureSize=500):
         """Go through the TFxIDF process similar for the
         document and term frequency. Return the data proccessed."""
         # Transform
         data = TfidfTransformer().fit_transform(data).toarray()
         # Convert
-        vec = TfidfVectorizer(max_features=feature_size, stop_words=stopwords)
+        vec = TfidfVectorizer(max_features=featureSize, min_df=5,
+                              max_df=0.7, stop_words=stopwords)
         data = vec.fit_transform(docs).toarray()
         return data, vec
 
     @staticmethod
-    def featureSelectionProcess(X, stopwords, isCountVec=False, isTfidfVec=False):
+    def featureSelectionProcess(X, stopwords, isCountVec=False, isTfidfVec=False, featureSize=None):
         # Check type of selection being used
         if isCountVec is False and isTfidfVec is False:
             isCountVec = True
             isTfidfVec = True
         docs = SkLearn.preprocess(X)
         # N-gram bag of words and tf idf the data
-        X, model = None
+        X, model = None, None
         if isCountVec:
-            X, model = SkLearn.bagOfWords(docs, stopwords)
+            X, model = SkLearn.bagOfWords(
+                docs, stopwords, featureSize=featureSize)
         if isTfidfVec:
-            X, model = SkLearn.tfidfProcess(X, docs, stopwords)
+            X, model = SkLearn.tfidfProcess(
+                X, docs, stopwords, featureSize=featureSize)
         return X
 
     @staticmethod
