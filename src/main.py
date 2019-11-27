@@ -35,7 +35,7 @@ class Main:
     def runSelectedModels():
         sk = SkLearn()
         # Run with TFxIDF vectorizer
-        print('\n---------- Running with TFxIDF feature selection ----------\n')
+        print('\n---------- Running with TFxIDF feature selection ----------')
         for kFoldSize in [5, 10]:
             for f_size in [500, 1000, 1500, 2000, 2500, 3000]:
                 print('\nRunning logistic regression...')
@@ -48,7 +48,7 @@ class Main:
                 sk.run(classifier=Classifier.linearSVC,
                        featureSize=f_size, isTfidfVec=True, num_kFold=kFoldSize)
         # Run with count vectorizer
-        print('\n---------- Running with count vectorizer feature selection ----------\n')
+        print('\n---------- Running with count vectorizer feature selection ----------')
         for kFoldSize in [5, 10]:
             for f_size in [500, 1000, 1500, 2000, 2500, 3000]:
                 print('\nRunning logistic regression...')
