@@ -9,13 +9,27 @@ from sk_learn import Classifier
 # Import lib
 from sklearn import svm
 from sklearn import datasets
+# Import data analysis
+from data_analysis import DataAnalysis
+
+_PATH_DATA = './assets/review_polarity/data'
+_PATH_TEST = './assets/review_polarity/test'
 
 
 class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
-        Main.runSelectedModels()
+        # Main.runSelectedModels()
+        Main.dataAnalysis()
+
+    @staticmethod
+    def dataAnalysis():
+        DataAnalysis.readAllFilesInFolder(_PATH_DATA + '/pos/*.txt')
+        DataAnalysis.readAllFilesInFolder(_PATH_DATA + '/neg/*.txt')
+        DataAnalysis.readAllFilesInFolder(_PATH_TEST + '/pos/*.txt')
+        DataAnalysis.readAllFilesInFolder(_PATH_TEST + '/neg/*.txt')
+        DataAnalysis.printResult()
 
     @staticmethod
     def runSelectedModels():

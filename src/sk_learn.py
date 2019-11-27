@@ -62,20 +62,22 @@ class SkLearn():
         self.X, self.y = SkLearn.loadData(dataFolderPath)
         self.X_test, self.y_test = SkLearn.loadData(testFolderPath)
 
-    def run(self, classifier=None):
+    def run(self, classifier=None, num_kFold=5):
         # Check if the classifier is empty
         if classifier is None:
             classifier = Classifier.logisticRegression
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
-        docs = SkLearn.preprocess(X)
         # N-gram bag of words and tf idf the data
-        X, model = SkLearn.bagOfWords(docs, self.stopwords)
-        X, model = SkLearn.tfidfProcess(X, docs, self.stopwords)
-        # Split the data for training and testing
+        X = SkLearn.featureSelectionProcess(X, self.stopwords)
+        # Cross validation
+        print('Cross validating with ' +
+              str(num_kFold) + ' Stratified K-Fold...')
         scores, fMeasures = SkLearn.kFold(
-            X, y, num_splits=5, classifier=classifier)
+            X, y, num_splits=num_kFold, classifier=classifier)
         print('Accuracy scores: ', scores)
-        print('F-Measure scores: ', fMeasures)
+        print('F-measure scores: ', fMeasures)
+        print('Average score:', _Numpy.average(scores))
+        print('Average f-measure: ', _Numpy.average(fMeasures))
 
     @staticmethod
     def loadData(pathFolder):
@@ -131,6 +133,14 @@ class SkLearn():
                               max_df=0.7, stop_words=stopwords)
         data = vec.fit_transform(docs).toarray()
         return data, vec
+
+    @staticmethod
+    def featureSelectionProcess(X, stopwords):
+        docs = SkLearn.preprocess(X)
+        # N-gram bag of words and tf idf the data
+        X, model = SkLearn.bagOfWords(docs, stopwords)
+        X, model = SkLearn.tfidfProcess(X, docs, stopwords)
+        return X
 
     @staticmethod
     def trainSplit(data, target):
