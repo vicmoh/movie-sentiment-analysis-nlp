@@ -19,11 +19,17 @@ class Main:
 
     @staticmethod
     def runSelectedModels():
+        sk = SkLearn()
         print('\nRunning logistic regression...')
-        SkLearn(classifier=Classifier.logisticRegression)
+        sk.run(classifier=Classifier.logisticRegression)
         print('\nRunning random forest classifier...')
-        SkLearn(classifier=Classifier.randomForestClassifier)
+        sk.run(classifier=Classifier.randomForestClassifier)
         print('\nRunning linear SVC...')
+        sk.run(classifier=Classifier.linearSVC)
+
+    @staticmethod
+    def run():
+        print('Running...')
         SkLearn(classifier=Classifier.linearSVC)
 
 

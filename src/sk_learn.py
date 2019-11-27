@@ -36,33 +36,43 @@ _REPLACE_NO_SPACE = "[.;:!\'?,\"()\[\]]"
 
 
 class SkLearn():
+    X = None
+    y = None
+    X_test = None
+    y_test = None
     dataFolderPath = ''
     stopwords = stopwords.words('english')
 
-    def __init__(self, dataFolderPath=None, testFolderPath=None, classifier=None):
+    def __init__(self, dataFolderPath=None, testFolderPath=None):
         """Scikit learn class for processing the sentiment analysis to
         determine if it is negative or positive data. @dataFolderPath is the
         folder of the data containing 'pos' and 'neg' folder of the txt files.
         @classifier is callback function that takes in classifier function in
         the Classifier() object, by default if none it will run logistic regression."""
         super().__init__()
-        # Check if the classifier is empty
-        if classifier is None:
-            classifier = Classifier.logisticRegression
+        self.initData(dataFolderPath=dataFolderPath,
+                      testFolderPath=testFolderPath)
+
+    def initData(self, dataFolderPath=None, testFolderPath=None):
         if dataFolderPath is None:
             dataFolderPath = _PATH_DATA
         if testFolderPath is None:
             testFolderPath = _PATH_TEST
         # Load the data and preprcess the word
-        X, y = SkLearn.loadData(dataFolderPath)
-        X_test, y_test = SkLearn.loadData(testFolderPath)
+        self.X, self.y = SkLearn.loadData(dataFolderPath)
+        self.X_test, self.y_test = SkLearn.loadData(testFolderPath)
+
+    def run(self, classifier=None):
+        # Check if the classifier is empty
+        if classifier is None:
+            classifier = Classifier.logisticRegression
+        X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
         docs = SkLearn.preprocess(X)
         # N-gram bag of words and tf idf the data
         X, model = SkLearn.bagOfWords(docs, self.stopwords)
         X, model = SkLearn.tfidfProcess(X, docs, self.stopwords)
         # Split the data for training and testing
-        print(SkLearn.kFold(X, y))
-        # Validate with the test file
+        print(SkLearn.kFold(X, y, num_splits=5, classifier=classifier))
 
     @staticmethod
     def loadData(pathFolder):
