@@ -72,7 +72,10 @@ class SkLearn():
         X, model = SkLearn.bagOfWords(docs, self.stopwords)
         X, model = SkLearn.tfidfProcess(X, docs, self.stopwords)
         # Split the data for training and testing
-        print(SkLearn.kFold(X, y, num_splits=5, classifier=classifier))
+        scores, fMeasures = SkLearn.kFold(
+            X, y, num_splits=5, classifier=classifier)
+        print('Accuracy scores: ', scores)
+        print('F-Measure scores: ', fMeasures)
 
     @staticmethod
     def loadData(pathFolder):
@@ -145,13 +148,14 @@ class SkLearn():
             classifier = Classifier.logisticRegression
         kf = StratifiedKFold(n_splits=num_splits)
         scores = list()
+        fMeasures = list()
         for train_index, test_index in kf.split(data, target):
             X_train, X_test = data[train_index], data[test_index]
             y_train, y_test = target[train_index], target[test_index]
             y_pred, model = classifier(X_train, X_test, y_train)
             scores.append(model.score(X_test, y_test))
-            SkLearn.printResult(y_test, y_pred)
-        return scores
+            fMeasures.append(f1_score(y_test, y_pred))
+        return scores, fMeasures
 
     @staticmethod
     def CustomKFoldExample(X_digit, y_digit, num_folds=5, sk_classifier=None):
