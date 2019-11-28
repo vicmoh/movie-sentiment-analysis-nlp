@@ -21,7 +21,7 @@ class Main:
         """Class to run a specific programs."""
         super().__init__()
         Main.runDataAnalysis()
-        # Main.runSelectedModels()
+        Main.runSelectedModels()
 
     @staticmethod
     def runDataAnalysis():
