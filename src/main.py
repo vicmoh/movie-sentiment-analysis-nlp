@@ -20,11 +20,11 @@ class Main:
     def __init__(self):
         """Class to run a specific programs."""
         super().__init__()
-        Main.dataAnalysis()
+        Main.runDataAnalysis()
         # Main.runSelectedModels()
 
     @staticmethod
-    def dataAnalysis():
+    def runDataAnalysis():
         posData = DataAnalysis(_PATH_DATA + '/pos/*.txt')
         negData = DataAnalysis(_PATH_DATA + '/neg/*.txt')
         print('\n---------- Positive data analysis ----------')
