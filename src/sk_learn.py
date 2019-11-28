@@ -50,44 +50,38 @@ class SkLearn():
         @classifier is callback function that takes in classifier function in
         the Classifier() object, by default if none it will run logistic regression."""
         super().__init__()
-        self.initData(dataFolderPath=dataFolderPath,
-                      testFolderPath=testFolderPath)
+        self.__initData(dataFolderPath=dataFolderPath,
+                        testFolderPath=testFolderPath)
 
-    def initData(self, dataFolderPath=None, testFolderPath=None):
+    def __initData(self, dataFolderPath=None, testFolderPath=None):
+        """Load the data and save for processing."""
         if dataFolderPath is None:
             dataFolderPath = _PATH_DATA
         if testFolderPath is None:
             testFolderPath = _PATH_TEST
-        # Load the data and preprcess the word
-        self.X, self.y = SkLearn.loadData(dataFolderPath)
-        self.X_test, self.y_test = SkLearn.loadData(testFolderPath)
+        # Load the data
+        self.X, self.y = SkLearn.__loadData(dataFolderPath)
+        self.X_test, self.y_test = SkLearn.__loadData(testFolderPath)
 
     def run(self, classifier=None, num_kFold=5, featureSize=500, isTfidfVec=False, isCountVec=False):
+        """Run the model specified."""
         # Check if the classifier is empty
         if classifier is None:
             classifier = Classifier.logisticRegression
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
         # N-gram bag of words and tf idf the data
-        X = SkLearn.featureSelectionProcess(
+        X = SkLearn.__featureSelectionProcess(
             X, self.stopwords, featureSize=featureSize)
         # Cross validation
         print('Feature size: ', featureSize)
         print('Cross validating with ' +
               str(num_kFold) + ' Stratified K-Fold...')
-        scores, fMeasures = SkLearn.kFold(
+        scores, fMeasures = SkLearn.__kFold(
             X, y, num_splits=num_kFold, classifier=classifier)
         print('Accuracy scores: ', scores)
         print('F-measure scores: ', fMeasures)
         print('Average score:', _Numpy.average(scores))
         print('Average f-measure: ', _Numpy.average(fMeasures))
-
-    @staticmethod
-    def loadData(pathFolder):
-        """Load data from the @pathFolder that contain
-        'pos' and 'neg' folder of the txt files.
-        Returns data, target."""
-        reviewFile = _SkData.load_files(pathFolder)
-        return reviewFile.data, reviewFile.target
 
     @staticmethod
     def preprocess(data):
@@ -116,7 +110,23 @@ class SkLearn():
         return docs
 
     @staticmethod
-    def bagOfWords(docs, stopwords, featureSize=500):
+    def printResult(y_test, y_pred):
+        """Print the y test and y predicted data of the
+        confusion matrix, classification report, and accuracy score."""
+        print(confusion_matrix(y_test, y_pred))
+        print(classification_report(y_test, y_pred))
+        print(accuracy_score(y_test, y_pred))
+
+    @staticmethod
+    def __loadData(pathFolder):
+        """Load data from the @pathFolder that contain
+        'pos' and 'neg' folder of the txt files.
+        Returns data, target."""
+        reviewFile = _SkData.load_files(pathFolder)
+        return reviewFile.data, reviewFile.target
+
+    @staticmethod
+    def __bagOfWords(docs, stopwords, featureSize=500):
         """Create a bag of words, using n-gram model, to determine
         the document and term frequency. Return the data and count vectorizer object
         that is used to process the bag of words."""
@@ -125,7 +135,7 @@ class SkLearn():
         return vec.fit_transform(docs).toarray(), vec
 
     @staticmethod
-    def tfidfProcess(data, docs, stopwords, featureSize=500):
+    def __tfidfProcess(data, docs, stopwords, featureSize=500):
         """Go through the TFxIDF process similar for the
         document and term frequency. Return the data proccessed."""
         # Transform
@@ -137,7 +147,7 @@ class SkLearn():
         return data, vec
 
     @staticmethod
-    def featureSelectionProcess(X, stopwords, isCountVec=False, isTfidfVec=False, featureSize=None):
+    def __featureSelectionProcess(X, stopwords, isCountVec=False, isTfidfVec=False, featureSize=None):
         # Check type of selection being used
         if isCountVec is False and isTfidfVec is False:
             isCountVec = True
@@ -146,15 +156,15 @@ class SkLearn():
         # N-gram bag of words and tf idf the data
         X, model = None, None
         if isCountVec:
-            X, model = SkLearn.bagOfWords(
+            X, model = SkLearn.__bagOfWords(
                 docs, stopwords, featureSize=featureSize)
         if isTfidfVec:
-            X, model = SkLearn.tfidfProcess(
+            X, model = SkLearn.__tfidfProcess(
                 X, docs, stopwords, featureSize=featureSize)
         return X
 
     @staticmethod
-    def trainSplit(data, target):
+    def __trainSplit(data, target):
         """Split the data for training and testing.
         Return X data for train, X data for text, y data for train,
         y data for test."""
@@ -163,7 +173,7 @@ class SkLearn():
         return X_train, X_test, y_train, y_test
 
     @staticmethod
-    def kFold(data, target, num_splits=5, classifier=None):
+    def __kFold(data, target, num_splits=5, classifier=None):
         """Function for k-fold. Return the list of scores."""
         if classifier is None:
             classifier = Classifier.logisticRegression
@@ -179,7 +189,7 @@ class SkLearn():
         return scores, fMeasures
 
     @staticmethod
-    def CustomKFoldExample(X_digit, y_digit, num_folds=5, sk_classifier=None):
+    def __customKFoldExample(X_digit, y_digit, num_folds=5, sk_classifier=None):
         if sk_classifier is None:
             sk_classifier = LinearSVC
         import numpy as np
@@ -196,14 +206,6 @@ class SkLearn():
             scores.append(sk_classifier().fit(
                 X_train, y_train).score(X_test, y_test))
         print(scores)
-
-    @staticmethod
-    def printResult(y_test, y_pred):
-        """Print the y test and y predicted data of the
-        confusion matrix, classification report, and accuracy score."""
-        print(confusion_matrix(y_test, y_pred))
-        print(classification_report(y_test, y_pred))
-        print(accuracy_score(y_test, y_pred))
 
 
 class Classifier():

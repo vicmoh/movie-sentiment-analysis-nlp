@@ -31,17 +31,7 @@ class DataAnalysis:
         super().__init__()
         if folderPath is None:
             return
-        self.readAllFilesInFolder(folderPath=folderPath)
-
-    def resetData(self):
-        """Reset all the attributes to the default values."""
-        self.totalDocs = 0
-        self.minSentence = 0
-        self.maxSentence = 0
-        self.totalSentence = 0
-        self.minToken = 0
-        self.maxToken = 0
-        self.totalToken = 0
+        self.__readAllFilesInFolder(folderPath=folderPath)
 
     def printCombinedResultWith(self, obj):
         """Print a combined data of 2 data. It is used to
@@ -94,7 +84,17 @@ class DataAnalysis:
         print('Avg tokens: ', self.totalToken / self.totalDocs)
         print('Total tokens: ', self.totalToken)
 
-    def readFile(self, filePath):
+    def __resetData(self):
+        """Reset all the attributes to the default values."""
+        self.totalDocs = 0
+        self.minSentence = 0
+        self.maxSentence = 0
+        self.totalSentence = 0
+        self.minToken = 0
+        self.maxToken = 0
+        self.totalToken = 0
+
+    def __readFile(self, filePath):
         """Read file from @filePath and return the list of string for each lines."""
         lines = []
         if filePath == None:
@@ -110,7 +110,7 @@ class DataAnalysis:
                 print(each)
         return lines
 
-    def trackTokenData(self, num):
+    def __trackTokenData(self, num):
         """Track and count token data for the analysis."""
         self.totalToken += num
         if num != 0 and num > self.maxToken:
@@ -120,7 +120,7 @@ class DataAnalysis:
         elif num != 0 and num < self.minToken:
             self.minToken = num
 
-    def trackSentencesData(self, num):
+    def __trackSentencesData(self, num):
         """Track and count token data for the analysis."""
         self.totalSentence += num
         if num != 0 and num > self.maxSentence:
@@ -130,7 +130,7 @@ class DataAnalysis:
         elif num != 0 and num < self.minSentence:
             self.minSentence = num
 
-    def readAllFilesInFolder(
+    def __readAllFilesInFolder(
         self,
         folderPath,
         eachLineCallback=None
@@ -148,13 +148,12 @@ class DataAnalysis:
         countFiles = 0
         fileNames = _glob.glob(folderPath)
         self.totalDocs += len(fileNames)
-
         # Loop through the files
         for fileName in fileNames:
             if _SHOW_DEBUG_FOR_READ_ALL_FILE:
                 print(fileName)
             # Read the files
-            file = self.readFile(fileName)
+            file = self.__readFile(fileName)
             lines = []
             countLines = 0
             for line in file:
@@ -163,12 +162,11 @@ class DataAnalysis:
                     line = eachLineCallback(line)
                 lines.append(line.strip())
                 # keep track of number of lines
-            self.trackSentencesData(countLines)
+            self.__trackSentencesData(countLines)
             docs.append(lines)
-
         # Track the number sentence in preprocess data
         preData = SkLearn.preprocess(docs)
         for each in preData:
             tokens = re.split('[ \r\n]+|[ \n]+', each)
-            self.trackTokenData(len(tokens))
+            self.__trackTokenData(len(tokens))
         return docs
