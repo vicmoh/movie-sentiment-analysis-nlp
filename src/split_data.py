@@ -1,4 +1,5 @@
-# File for moving the 15% of the data
+# Author: Vicky Mohammad
+# Description: File for moving the 15% of the data
 # to test folder for testing
 
 import os
