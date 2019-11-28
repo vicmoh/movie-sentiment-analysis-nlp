@@ -25,31 +25,76 @@ class DataAnalysis:
     maxToken = 0
     totalToken = 0
 
-    @staticmethod
-    def resetData():
-        DataAnalysis.totalDocs = 0
-        DataAnalysis.minSentence = 0
-        DataAnalysis.maxSentence = 0
-        DataAnalysis.totalSentence = 0
-        DataAnalysis.minToken = 0
-        DataAnalysis.maxToken = 0
-        DataAnalysis.totalToken = 0
+    def __init__(self, folderPath=None):
+        """This object is used to process the data analysis.
+        If @folderPath is empty. It does nothing."""
+        super().__init__()
+        if folderPath is None:
+            return
+        self.readAllFilesInFolder(folderPath=folderPath)
 
-    @staticmethod
-    def printResult():
-        print('\nCalculating data analysis...')
-        print('Number of documents: ', DataAnalysis.totalDocs)
-        print('Min sentences: ', DataAnalysis.minSentence)
-        print('Max sentences: ', DataAnalysis.maxSentence)
-        print('Avg sentences: ', DataAnalysis.totalSentence / DataAnalysis.totalDocs)
-        print('Total Sentences: ', DataAnalysis.totalSentence)
-        print('Min tokens: ', DataAnalysis.minToken)
-        print('Max tokens: ', DataAnalysis.maxToken)
-        print('Avg tokens: ', DataAnalysis.totalToken / DataAnalysis.totalDocs)
-        print('Total tokens: ', DataAnalysis.totalToken)
+    def resetData(self):
+        """Reset all the attributes to the default values."""
+        self.totalDocs = 0
+        self.minSentence = 0
+        self.maxSentence = 0
+        self.totalSentence = 0
+        self.minToken = 0
+        self.maxToken = 0
+        self.totalToken = 0
 
-    @staticmethod
-    def readFile(filePath):
+    def printCombinedResultWith(self, obj):
+        """Print a combined data of 2 data. It is used to
+        combined pos and neg value data together."""
+        # Init data
+        totalDocs = self.totalDocs + obj.totalDocs
+        totalSen = self.totalSentence + obj.totalSentence
+        totalToks = self.totalToken + obj.totalToken
+        minSen, maxSen, minTok, maxTok = 0, 0, 0, 0
+        # Determine min sentence
+        if self.minSentence < obj.minSentence:
+            minSen = self.minSentence
+        else:
+            minSen = obj.minSentence
+        # Determine max the sentence
+        if self.maxSentence > obj.maxSentence:
+            maxSen = self.maxSentence
+        else:
+            maxSen = obj.maxSentence
+        # Determine min the token
+        if self.minToken < obj.minToken:
+            minTok = self.minToken
+        else:
+            minTok = obj.minToken
+        # Determine max token
+        if self.maxToken > obj.maxToken:
+            maxTok = self.maxToken
+        else:
+            maxTok = obj.maxToken
+        # Print the combined data
+        print('Number of documents: ', totalDocs)
+        print('Min sentences: ', minSen)
+        print('Max sentences: ', maxSen)
+        print('Avg sentences: ', totalSen / totalDocs)
+        print('Total Sentences: ', totalSen)
+        print('Min tokens: ', minTok)
+        print('Max tokens: ', maxTok)
+        print('Avg tokens: ', totalToks / totalDocs)
+        print('Total tokens: ', totalToks)
+
+    def printResult(self):
+        """Print the data analysis result."""
+        print('Number of documents: ', self.totalDocs)
+        print('Min sentences: ', self.minSentence)
+        print('Max sentences: ', self.maxSentence)
+        print('Avg sentences: ', self.totalSentence / self.totalDocs)
+        print('Total Sentences: ', self.totalSentence)
+        print('Min tokens: ', self.minToken)
+        print('Max tokens: ', self.maxToken)
+        print('Avg tokens: ', self.totalToken / self.totalDocs)
+        print('Total tokens: ', self.totalToken)
+
+    def readFile(self, filePath):
         """Read file from @filePath and return the list of string for each lines."""
         lines = []
         if filePath == None:
@@ -65,28 +110,28 @@ class DataAnalysis:
                 print(each)
         return lines
 
-    @staticmethod
-    def trackTokenData(num):
-        DataAnalysis.totalToken += num
-        if num != 0 and num > DataAnalysis.maxToken:
-            DataAnalysis.maxToken = num
-        if num != 0 and DataAnalysis.minToken == 0:
-            DataAnalysis.minToken = num
-        elif num != 0 and num < DataAnalysis.minToken:
-            DataAnalysis.minToken = num
+    def trackTokenData(self, num):
+        """Track and count token data for the analysis."""
+        self.totalToken += num
+        if num != 0 and num > self.maxToken:
+            self.maxToken = num
+        if num != 0 and self.minToken == 0:
+            self.minToken = num
+        elif num != 0 and num < self.minToken:
+            self.minToken = num
 
-    @staticmethod
-    def trackSentencesData(num):
-        DataAnalysis.totalSentence += num
-        if num != 0 and num > DataAnalysis.maxSentence:
-            DataAnalysis.maxSentence = num
-        if num != 0 and DataAnalysis.minSentence == 0:
-            DataAnalysis.minSentence = num
-        elif num != 0 and num < DataAnalysis.minSentence:
-            DataAnalysis.minSentence = num
+    def trackSentencesData(self, num):
+        """Track and count token data for the analysis."""
+        self.totalSentence += num
+        if num != 0 and num > self.maxSentence:
+            self.maxSentence = num
+        if num != 0 and self.minSentence == 0:
+            self.minSentence = num
+        elif num != 0 and num < self.minSentence:
+            self.minSentence = num
 
-    @staticmethod
     def readAllFilesInFolder(
+        self,
         folderPath,
         eachLineCallback=None
     ):
@@ -102,14 +147,14 @@ class DataAnalysis:
             return docs
         countFiles = 0
         fileNames = _glob.glob(folderPath)
-        DataAnalysis.totalDocs += len(fileNames)
+        self.totalDocs += len(fileNames)
 
         # Loop through the files
         for fileName in fileNames:
             if _SHOW_DEBUG_FOR_READ_ALL_FILE:
                 print(fileName)
             # Read the files
-            file = DataAnalysis.readFile(fileName)
+            file = self.readFile(fileName)
             lines = []
             countLines = 0
             for line in file:
@@ -118,12 +163,12 @@ class DataAnalysis:
                     line = eachLineCallback(line)
                 lines.append(line.strip())
                 # keep track of number of lines
-            DataAnalysis.trackSentencesData(countLines)
+            self.trackSentencesData(countLines)
             docs.append(lines)
 
         # Track the number sentence in preprocess data
         preData = SkLearn.preprocess(docs)
         for each in preData:
             tokens = re.split('[ \r\n]+|[ \n]+', each)
-            DataAnalysis.trackTokenData(len(tokens))
+            self.trackTokenData(len(tokens))
         return docs

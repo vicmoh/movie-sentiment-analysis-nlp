@@ -21,15 +21,18 @@ class Main:
         """Class to run a specific programs."""
         super().__init__()
         Main.dataAnalysis()
-        Main.runSelectedModels()
+        # Main.runSelectedModels()
 
     @staticmethod
     def dataAnalysis():
-        DataAnalysis.readAllFilesInFolder(_PATH_DATA + '/pos/*.txt')
-        DataAnalysis.readAllFilesInFolder(_PATH_DATA + '/neg/*.txt')
-        DataAnalysis.readAllFilesInFolder(_PATH_TEST + '/pos/*.txt')
-        DataAnalysis.readAllFilesInFolder(_PATH_TEST + '/neg/*.txt')
-        DataAnalysis.printResult()
+        posData = DataAnalysis(_PATH_DATA + '/pos/*.txt')
+        negData = DataAnalysis(_PATH_DATA + '/neg/*.txt')
+        print('\n---------- Positive data analysis ----------')
+        posData.printResult()
+        print('\n---------- Negative data analysis ----------')
+        negData.printResult()
+        print('\n---------- Positive and negative data analysis ----------')
+        posData.printCombinedResultWith(negData)
 
     @staticmethod
     def runSelectedModels():
