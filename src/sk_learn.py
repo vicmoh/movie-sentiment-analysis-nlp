@@ -70,7 +70,7 @@ class SkLearn():
             classifier = Classifier.logisticRegression
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
         # N-gram bag of words and tf idf the data
-        X = SkLearn.__featureSelectionProcess(
+        X, cv = SkLearn.__featureSelectionProcess(
             X, self.stopwords, featureSize=featureSize)
         # Cross validation
         print('Feature size: ', featureSize)
@@ -82,6 +82,15 @@ class SkLearn():
         print('F-measure scores: ', fMeasures)
         print('Average score:', _Numpy.average(scores))
         print('Average f-measure: ', _Numpy.average(fMeasures))
+        # final test with the 15 percent
+        print('Running final model and testing with 15% validation set...')
+        X_train, X_test, y_train, y_test = self.__trainSplit(X, y)
+        y_pred, final_model = classifier(X_train, X_test, y_train)
+        accuracy_score = final_model.score(X_test, y_test)
+        f1_measure = f1_score(y_test, y_pred)
+        print('Final score: ', accuracy_score)
+        print('final f-measure score: ', f1_measure)
+        SkLearn.printTerms(cv, final_model)
 
     @staticmethod
     def preprocess(data):
@@ -108,6 +117,22 @@ class SkLearn():
             doc = ' '.join(doc)
             docs.append(doc)
         return docs
+
+    @staticmethod
+    def printTerms(cv, final_model):
+        """Print the term and accuracy of the models."""
+        feature_to_coef = {
+            word: coef for word, coef in zip(cv.get_feature_names(), final_model.coef_[0])
+        }
+        for highest_positives in sorted(
+                feature_to_coef.items(),
+                key=lambda x: x[1],
+                reverse=True)[:20]:
+            print(highest_positives)
+        for highest_negatives in sorted(
+                feature_to_coef.items(),
+                key=lambda x: x[1])[:20]:
+            print(highest_negatives)
 
     @staticmethod
     def printResult(y_test, y_pred):
@@ -161,7 +186,7 @@ class SkLearn():
         if isTfidfVec:
             X, model = SkLearn.__tfidfProcess(
                 X, docs, stopwords, featureSize=featureSize)
-        return X
+        return X, model
 
     @staticmethod
     def __trainSplit(data, target):
