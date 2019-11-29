@@ -76,28 +76,26 @@ class SkLearn():
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
         X, cv = SkLearn.__featureSelectionProcess(
             X, self.docs, self.stopwords, featureSize=featureSize)
-        # Cross validation
+        # final test with the 15 percent
+        print('Running with testing sets...')
         print('Feature size: ', featureSize)
+        X_train, X_test, y_train, y_test = self.__trainSplit(X, y)
+        y_pred, old_model = classifier(X_train, X_test, y_train)
+        accuracy_score = old_model.score(X_test, y_test)
+        f1_measure = f1_score(y_test, y_pred)
+        print('Old score: ', accuracy_score)
+        print('Old f-measure score: ', f1_measure)
+        SkLearn.printTerms(cv, old_model)
+        predictions = cross_val_predict(old_model, X, y, cv=5)
+        # Cross validation
         print('Cross validating with ' +
               str(num_kFold) + ' Stratified K-Fold...')
         scores, fMeasures = SkLearn.__kFold(
             X, y, num_splits=num_kFold, classifier=classifier)
         print('Accuracy scores: ', scores)
         print('F-measure scores: ', fMeasures)
-        print('Average score:', _Numpy.average(scores))
-        print('Average f-measure: ', _Numpy.average(fMeasures))
-        # final test with the 15 percent
-        print('Running with 15% testing sets...')
-        X_train, X_test, y_train, y_test = self.__trainSplit(X, y)
-        y_pred, old_model = classifier(X_train, X_test, y_train)
-        accuracy_score = old_model.score(X_test, y_test)
-        f1_measure = f1_score(y_test, y_pred)
-        print('Model score: ', accuracy_score)
-        print('Model f-measure score: ', f1_measure)
-        SkLearn.printTerms(cv, old_model)
-        predictions = cross_val_predict(old_model, X, y, cv=5)
-         
-        
+        print('Final score:', _Numpy.average(scores))
+        print('Final f-measure: ', _Numpy.average(fMeasures))
 
     @staticmethod
     def preprocess(data):
