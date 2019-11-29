@@ -4045,12 +4045,23 @@ Preprocessing...
 Running logistic regression...
 Running with testing sets...
 Feature size:  500
+[[124  28]
+ [ 27 121]]
+              precision    recall  f1-score   support
+
+           0       0.82      0.82      0.82       152
+           1       0.81      0.82      0.81       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.8148148148148149
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.795, 0.7875, 0.78, 0.8175, 0.7625]
 F-measure scores:  [0.8019323671497584, 0.7901234567901235, 0.7810945273631842, 0.8179551122194513, 0.7570332480818416]
-Final score: 0.7885
+Final accuracy score: 0.7885
 Final f-measure:  0.7896277423208719
 
 Printing terms...
@@ -4098,12 +4109,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 40 108]]
+              precision    recall  f1-score   support
+
+           0       0.75      0.81      0.78       152
+           1       0.79      0.73      0.76       148
+
+    accuracy                           0.77       300
+   macro avg       0.77      0.77      0.77       300
+weighted avg       0.77      0.77      0.77       300
+
 Old score:  0.77
 Old f-measure score:  0.7578947368421053
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.7775, 0.755, 0.755, 0.7875, 0.73]
 F-measure scores:  [0.7834549878345498, 0.7461139896373057, 0.7500000000000001, 0.7848101265822786, 0.7244897959183674]
-Final score: 0.761
+Final accuracy score: 0.761
 Final f-measure:  0.7577737799945004
 
 Printing terms...
@@ -4151,65 +4173,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 24 124]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.81      0.82       152
+           1       0.81      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8233333333333334
 Old f-measure score:  0.8239202657807307
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.765, 0.7625, 0.765, 0.785, 0.7675]
 F-measure scores:  [0.7740384615384616, 0.7630922693266834, 0.7614213197969544, 0.788177339901478, 0.7703703703703705]
-Final score: 0.769
+Final accuracy score: 0.769
 Final f-measure:  0.7714199521867895
 
 Printing terms...
-('well', 2.508253961110269)
-('fun', 2.4369511819837064)
-('light', 1.7882643416842359)
-('great', 1.7294512981641983)
-('throughout', 1.706115794292842)
-('true', 1.6452195816356219)
-('quite', 1.5931448777019483)
-('different', 1.5476180495594647)
-('performance', 1.467554294911123)
-('american', 1.4179300254115663)
-('seen', 1.3990834739013476)
-('although', 1.3623560204828031)
-('experience', 1.345257464699355)
-('right', 1.310733831856468)
-('several', 1.2953627003640562)
-('good', 1.2864614601847557)
-('best', 1.2751103305503324)
-('also', 1.267769350091288)
-('extremely', 1.266225169420809)
-('change', 1.2235098689631567)
-('bad', -3.4387056288626203)
-('supposed', -2.7972684762966904)
-('worst', -2.733708545898817)
-('boring', -2.6739358991554907)
-('attempt', -2.3789891951253472)
-('talent', -1.8580698456474634)
-('nunfortunately', -1.7999194008133714)
-('even', -1.7391813318653295)
-('could', -1.674549419185856)
-('enough', -1.488092200104284)
-('minute', -1.4563399641961958)
-('plot', -1.4115701121723097)
-('filmmaker', -1.3959997385920848)
-('script', -1.3880720741756323)
-('stupid', -1.3516898929223011)
-('nothing', -1.3504744610819657)
-('made', -1.290041539422539)
-('material', -1.2856099111484935)
-('would', -1.2775829440558506)
-('nnot', -1.2570074271909666)
+('well', 2.508253942345548)
+('fun', 2.4369570789625303)
+('light', 1.7882624421471789)
+('great', 1.7294475170453367)
+('throughout', 1.7061162942960681)
+('true', 1.6452179393677484)
+('quite', 1.5931439908548164)
+('different', 1.5476167912820802)
+('performance', 1.4675466902711487)
+('american', 1.417929144971452)
+('seen', 1.3990842063699056)
+('although', 1.3623595289512156)
+('experience', 1.3452552701517504)
+('right', 1.3107344211555696)
+('several', 1.2953575931147316)
+('good', 1.2864638153519905)
+('best', 1.2751045289401424)
+('also', 1.2677653247781517)
+('extremely', 1.2662256786685135)
+('change', 1.2235064668212554)
+('bad', -3.4387016834307)
+('supposed', -2.797264618600794)
+('worst', -2.7337095387134425)
+('boring', -2.6739329196314316)
+('attempt', -2.3789862610539845)
+('talent', -1.858067142769193)
+('nunfortunately', -1.7999295313398114)
+('even', -1.7391779896299144)
+('could', -1.6745538926533639)
+('enough', -1.4880939556373078)
+('minute', -1.4563386005848586)
+('plot', -1.4115765559456885)
+('filmmaker', -1.3959945517173424)
+('script', -1.3880723287528398)
+('stupid', -1.3516932507111872)
+('nothing', -1.350470902070173)
+('made', -1.2900435176854206)
+('material', -1.2856164633996967)
+('would', -1.2775869090679535)
+('nnot', -1.2570079571106607)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1000
+[[126  26]
+ [ 22 126]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.83      0.84       152
+           1       0.83      0.85      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.84
 Old f-measure score:  0.8400000000000001
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8275, 0.8225, 0.8075, 0.8475, 0.8025]
 F-measure scores:  [0.8329297820823245, 0.8246913580246914, 0.8108108108108107, 0.8463476070528968, 0.8]
-Final score: 0.8215
+Final accuracy score: 0.8215
 Final f-measure:  0.8229559115941447
 
 Printing terms...
@@ -4257,12 +4301,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1000
+[[119  33]
+ [ 32 116]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.78      0.78       148
+
+    accuracy                           0.78       300
+   macro avg       0.78      0.78      0.78       300
+weighted avg       0.78      0.78      0.78       300
+
 Old score:  0.7833333333333333
 Old f-measure score:  0.781144781144781
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.805, 0.7725, 0.7875, 0.8, 0.7925]
 F-measure scores:  [0.8059701492537314, 0.7684478371501272, 0.7921760391198045, 0.801980198019802, 0.7877237851662405]
-Final score: 0.7915
+Final accuracy score: 0.7915
 Final f-measure:  0.7912596017419411
 
 Printing terms...
@@ -4310,65 +4365,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1000
+[[122  30]
+ [ 21 127]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.80      0.83       152
+           1       0.81      0.86      0.83       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.83
 Old f-measure score:  0.8327868852459017
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.785, 0.815, 0.8125, 0.825, 0.785]
 F-measure scores:  [0.79126213592233, 0.8159203980099502, 0.8091603053435115, 0.8258706467661692, 0.7860696517412936]
-Final score: 0.8045
+Final accuracy score: 0.8045
 Final f-measure:  0.8056566275566508
 
 Printing terms...
-('fun', 2.386131229882478)
-('well', 2.3537308132028296)
-('hilarious', 1.9125123657439114)
-('great', 1.7509185919892583)
-('memorable', 1.686506070810743)
-('solid', 1.6755735024042453)
-('excellent', 1.6108128225196268)
-('definitely', 1.5567459964238755)
-('seen', 1.4764092045043418)
-('flaw', 1.4677841173417545)
-('others', 1.4543926850020898)
-('different', 1.4291641069348426)
-('extremely', 1.4138329753050738)
-('animation', 1.3777133783024897)
-('good', 1.367873647713731)
-('perfectly', 1.339852047636375)
-('light', 1.3331381001159988)
-('carry', 1.3248996678586118)
-('follows', 1.3055395571620432)
-('cameron', 1.2804229285577364)
-('bad', -2.7874171428647854)
-('worst', -2.339488485779204)
-('supposed', -2.267721700484231)
-('boring', -2.2068882927697167)
-('mess', -2.152606200098606)
-('ridiculous', -2.123759268105188)
-('awful', -2.062074572912229)
-('waste', -1.908865984093581)
-('attempt', -1.8930167811853023)
-('plot', -1.8019954905781457)
-('poor', -1.5494879018531005)
-('terrible', -1.496756296842994)
-('nunfortunately', -1.491477226526164)
-('even', -1.4605419026317807)
-('nothing', -1.4536568978151565)
-('material', -1.4436214802602774)
-('nwhy', -1.4338067213519705)
-('catch', -1.425057978115251)
-('minute', -1.4219541753688847)
-('could', -1.4054550616197263)
+('fun', 2.3861299005736547)
+('well', 2.3537322862273675)
+('hilarious', 1.9125168992208357)
+('great', 1.7509189566849472)
+('memorable', 1.6865088684009664)
+('solid', 1.6755737717202714)
+('excellent', 1.61081403389662)
+('definitely', 1.556749566272641)
+('seen', 1.4764111539930187)
+('flaw', 1.4677774345911367)
+('others', 1.4543949752771035)
+('different', 1.4291660805044508)
+('extremely', 1.4138322532911536)
+('animation', 1.3777175872894165)
+('good', 1.3678718515641168)
+('perfectly', 1.3398543328331698)
+('light', 1.3331392380220175)
+('carry', 1.3248941179562344)
+('follows', 1.3055386131982956)
+('cameron', 1.280425889728594)
+('bad', -2.787419250034026)
+('worst', -2.339485936948591)
+('supposed', -2.2677225220194663)
+('boring', -2.206887280030093)
+('mess', -2.1526016705483104)
+('ridiculous', -2.1237561554214195)
+('awful', -2.0620744547085375)
+('waste', -1.9088669896033603)
+('attempt', -1.893018335251143)
+('plot', -1.8019957208261563)
+('poor', -1.5494900498834523)
+('terrible', -1.49675878240794)
+('nunfortunately', -1.4914785536571755)
+('even', -1.460542264461203)
+('nothing', -1.4536581292982773)
+('material', -1.4436231451114694)
+('nwhy', -1.4338027023953404)
+('catch', -1.4250537980961524)
+('minute', -1.4219591491974035)
+('could', -1.4054515966487364)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1500
+[[128  24]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.84      0.84       152
+           1       0.84      0.84      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.8433333333333334
 Old f-measure score:  0.8417508417508418
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8575, 0.845, 0.8175, 0.845, 0.8325]
 F-measure scores:  [0.8592592592592593, 0.8465346534653465, 0.8232445520581112, 0.8472906403940887, 0.8286445012787724]
-Final score: 0.8394999999999999
+Final accuracy score: 0.8394999999999999
 Final f-measure:  0.8409947212911156
 
 Printing terms...
@@ -4416,12 +4493,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1500
+[[121  31]
+ [ 33 115]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.80      0.79       152
+           1       0.79      0.78      0.78       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.782312925170068
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.82, 0.79, 0.8025, 0.815, 0.7975]
 F-measure scores:  [0.817258883248731, 0.7889447236180904, 0.8029925187032418, 0.8140703517587939, 0.7917737789203084]
-Final score: 0.8049999999999999
+Final accuracy score: 0.8049999999999999
 Final f-measure:  0.8030080512498332
 
 Printing terms...
@@ -4469,65 +4557,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8425, 0.845, 0.82, 0.8425, 0.815]
 F-measure scores:  [0.8444444444444444, 0.845771144278607, 0.8190954773869347, 0.8436724565756824, 0.8140703517587939]
-Final score: 0.8329999999999999
+Final accuracy score: 0.8329999999999999
 Final f-measure:  0.8334107748888926
 
 Printing terms...
-('fun', 2.2436917884466037)
-('well', 2.1605336367350647)
-('hilarious', 1.6557770544045092)
-('good', 1.600168783149678)
-('great', 1.5620011680618109)
-('seen', 1.5573110165430477)
-('memorable', 1.5271290878328032)
-('solid', 1.4966520280858828)
-('terrific', 1.4717495614603258)
-('pulp', 1.4645261196298807)
-('excellent', 1.4217414805239104)
-('different', 1.3785107307260565)
-('flaw', 1.3488197687957495)
-('easily', 1.2363477292132548)
-('others', 1.2338414765554975)
-('definitely', 1.2235377206352536)
-('many', 1.2179284369876977)
-('pace', 1.2133741008007195)
-('allows', 1.2053517251279373)
-('people', 1.1956443255349325)
-('bad', -2.6453927850013685)
-('awful', -2.019542060574298)
-('worst', -1.9763093704657424)
-('supposed', -1.930997633157054)
-('boring', -1.8611925993722067)
-('ridiculous', -1.7634868622047253)
-('attempt', -1.7570289919034525)
-('mess', -1.7283017245385657)
-('minute', -1.6613914754274972)
-('plot', -1.5895826334501624)
-('nothing', -1.581110659558161)
-('waste', -1.5711789800925975)
-('lame', -1.553461360906762)
-('material', -1.4708690661185368)
-('poorly', -1.4547459825105002)
-('even', -1.386240371740655)
-('could', -1.3664530643910038)
-('poor', -1.3417757222351003)
-('terrible', -1.3044324632212876)
-('nthere', -1.2975490294310739)
+('fun', 2.2436918987932737)
+('well', 2.16053943222301)
+('hilarious', 1.655779359866165)
+('good', 1.600167219274453)
+('great', 1.5619990662349377)
+('seen', 1.557307388537946)
+('memorable', 1.5271297739954923)
+('solid', 1.4966489895185833)
+('terrific', 1.4717505520541754)
+('pulp', 1.4645240239465611)
+('excellent', 1.4217384526772563)
+('different', 1.378513388235987)
+('flaw', 1.3488236471058517)
+('easily', 1.2363485011066602)
+('others', 1.233838346885281)
+('definitely', 1.2235401285329703)
+('many', 1.217923587081973)
+('pace', 1.2133724310192404)
+('allows', 1.2053529156711993)
+('people', 1.1956442386012847)
+('bad', -2.645396902730551)
+('awful', -2.0195398411419316)
+('worst', -1.976308853314388)
+('supposed', -1.9309977652138688)
+('boring', -1.861192557250066)
+('ridiculous', -1.7634827309569916)
+('attempt', -1.7570290419090657)
+('mess', -1.7283010261092406)
+('minute', -1.6613872575202038)
+('plot', -1.5895807652628455)
+('nothing', -1.5811117443150082)
+('waste', -1.5711778273602028)
+('lame', -1.553456311795146)
+('material', -1.4708691392528985)
+('poorly', -1.4547469803423276)
+('even', -1.3862369030163277)
+('could', -1.3664521511713474)
+('poor', -1.3417779137721335)
+('terrible', -1.3044300687965975)
+('nthere', -1.2975449053008958)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 19 129]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.84       152
+           1       0.83      0.87      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.8466666666666667
 Old f-measure score:  0.8486842105263156
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.855, 0.84, 0.8275, 0.8525, 0.8225]
 F-measure scores:  [0.8571428571428571, 0.8415841584158417, 0.8329297820823245, 0.8528678304239402, 0.8193384223918575]
-Final score: 0.8394999999999999
+Final accuracy score: 0.8394999999999999
 Final f-measure:  0.8407726100913642
 
 Printing terms...
@@ -4575,12 +4685,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2000
+[[119  33]
+ [ 31 117]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.79      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.7852348993288591
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8225, 0.805, 0.81, 0.815, 0.7775]
 F-measure scores:  [0.8193384223918575, 0.8030303030303031, 0.8137254901960785, 0.8112244897959185, 0.7651715039577837]
-Final score: 0.806
+Final accuracy score: 0.806
 Final f-measure:  0.8024980418743883
 
 Printing terms...
@@ -4628,65 +4749,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 14 134]]
+              precision    recall  f1-score   support
+
+           0       0.90      0.82      0.86       152
+           1       0.83      0.91      0.87       148
+
+    accuracy                           0.86       300
+   macro avg       0.87      0.86      0.86       300
+weighted avg       0.87      0.86      0.86       300
+
 Old score:  0.8633333333333333
 Old f-measure score:  0.8673139158576052
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8425, 0.85, 0.8175, 0.85, 0.82]
 F-measure scores:  [0.8421052631578947, 0.8522167487684729, 0.8179551122194513, 0.8522167487684729, 0.8153846153846155]
-Final score: 0.836
+Final accuracy score: 0.836
 Final f-measure:  0.8359756976597815
 
 Printing terms...
-('fun', 2.10277793464993)
-('well', 1.9672035804231371)
-('great', 1.5391930663318554)
-('hilarious', 1.4453175219355898)
-('seen', 1.3575751361964694)
-('solid', 1.2824164179019697)
-('terrific', 1.2682052876847658)
-('different', 1.265428536740977)
-('pulp', 1.2581020883893161)
-('good', 1.246757171007699)
-('excellent', 1.2314310860900082)
-('memorable', 1.1967664510736766)
-('flaw', 1.1966963546852518)
-('definitely', 1.17984541716195)
-('many', 1.1745262940912828)
-('people', 1.1626524207304634)
-('carry', 1.1576435109035936)
-('allows', 1.132959175369041)
-('always', 1.1264097223045144)
-('life', 1.1165203957952832)
-('bad', -2.5733541633653036)
-('supposed', -1.7377611953241108)
-('awful', -1.724340181779606)
-('boring', -1.7232997978096178)
-('nothing', -1.66362426708611)
-('attempt', -1.662699511313316)
-('worst', -1.6598650764537342)
-('plot', -1.6029195196793535)
-('ridiculous', -1.5687941889406016)
-('minute', -1.4973762688602492)
-('waste', -1.470727753363032)
-('mess', -1.353575284506629)
-('could', -1.326262402620223)
-('even', -1.3018507747457193)
-('material', -1.286750662654043)
-('lame', -1.240654538798988)
-('better', -1.2340272709308187)
-('joan', -1.2168418914920718)
-('poor', -1.216033578914462)
-('catch', -1.1881080810629852)
+('fun', 2.102778842715791)
+('well', 1.967198994996957)
+('great', 1.5391962800510628)
+('hilarious', 1.4453210312629294)
+('seen', 1.3575801720443461)
+('solid', 1.2824151357751865)
+('terrific', 1.2682085740526907)
+('different', 1.2654274506302405)
+('pulp', 1.2581039360560113)
+('good', 1.2467579894742524)
+('excellent', 1.2314299823244939)
+('memorable', 1.196765075184557)
+('flaw', 1.1967023859785986)
+('definitely', 1.1798481120957585)
+('many', 1.1745242898848023)
+('people', 1.1626516501480098)
+('carry', 1.1576453608770774)
+('allows', 1.132955788475651)
+('always', 1.1264093612511619)
+('life', 1.1165185907862216)
+('bad', -2.5733552579699124)
+('supposed', -1.7377552925613797)
+('awful', -1.7243416359825723)
+('boring', -1.7232967605758491)
+('nothing', -1.6636243551396215)
+('attempt', -1.6626985195864588)
+('worst', -1.6598690387612285)
+('plot', -1.6029180019321407)
+('ridiculous', -1.568795781091933)
+('minute', -1.497372793732644)
+('waste', -1.4707243340385867)
+('mess', -1.35357707470963)
+('could', -1.3262651387725193)
+('even', -1.3018531554710822)
+('material', -1.2867483784753966)
+('lame', -1.2406504990090825)
+('better', -1.2340216889680822)
+('joan', -1.2168394380819898)
+('poor', -1.2160359559114133)
+('catch', -1.1881113566026278)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2500
+[[122  30]
+ [ 20 128]]
+              precision    recall  f1-score   support
+
+           0       0.86      0.80      0.83       152
+           1       0.81      0.86      0.84       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.8333333333333334
 Old f-measure score:  0.8366013071895425
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.85, 0.8375, 0.8325, 0.8475, 0.8225]
 F-measure scores:  [0.8522167487684729, 0.8395061728395061, 0.8393285371702637, 0.8471177944862155, 0.8193384223918575]
-Final score: 0.8380000000000001
+Final accuracy score: 0.8380000000000001
 Final f-measure:  0.8395015351312631
 
 Printing terms...
@@ -4734,12 +4877,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2500
+[[118  34]
+ [ 29 119]]
+              precision    recall  f1-score   support
+
+           0       0.80      0.78      0.79       152
+           1       0.78      0.80      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.79
 Old f-measure score:  0.7906976744186046
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8125, 0.8275, 0.815, 0.8125, 0.78]
 F-measure scores:  [0.8081841432225063, 0.823529411764706, 0.8177339901477833, 0.8041775456919059, 0.7696335078534031]
-Final score: 0.8095000000000001
+Final accuracy score: 0.8095000000000001
 Final f-measure:  0.804651719736061
 
 Printing terms...
@@ -4787,65 +4941,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8325, 0.8575, 0.8325, 0.85, 0.83]
 F-measure scores:  [0.8337468982630273, 0.8606356968215159, 0.8369829683698298, 0.8492462311557788, 0.826530612244898]
-Final score: 0.8404999999999999
+Final accuracy score: 0.8404999999999999
 Final f-measure:  0.84142848137101
 
 Printing terms...
-('fun', 2.0385587201502093)
-('well', 1.8848474192839257)
-('great', 1.4989202046255228)
-('hilarious', 1.350477998099726)
-('pulp', 1.317766848657943)
-('seen', 1.2585687144715563)
-('different', 1.2448581182780787)
-('good', 1.1615707478684147)
-('excellent', 1.1598154124571045)
-('solid', 1.1530315540002647)
-('memorable', 1.1303542032745522)
-('terrific', 1.1131848241817714)
-('many', 1.1057686416318304)
-('always', 1.0777040849323374)
-('people', 1.0758846531067516)
-('job', 1.0714776626461961)
-('allows', 1.0679567322120254)
-('perfect', 1.0571933536077032)
-('flaw', 1.0560321290409542)
-('mulan', 1.0464650393280635)
-('bad', -2.5722941144352616)
-('plot', -1.7100115924665489)
-('supposed', -1.7048501877731874)
-('attempt', -1.6319730584860324)
-('awful', -1.5946331358089283)
-('worst', -1.58074455771138)
-('nothing', -1.5703841557939344)
-('boring', -1.566936659255185)
-('minute', -1.558747210080656)
-('waste', -1.4469784088141338)
-('ridiculous', -1.4316391774695658)
-('could', -1.3294746331282612)
-('mess', -1.314253409135282)
-('even', -1.2830771430853263)
-('bore', -1.2645205796296488)
-('designed', -1.2634011797264204)
-('poor', -1.2109804924767993)
-('material', -1.183533642650871)
-('joan', -1.163624522685818)
-('wasted', -1.1612043909207581)
+('fun', 2.03855840208658)
+('well', 1.8848462307749045)
+('great', 1.498924711717927)
+('hilarious', 1.3504787637932936)
+('pulp', 1.3177704947347353)
+('seen', 1.2585717214008432)
+('different', 1.2448599936805806)
+('good', 1.1615704363029993)
+('excellent', 1.1598159466406386)
+('solid', 1.1530302754397252)
+('memorable', 1.1303524697832035)
+('terrific', 1.1131848769756105)
+('many', 1.1057665659055576)
+('always', 1.0777083383536725)
+('people', 1.0758804271635187)
+('job', 1.0714791674309267)
+('allows', 1.0679563667339547)
+('perfect', 1.0571952887092115)
+('flaw', 1.056028490262036)
+('mulan', 1.0464640868110164)
+('bad', -2.5722903553293124)
+('plot', -1.7100075748003525)
+('supposed', -1.7048502954816522)
+('attempt', -1.631977488032642)
+('awful', -1.5946348410962956)
+('worst', -1.58074132038818)
+('nothing', -1.5703863371815578)
+('boring', -1.5669359845081328)
+('minute', -1.5587463810596862)
+('waste', -1.4469784438050004)
+('ridiculous', -1.4316387863381634)
+('could', -1.3294760337787885)
+('mess', -1.3142521744943862)
+('even', -1.2830805735474216)
+('bore', -1.264516229450431)
+('designed', -1.2634005119169174)
+('poor', -1.2109852116290003)
+('material', -1.1835313503781906)
+('joan', -1.163622864497116)
+('wasted', -1.161204501629637)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  3000
+[[120  32]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.79      0.81       152
+           1       0.80      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.819672131147541
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8525, 0.8425, 0.8325, 0.845, 0.825]
 F-measure scores:  [0.855036855036855, 0.8428927680798004, 0.837772397094431, 0.8442211055276383, 0.825]
-Final score: 0.8394999999999999
+Final accuracy score: 0.8394999999999999
 Final f-measure:  0.8409846251477449
 
 Printing terms...
@@ -4893,12 +5069,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  3000
+[[112  40]
+ [ 34 114]]
+              precision    recall  f1-score   support
+
+           0       0.77      0.74      0.75       152
+           1       0.74      0.77      0.75       148
+
+    accuracy                           0.75       300
+   macro avg       0.75      0.75      0.75       300
+weighted avg       0.75      0.75      0.75       300
+
 Old score:  0.7533333333333333
 Old f-measure score:  0.7549668874172186
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8175, 0.7975, 0.81, 0.815, 0.7875]
 F-measure scores:  [0.8113695090439277, 0.7917737789203084, 0.8128078817733989, 0.8082901554404146, 0.7780678851174935]
-Final score: 0.8055
+Final accuracy score: 0.8055
 Final f-measure:  0.8004618420591086
 
 Printing terms...
@@ -4946,65 +5133,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  3000
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8475, 0.855, 0.825, 0.84, 0.835]
 F-measure scores:  [0.8471177944862155, 0.855, 0.8317307692307693, 0.8415841584158417, 0.8333333333333333]
-Final score: 0.8404999999999999
+Final accuracy score: 0.8404999999999999
 Final f-measure:  0.8417532110932319
 
 Printing terms...
-('fun', 1.998381877518158)
-('well', 1.8277480905894792)
-('great', 1.5862421568405747)
-('hilarious', 1.2868881700417762)
-('seen', 1.242206750192637)
-('pulp', 1.199840361633399)
-('different', 1.1363511373172903)
-('excellent', 1.1308369464211734)
-('many', 1.1248370709287085)
-('solid', 1.1027604878494615)
-('memorable', 1.0941128472190969)
-('terrific', 1.07367164465765)
-('people', 1.071385951194577)
-('always', 1.0480209716187416)
-('good', 1.0370196734275954)
-('matrix', 1.0291403551526954)
-('truman', 1.0174077914838329)
-('carry', 1.0142716849383617)
-('frank', 1.003024106778722)
-('bulworth', 1.0023871648269833)
-('bad', -2.4750030204759144)
-('plot', -1.6913352496447014)
-('supposed', -1.6632857443875062)
-('attempt', -1.604397378134122)
-('awful', -1.52879623594074)
-('nothing', -1.5285022622836149)
-('worst', -1.5221019337451422)
-('boring', -1.5019076158595062)
-('minute', -1.4577544235948696)
-('even', -1.337947824635562)
-('waste', -1.3299992375528302)
-('could', -1.2874298195654288)
-('mess', -1.2870821530364693)
-('ridiculous', -1.2808532205065888)
-('poor', -1.2373453480243)
-('joan', -1.1848450534699837)
-('tedious', -1.1569397621983077)
-('designed', -1.1465622549854504)
-('talk', -1.1311206273421968)
-('look', -1.1251604050070885)
+('fun', 1.998381491071579)
+('well', 1.8277526605550447)
+('great', 1.5862424550751437)
+('hilarious', 1.2868894395487152)
+('seen', 1.2422062467130566)
+('pulp', 1.1998416556861529)
+('different', 1.1363491385173683)
+('excellent', 1.1308377898800626)
+('many', 1.1248404209886915)
+('solid', 1.1027578786182044)
+('memorable', 1.0941123439633305)
+('terrific', 1.0736711591553785)
+('people', 1.0713862969080459)
+('always', 1.0480195828828824)
+('good', 1.0370238509857665)
+('matrix', 1.0291391050885974)
+('truman', 1.017405955596595)
+('carry', 1.0142723846792554)
+('frank', 1.0030217507340522)
+('bulworth', 1.0023869327015495)
+('bad', -2.475005300995618)
+('plot', -1.6913360428733952)
+('supposed', -1.663284177449407)
+('attempt', -1.6043992504137579)
+('awful', -1.5287941264013722)
+('nothing', -1.528501085063942)
+('worst', -1.5221034155163762)
+('boring', -1.501907442259481)
+('minute', -1.4577569434858793)
+('even', -1.3379473385460192)
+('waste', -1.330001613550305)
+('could', -1.287429903591468)
+('mess', -1.287082231811887)
+('ridiculous', -1.2808525526810175)
+('poor', -1.2373439553144407)
+('joan', -1.1848475674983099)
+('tedious', -1.156938767323758)
+('designed', -1.1465605755397712)
+('talk', -1.1311217564600977)
+('look', -1.1251640720966545)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  500
+[[124  28]
+ [ 27 121]]
+              precision    recall  f1-score   support
+
+           0       0.82      0.82      0.82       152
+           1       0.81      0.82      0.81       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.8148148148148149
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.79, 0.8, 0.8, 0.78, 0.785, 0.8, 0.83, 0.79, 0.76, 0.79]
 F-measure scores:  [0.798076923076923, 0.8058252427184467, 0.8058252427184467, 0.7708333333333333, 0.7942583732057417, 0.7938144329896908, 0.8333333333333334, 0.79, 0.7499999999999999, 0.7878787878787878]
-Final score: 0.7925
+Final accuracy score: 0.7925
 Final f-measure:  0.7929845669254705
 
 Printing terms...
@@ -5052,12 +5261,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 40 108]]
+              precision    recall  f1-score   support
+
+           0       0.75      0.81      0.78       152
+           1       0.79      0.73      0.76       148
+
+    accuracy                           0.77       300
+   macro avg       0.77      0.77      0.77       300
+weighted avg       0.77      0.77      0.77       300
+
 Old score:  0.77
 Old f-measure score:  0.7578947368421053
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.77, 0.8, 0.755, 0.76, 0.74, 0.76, 0.79, 0.785, 0.745, 0.75]
 F-measure scores:  [0.7745098039215687, 0.801980198019802, 0.7537688442211055, 0.7499999999999999, 0.7373737373737373, 0.7473684210526317, 0.7857142857142857, 0.7817258883248732, 0.7357512953367875, 0.75]
-Final score: 0.7655000000000001
+Final accuracy score: 0.7655000000000001
 Final f-measure:  0.7618192473964792
 
 Printing terms...
@@ -5105,65 +5325,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 24 124]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.81      0.82       152
+           1       0.81      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8233333333333334
 Old f-measure score:  0.8239202657807307
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.785, 0.755, 0.78, 0.765, 0.78, 0.785, 0.8, 0.79, 0.77, 0.765]
 F-measure scores:  [0.7902439024390244, 0.7655502392344498, 0.7884615384615384, 0.7513227513227513, 0.7821782178217823, 0.7817258883248732, 0.801980198019802, 0.7878787878787878, 0.7722772277227723, 0.7729468599033816]
-Final score: 0.7775
+Final accuracy score: 0.7775
 Final f-measure:  0.7794565611129163
 
 Printing terms...
-('well', 2.5082524369734354)
-('fun', 2.4369615901991284)
-('light', 1.7882651395947755)
-('great', 1.729445747212968)
-('throughout', 1.7061214398654483)
-('true', 1.6452232781593898)
-('quite', 1.5931397499198257)
-('different', 1.5476235458756598)
-('performance', 1.4675568849800182)
-('american', 1.4179278541009444)
-('seen', 1.3990834235128038)
-('although', 1.3623546149457162)
-('experience', 1.3452581250073012)
-('right', 1.3107415564479343)
-('several', 1.295356329166933)
-('good', 1.2864640238611837)
-('best', 1.2751042502062733)
-('also', 1.267769219435523)
-('extremely', 1.2662260619883325)
-('change', 1.2235078205067502)
-('bad', -3.438702721328811)
-('supposed', -2.7972576235145317)
-('worst', -2.7337104005456068)
-('boring', -2.673934738006133)
-('attempt', -2.378986313251803)
-('talent', -1.8580688947280644)
-('nunfortunately', -1.799922622510322)
-('even', -1.7391803692539607)
-('could', -1.6745499893755342)
-('enough', -1.488097530650301)
-('minute', -1.456338867126924)
-('plot', -1.411580067235616)
-('filmmaker', -1.3959977750938366)
-('script', -1.3880733628724802)
-('stupid', -1.3516955585940176)
-('nothing', -1.3504735800353012)
-('made', -1.2900455110940514)
-('material', -1.2856201619001941)
-('would', -1.2775898282236597)
-('nnot', -1.2570070672023412)
+('well', 2.508248143933852)
+('fun', 2.436954499044698)
+('light', 1.7882610949361601)
+('great', 1.7294507787882383)
+('throughout', 1.706118978519851)
+('true', 1.6452204305444071)
+('quite', 1.5931326608286764)
+('different', 1.547619642753193)
+('performance', 1.467551912602099)
+('american', 1.4179336123769375)
+('seen', 1.399092427477473)
+('although', 1.362356917279811)
+('experience', 1.345254946262244)
+('right', 1.310734846712107)
+('several', 1.295357304777917)
+('good', 1.2864632157554239)
+('best', 1.2751124233506865)
+('also', 1.2677642638264517)
+('extremely', 1.2662276486652586)
+('change', 1.2235063909331814)
+('bad', -3.4387047484444113)
+('supposed', -2.797265122664366)
+('worst', -2.733710543450108)
+('boring', -2.673935877414044)
+('attempt', -2.378988164063344)
+('talent', -1.8580690974331528)
+('nunfortunately', -1.799928277778591)
+('even', -1.7391796076112396)
+('could', -1.674555064475071)
+('enough', -1.4880912358691676)
+('minute', -1.4563471696874073)
+('plot', -1.4115758579569782)
+('filmmaker', -1.396005138754162)
+('script', -1.3880808392023845)
+('stupid', -1.351691690094566)
+('nothing', -1.3504677228337747)
+('made', -1.2900443987842294)
+('material', -1.285610386189846)
+('would', -1.2775878381664392)
+('nnot', -1.2570004401301604)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1000
+[[126  26]
+ [ 22 126]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.83      0.84       152
+           1       0.83      0.85      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.84
 Old f-measure score:  0.8400000000000001
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.83, 0.875, 0.825, 0.84, 0.805, 0.82, 0.84, 0.84, 0.795, 0.83]
 F-measure scores:  [0.8380952380952381, 0.8743718592964824, 0.8258706467661692, 0.8383838383838385, 0.8115942028985507, 0.82, 0.8383838383838385, 0.8399999999999999, 0.7875647668393783, 0.8333333333333334]
-Final score: 0.8299999999999998
+Final accuracy score: 0.8299999999999998
 Final f-measure:  0.830759772399683
 
 Printing terms...
@@ -5211,12 +5453,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1000
+[[119  33]
+ [ 32 116]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.78      0.78       148
+
+    accuracy                           0.78       300
+   macro avg       0.78      0.78      0.78       300
+weighted avg       0.78      0.78      0.78       300
+
 Old score:  0.7833333333333333
 Old f-measure score:  0.781144781144781
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.795, 0.825, 0.78, 0.8, 0.765, 0.785, 0.83, 0.785, 0.79, 0.805]
 F-measure scores:  [0.8, 0.8223350253807107, 0.7777777777777778, 0.7916666666666667, 0.7729468599033816, 0.7839195979899497, 0.83, 0.7817258883248732, 0.7765957446808511, 0.8097560975609757]
-Final score: 0.796
+Final accuracy score: 0.796
 Final f-measure:  0.7946723658285186
 
 Printing terms...
@@ -5264,65 +5517,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1000
+[[122  30]
+ [ 21 127]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.80      0.83       152
+           1       0.81      0.86      0.83       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.83
 Old f-measure score:  0.8327868852459017
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.8, 0.84, 0.825, 0.85, 0.785, 0.84, 0.805, 0.85, 0.815, 0.795]
 F-measure scores:  [0.8095238095238095, 0.8431372549019608, 0.8241206030150754, 0.8529411764705882, 0.7839195979899497, 0.8431372549019608, 0.802030456852792, 0.8484848484848485, 0.8062827225130889, 0.7980295566502462]
-Final score: 0.8205
+Final accuracy score: 0.8205
 Final f-measure:  0.821160728130432
 
 Printing terms...
-('fun', 2.386128229016494)
-('well', 2.3537344731711105)
-('hilarious', 1.912512616468183)
-('great', 1.7509183079796733)
-('memorable', 1.686506046913598)
-('solid', 1.6755733044477772)
-('excellent', 1.6108122638135256)
-('definitely', 1.5567471610453125)
-('seen', 1.4764100332551637)
-('flaw', 1.4677809554354444)
-('others', 1.4543913593812783)
-('different', 1.429163665431182)
-('extremely', 1.4138372953188456)
-('animation', 1.3777130468480814)
-('good', 1.3678702972268082)
-('perfectly', 1.3398539510811531)
-('light', 1.333139039929759)
-('carry', 1.3248952439557926)
-('follows', 1.3055412218873914)
-('cameron', 1.2804258049137205)
-('bad', -2.7874224979813667)
-('worst', -2.3394872772099142)
-('supposed', -2.267720440976816)
-('boring', -2.2068897009504593)
-('mess', -2.152602004026055)
-('ridiculous', -2.123757879334823)
-('awful', -2.0620734113543118)
-('waste', -1.9088683351802394)
-('attempt', -1.8930217645983871)
-('plot', -1.801997691936034)
-('poor', -1.549487996691608)
-('terrible', -1.4967539754514398)
-('nunfortunately', -1.4914798786220569)
-('even', -1.4605480066085288)
-('nothing', -1.4536569328904518)
-('material', -1.4436236980689463)
-('nwhy', -1.4338083193406541)
-('catch', -1.425052706802869)
-('minute', -1.4219571822599204)
-('could', -1.4054552955998543)
+('fun', 2.386128850779223)
+('well', 2.353737286211865)
+('hilarious', 1.912510570840488)
+('great', 1.7509199684323575)
+('memorable', 1.6865108136972242)
+('solid', 1.6755712714562032)
+('excellent', 1.6108199279552653)
+('definitely', 1.5567505421254888)
+('seen', 1.476407224283815)
+('flaw', 1.467779531175881)
+('others', 1.4543932921588982)
+('different', 1.4291614814980418)
+('extremely', 1.4138382583235054)
+('animation', 1.3777155844444255)
+('good', 1.367875712948251)
+('perfectly', 1.339853835975841)
+('light', 1.3331394958647893)
+('carry', 1.3249003385096818)
+('follows', 1.305541601859556)
+('cameron', 1.2804261360213243)
+('bad', -2.787417856412637)
+('worst', -2.3394890825390906)
+('supposed', -2.267716635407369)
+('boring', -2.2068866596094465)
+('mess', -2.152606355993975)
+('ridiculous', -2.1237586462357387)
+('awful', -2.062073994341867)
+('waste', -1.9088673648522405)
+('attempt', -1.8930178617740623)
+('plot', -1.8019974089312119)
+('poor', -1.5494880605100858)
+('terrible', -1.4967532895816635)
+('nunfortunately', -1.4914772783238508)
+('even', -1.4605434773159056)
+('nothing', -1.4536572786092778)
+('material', -1.4436234858172023)
+('nwhy', -1.4338117707974554)
+('catch', -1.4250563291518807)
+('minute', -1.4219561043643671)
+('could', -1.4054530902022877)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1500
+[[128  24]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.84      0.84       152
+           1       0.84      0.84      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.8433333333333334
 Old f-measure score:  0.8417508417508418
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.835, 0.875, 0.85, 0.825, 0.81, 0.84, 0.865, 0.85, 0.81, 0.845]
 F-measure scores:  [0.8421052631578948, 0.8756218905472637, 0.8514851485148515, 0.8223350253807107, 0.8137254901960785, 0.8399999999999999, 0.864321608040201, 0.8529411764705882, 0.8041237113402062, 0.8472906403940887]
-Final score: 0.8405000000000001
+Final accuracy score: 0.8405000000000001
 Final f-measure:  0.8413949954041883
 
 Printing terms...
@@ -5370,12 +5645,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1500
+[[121  31]
+ [ 33 115]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.80      0.79       152
+           1       0.79      0.78      0.78       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.782312925170068
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.795, 0.865, 0.79, 0.81, 0.78, 0.82, 0.835, 0.805, 0.755, 0.83]
 F-measure scores:  [0.7918781725888325, 0.8629441624365483, 0.79, 0.8041237113402062, 0.7843137254901961, 0.82, 0.8341708542713568, 0.8078817733990147, 0.743455497382199, 0.83]
-Final score: 0.8084999999999999
+Final accuracy score: 0.8084999999999999
 Final f-measure:  0.8068767896908353
 
 Printing terms...
@@ -5423,65 +5709,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.81, 0.875, 0.88, 0.825, 0.775, 0.85, 0.84, 0.845, 0.815, 0.795]
 F-measure scores:  [0.8173076923076923, 0.8743718592964824, 0.88, 0.8258706467661692, 0.7738693467336684, 0.85, 0.8399999999999999, 0.848780487804878, 0.8121827411167513, 0.7960199004975126]
-Final score: 0.8310000000000001
+Final accuracy score: 0.8310000000000001
 Final f-measure:  0.8318402674523154
 
 Printing terms...
-('fun', 2.243690915141615)
-('well', 2.1605355245494944)
-('hilarious', 1.655779220491749)
-('good', 1.6001693310950331)
-('great', 1.5620009898623473)
-('seen', 1.5573070141587857)
-('memorable', 1.5271327688972507)
-('solid', 1.4966508476075273)
-('terrific', 1.4717515803854515)
-('pulp', 1.4645228812368478)
-('excellent', 1.4217399873509233)
-('different', 1.3785119527077128)
-('flaw', 1.3488143206553795)
-('easily', 1.2363478302274435)
-('others', 1.2338450713963376)
-('definitely', 1.223537394186515)
-('many', 1.2179243027209934)
-('pace', 1.213371472196869)
-('allows', 1.20535027391088)
-('people', 1.195648970847989)
-('bad', -2.645394377011927)
-('awful', -2.0195410105368268)
-('worst', -1.9763081929783117)
-('supposed', -1.930997698076859)
-('boring', -1.8611954447177432)
-('ridiculous', -1.7634892592273481)
-('attempt', -1.7570308087206015)
-('mess', -1.728302793920796)
-('minute', -1.6613906370511131)
-('plot', -1.5895847901583717)
-('nothing', -1.581111137475468)
-('waste', -1.5711786543900634)
-('lame', -1.5534591068617551)
-('material', -1.470864120895625)
-('poorly', -1.4547463578409945)
-('even', -1.3862370665513992)
-('could', -1.3664523114658302)
-('poor', -1.3417753103469388)
-('terrible', -1.304429738476891)
-('nthere', -1.2975459179336382)
+('fun', 2.243689612522475)
+('well', 2.1605397751527704)
+('hilarious', 1.6557801122048166)
+('good', 1.600163445551813)
+('great', 1.562002709935344)
+('seen', 1.5573114398258443)
+('memorable', 1.5271318742755522)
+('solid', 1.4966451259847455)
+('terrific', 1.471749655540663)
+('pulp', 1.4645259534694517)
+('excellent', 1.4217417951352707)
+('different', 1.3785092876196696)
+('flaw', 1.3488187589467973)
+('easily', 1.2363459298370243)
+('others', 1.2338415843426096)
+('definitely', 1.2235377225585322)
+('many', 1.2179198609292528)
+('pace', 1.2133696890723937)
+('allows', 1.2053516291703976)
+('people', 1.1956460771394992)
+('bad', -2.6453994507679806)
+('awful', -2.0195405662679806)
+('worst', -1.9763157102989573)
+('supposed', -1.9309957537146707)
+('boring', -1.8611949862331794)
+('ridiculous', -1.7634864764324794)
+('attempt', -1.7570299917125012)
+('mess', -1.7283000490281928)
+('minute', -1.6613896762744833)
+('plot', -1.5895866350325176)
+('nothing', -1.5811135297828753)
+('waste', -1.5711745502087902)
+('lame', -1.5534596712121655)
+('material', -1.4708720188695612)
+('poorly', -1.454749223432656)
+('even', -1.3862410800275937)
+('could', -1.3664492339132899)
+('poor', -1.3417789300211755)
+('terrible', -1.3044273782399363)
+('nthere', -1.297549200303814)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 19 129]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.84       152
+           1       0.83      0.87      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.8466666666666667
 Old f-measure score:  0.8486842105263156
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.85, 0.88, 0.865, 0.86, 0.825, 0.85, 0.87, 0.86, 0.815, 0.86]
 F-measure scores:  [0.8557692307692307, 0.88, 0.8682926829268293, 0.8571428571428572, 0.8292682926829269, 0.8529411764705882, 0.8686868686868686, 0.8613861386138614, 0.8042328042328041, 0.8627450980392156]
-Final score: 0.8534999999999998
+Final accuracy score: 0.8534999999999998
 Final f-measure:  0.8540465149565183
 
 Printing terms...
@@ -5529,12 +5837,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2000
+[[119  33]
+ [ 31 117]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.79      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.7852348993288591
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.79, 0.845, 0.81, 0.825, 0.81, 0.825, 0.85, 0.835, 0.755, 0.82]
 F-measure scores:  [0.7878787878787878, 0.8393782383419689, 0.81, 0.8167539267015708, 0.81, 0.8241206030150754, 0.8453608247422681, 0.8341708542713568, 0.7379679144385026, 0.8217821782178217]
-Final score: 0.8164999999999999
+Final accuracy score: 0.8164999999999999
 Final f-measure:  0.8127413327607353
 
 Printing terms...
@@ -5582,65 +5901,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 14 134]]
+              precision    recall  f1-score   support
+
+           0       0.90      0.82      0.86       152
+           1       0.83      0.91      0.87       148
+
+    accuracy                           0.86       300
+   macro avg       0.87      0.86      0.86       300
+weighted avg       0.87      0.86      0.86       300
+
 Old score:  0.8633333333333333
 Old f-measure score:  0.8673139158576052
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.815, 0.855, 0.895, 0.86, 0.79, 0.875, 0.865, 0.85, 0.82, 0.825]
 F-measure scores:  [0.8212560386473431, 0.849740932642487, 0.8944723618090452, 0.8613861386138614, 0.79, 0.8743718592964824, 0.864321608040201, 0.8529411764705882, 0.8105263157894737, 0.8241206030150754]
-Final score: 0.845
+Final accuracy score: 0.845
 Final f-measure:  0.8443137034324557
 
 Printing terms...
-('fun', 2.1027788521209154)
-('well', 1.967197905228864)
-('great', 1.5391930531450941)
-('hilarious', 1.4453230836962376)
-('seen', 1.35757449752294)
-('solid', 1.2824160591051572)
-('terrific', 1.2682064963071156)
-('different', 1.2654317548938012)
-('pulp', 1.258109613395358)
-('good', 1.2467579580564374)
-('excellent', 1.2314291286805108)
-('memorable', 1.1967634278187855)
-('flaw', 1.196697819693486)
-('definitely', 1.1798473998885803)
-('many', 1.1745264096920576)
-('people', 1.1626536743335312)
-('carry', 1.1576436561805012)
-('allows', 1.1329585837104779)
-('always', 1.1264070485460072)
-('life', 1.116520434945059)
-('bad', -2.5733533078963653)
-('supposed', -1.7377612940200635)
-('awful', -1.7243426188047934)
-('boring', -1.7232956804550041)
-('nothing', -1.6636232309471537)
-('attempt', -1.6626968007928393)
-('worst', -1.6598654083404945)
-('plot', -1.6029099179833397)
-('ridiculous', -1.5687988089098974)
-('minute', -1.4973767933818325)
-('waste', -1.4707272133312248)
-('mess', -1.353579451057805)
-('could', -1.3262602389361764)
-('even', -1.301846717143159)
-('material', -1.2867480057048204)
-('lame', -1.2406514426445205)
-('better', -1.2340216936759125)
-('joan', -1.216843588390461)
-('poor', -1.2160335571640402)
-('catch', -1.1881100854662123)
+('fun', 2.102777543054152)
+('well', 1.9671983862379858)
+('great', 1.539192656604409)
+('hilarious', 1.445321630345711)
+('seen', 1.357575153428546)
+('solid', 1.2824156686221237)
+('terrific', 1.2682062372193716)
+('different', 1.2654251402681036)
+('pulp', 1.2581031567611944)
+('good', 1.2467547638316239)
+('excellent', 1.2314294235386094)
+('memorable', 1.1967627928469595)
+('flaw', 1.1966971941723163)
+('definitely', 1.1798463426744004)
+('many', 1.174527762084255)
+('people', 1.1626511574435971)
+('carry', 1.157639384634316)
+('allows', 1.132960237960747)
+('always', 1.1264063922370282)
+('life', 1.116520272221701)
+('bad', -2.573356134833455)
+('supposed', -1.7377630370510604)
+('awful', -1.7243402228345572)
+('boring', -1.723297264530831)
+('nothing', -1.663624779760928)
+('attempt', -1.6626970844303184)
+('worst', -1.6598689743111672)
+('plot', -1.6029186985702786)
+('ridiculous', -1.5687938261735415)
+('minute', -1.4973800725636053)
+('waste', -1.4707239111885584)
+('mess', -1.3535804064079593)
+('could', -1.326265280529204)
+('even', -1.3018512456701588)
+('material', -1.286748708768677)
+('lame', -1.240654600067689)
+('better', -1.2340211634802856)
+('joan', -1.2168424182707835)
+('poor', -1.2160343361551786)
+('catch', -1.1881087188640356)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2500
+[[122  30]
+ [ 20 128]]
+              precision    recall  f1-score   support
+
+           0       0.86      0.80      0.83       152
+           1       0.81      0.86      0.84       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.8333333333333334
 Old f-measure score:  0.8366013071895425
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.82, 0.875, 0.85, 0.855, 0.825, 0.855, 0.875, 0.84, 0.815, 0.84]
 F-measure scores:  [0.8285714285714286, 0.8743718592964824, 0.8529411764705882, 0.8512820512820513, 0.8309178743961353, 0.8585365853658538, 0.8743718592964824, 0.8399999999999999, 0.8021390374331552, 0.8431372549019608]
-Final score: 0.845
+Final accuracy score: 0.845
 Final f-measure:  0.8456269127014139
 
 Printing terms...
@@ -5688,12 +6029,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2500
+[[118  34]
+ [ 29 119]]
+              precision    recall  f1-score   support
+
+           0       0.80      0.78      0.79       152
+           1       0.78      0.80      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.79
 Old f-measure score:  0.7906976744186046
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.78, 0.85, 0.815, 0.825, 0.81, 0.815, 0.84, 0.8, 0.775, 0.8]
 F-measure scores:  [0.7755102040816326, 0.8453608247422681, 0.8121827411167513, 0.8186528497409327, 0.8137254901960785, 0.8159203980099502, 0.831578947368421, 0.7916666666666667, 0.7540983606557377, 0.801980198019802]
-Final score: 0.8110000000000002
+Final accuracy score: 0.8110000000000002
 Final f-measure:  0.806067668059824
 
 Printing terms...
@@ -5741,65 +6093,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.81, 0.88, 0.885, 0.87, 0.815, 0.875, 0.86, 0.815, 0.83, 0.825]
 F-measure scores:  [0.8137254901960785, 0.8811881188118812, 0.8866995073891626, 0.87, 0.8159203980099502, 0.8768472906403941, 0.8585858585858585, 0.8140703517587939, 0.8229166666666666, 0.8292682926829269]
-Final score: 0.8465
+Final accuracy score: 0.8465
 Final f-measure:  0.8469221974741712
 
 Printing terms...
-('fun', 2.0385586217031686)
-('well', 1.8848438829956522)
-('great', 1.4989246957192959)
-('hilarious', 1.3504756481497773)
-('pulp', 1.3177688109720076)
-('seen', 1.2585708000422375)
-('different', 1.2448619878148452)
-('good', 1.1615714712709202)
-('excellent', 1.159814954534512)
-('solid', 1.1530309602296351)
-('memorable', 1.1303559000443972)
-('terrific', 1.1131843096038712)
-('many', 1.1057672640227043)
-('always', 1.0777046779584893)
-('people', 1.0758830028741253)
-('job', 1.0714794772042582)
-('allows', 1.0679559251194952)
-('perfect', 1.0571939837619626)
-('flaw', 1.056029857272105)
-('mulan', 1.0464656048346817)
-('bad', -2.5722914644899215)
-('plot', -1.710012106888645)
-('supposed', -1.704852430626783)
-('attempt', -1.6319731374848931)
-('awful', -1.594635947105966)
-('worst', -1.5807433104705073)
-('nothing', -1.5703838120802536)
-('boring', -1.566934581475784)
-('minute', -1.5587437545297036)
-('waste', -1.4469783121854798)
-('ridiculous', -1.4316375980731704)
-('could', -1.3294744214049306)
-('mess', -1.3142551833207825)
-('even', -1.283079091376955)
-('bore', -1.264520525665768)
-('designed', -1.2634023344700935)
-('poor', -1.2109829305009756)
-('material', -1.1835368318075161)
-('joan', -1.1636255349337434)
-('wasted', -1.1612019386582544)
+('fun', 2.03855769947701)
+('well', 1.8848459049226436)
+('great', 1.498924862239067)
+('hilarious', 1.3504779135236717)
+('pulp', 1.3177701291113986)
+('seen', 1.2585698333350637)
+('different', 1.2448599783571126)
+('good', 1.16157480747275)
+('excellent', 1.159814055792892)
+('solid', 1.1530339834510266)
+('memorable', 1.1303536687858766)
+('terrific', 1.1131853494628026)
+('many', 1.1057694556226403)
+('always', 1.0777050300438815)
+('people', 1.0758828334773696)
+('job', 1.0714797358880033)
+('allows', 1.067953918205819)
+('perfect', 1.05719406194345)
+('flaw', 1.0560300828063316)
+('mulan', 1.0464638606759502)
+('bad', -2.5722929164722284)
+('plot', -1.7100100774972185)
+('supposed', -1.7048489696029652)
+('attempt', -1.6319697238606172)
+('awful', -1.5946359825510616)
+('worst', -1.5807430568706768)
+('nothing', -1.5703859996198624)
+('boring', -1.5669334681697347)
+('minute', -1.5587449927389339)
+('waste', -1.446980607283674)
+('ridiculous', -1.4316384661085364)
+('could', -1.329473983521684)
+('mess', -1.3142533074938139)
+('even', -1.2830779671352666)
+('bore', -1.2645222552150999)
+('designed', -1.2634023258587324)
+('poor', -1.2109827752526168)
+('material', -1.1835345148015604)
+('joan', -1.1636228645431996)
+('wasted', -1.1612037274441858)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  3000
+[[120  32]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.79      0.81       152
+           1       0.80      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.819672131147541
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.83, 0.885, 0.86, 0.85, 0.83, 0.86, 0.86, 0.84, 0.805, 0.84]
 F-measure scores:  [0.8349514563106797, 0.8855721393034827, 0.8640776699029127, 0.8469387755102041, 0.8365384615384616, 0.8640776699029127, 0.8613861386138614, 0.8415841584158417, 0.7979274611398963, 0.8415841584158417]
-Final score: 0.8459999999999999
+Final accuracy score: 0.8459999999999999
 Final f-measure:  0.8474638089054096
 
 Printing terms...
@@ -5847,12 +6221,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  3000
+[[112  40]
+ [ 34 114]]
+              precision    recall  f1-score   support
+
+           0       0.77      0.74      0.75       152
+           1       0.74      0.77      0.75       148
+
+    accuracy                           0.75       300
+   macro avg       0.75      0.75      0.75       300
+weighted avg       0.75      0.75      0.75       300
+
 Old score:  0.7533333333333333
 Old f-measure score:  0.7549668874172186
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.8, 0.855, 0.79, 0.82, 0.805, 0.8, 0.845, 0.8, 0.775, 0.81]
 F-measure scores:  [0.8000000000000002, 0.849740932642487, 0.7857142857142857, 0.8105263157894737, 0.8097560975609757, 0.8000000000000002, 0.837696335078534, 0.7959183673469388, 0.7593582887700535, 0.8155339805825242]
-Final score: 0.8099999999999999
+Final accuracy score: 0.8099999999999999
 Final f-measure:  0.8064244603485273
 
 Printing terms...
@@ -5900,67 +6285,89 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  3000
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.815, 0.88, 0.88, 0.875, 0.825, 0.875, 0.85, 0.835, 0.835, 0.815]
 F-measure scores:  [0.8177339901477833, 0.8811881188118812, 0.8823529411764707, 0.8743718592964824, 0.8275862068965517, 0.8743718592964824, 0.8514851485148515, 0.8390243902439023, 0.83248730964467, 0.8177339901477833]
-Final score: 0.8484999999999999
+Final accuracy score: 0.8484999999999999
 Final f-measure:  0.8498335814176858
 
 Printing terms...
-('fun', 1.9983851394554195)
-('well', 1.8277517461142976)
-('great', 1.5862410019533437)
-('hilarious', 1.286888677661038)
-('seen', 1.2422079359869878)
-('pulp', 1.1998405600452537)
-('different', 1.1363486758522579)
-('excellent', 1.1308371904455636)
-('many', 1.1248415313032207)
-('solid', 1.1027568701852122)
-('memorable', 1.0941116854082245)
-('terrific', 1.0736709443187478)
-('people', 1.0713887286240085)
-('always', 1.0480187899016074)
-('good', 1.0370227275655028)
-('matrix', 1.0291417887037901)
-('truman', 1.0174080614143768)
-('carry', 1.0142738174546797)
-('frank', 1.0030207769398758)
-('bulworth', 1.0023860849919133)
-('bad', -2.4750064474527487)
-('plot', -1.6913361147321382)
-('supposed', -1.6632874274657936)
-('attempt', -1.6043993939229686)
-('awful', -1.5287951640166237)
-('nothing', -1.5285001246925274)
-('worst', -1.5221039697853251)
-('boring', -1.5019077460715764)
-('minute', -1.4577567996295275)
-('even', -1.3379501168996877)
-('waste', -1.330001929207724)
-('could', -1.2874279539865505)
-('mess', -1.287082359241285)
-('ridiculous', -1.2808531348194763)
-('poor', -1.2373468811375572)
-('joan', -1.1848466360177536)
-('tedious', -1.1569407598329005)
-('designed', -1.1465615527929494)
-('talk', -1.131120546636101)
-('look', -1.1251615664179215)
+('fun', 1.9983835828963261)
+('well', 1.8277524259782114)
+('great', 1.5862438593643213)
+('hilarious', 1.2868922182907334)
+('seen', 1.2422065517850303)
+('pulp', 1.1998405497547038)
+('different', 1.1363476386484563)
+('excellent', 1.1308374144152058)
+('many', 1.1248405808141373)
+('solid', 1.1027558627392484)
+('memorable', 1.0941126497901832)
+('terrific', 1.073670038159964)
+('people', 1.0713886951282159)
+('always', 1.0480191495071176)
+('good', 1.0370239391808582)
+('matrix', 1.0291384434263267)
+('truman', 1.0174070950289122)
+('carry', 1.0142727114097285)
+('frank', 1.0030224571626485)
+('bulworth', 1.0023886347533633)
+('bad', -2.4750043779334128)
+('plot', -1.6913361406846623)
+('supposed', -1.6632861493151831)
+('attempt', -1.6043995522077243)
+('awful', -1.5287946131674128)
+('nothing', -1.528501628118192)
+('worst', -1.5221052685315535)
+('boring', -1.5019070121997022)
+('minute', -1.4577532632275805)
+('even', -1.337948695598545)
+('waste', -1.3300008166020494)
+('could', -1.2874318144552845)
+('mess', -1.2870808606948538)
+('ridiculous', -1.2808528252357279)
+('poor', -1.2373473437914648)
+('joan', -1.184845129173202)
+('tedious', -1.1569405061233522)
+('designed', -1.1465606334205356)
+('talk', -1.131120467217427)
+('look', -1.1251628558225681)
 
 ---------- Running with count vectorizer feature selection ----------
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  500
+[[124  28]
+ [ 27 121]]
+              precision    recall  f1-score   support
+
+           0       0.82      0.82      0.82       152
+           1       0.81      0.82      0.81       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.8148148148148149
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.795, 0.7875, 0.78, 0.8175, 0.7625]
 F-measure scores:  [0.8019323671497584, 0.7901234567901235, 0.7810945273631842, 0.8179551122194513, 0.7570332480818416]
-Final score: 0.7885
+Final accuracy score: 0.7885
 Final f-measure:  0.7896277423208719
 
 Printing terms...
@@ -6008,12 +6415,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 40 108]]
+              precision    recall  f1-score   support
+
+           0       0.75      0.81      0.78       152
+           1       0.79      0.73      0.76       148
+
+    accuracy                           0.77       300
+   macro avg       0.77      0.77      0.77       300
+weighted avg       0.77      0.77      0.77       300
+
 Old score:  0.77
 Old f-measure score:  0.7578947368421053
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.7775, 0.755, 0.755, 0.7875, 0.73]
 F-measure scores:  [0.7834549878345498, 0.7461139896373057, 0.7500000000000001, 0.7848101265822786, 0.7244897959183674]
-Final score: 0.761
+Final accuracy score: 0.761
 Final f-measure:  0.7577737799945004
 
 Printing terms...
@@ -6061,65 +6479,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 24 124]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.81      0.82       152
+           1       0.81      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8233333333333334
 Old f-measure score:  0.8239202657807307
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.765, 0.7625, 0.765, 0.785, 0.7675]
 F-measure scores:  [0.7740384615384616, 0.7630922693266834, 0.7614213197969544, 0.788177339901478, 0.7703703703703705]
-Final score: 0.769
+Final accuracy score: 0.769
 Final f-measure:  0.7714199521867895
 
 Printing terms...
-('well', 2.5082538817716857)
-('fun', 2.4369556674406776)
-('light', 1.7882577335187415)
-('great', 1.7294492692246897)
-('throughout', 1.7061194960301473)
-('true', 1.645217216808546)
-('quite', 1.5931354396975237)
-('different', 1.5476208424919888)
-('performance', 1.4675542415349478)
-('american', 1.4179341240859245)
-('seen', 1.3990831384516944)
-('although', 1.3623589183503335)
-('experience', 1.3452485145467625)
-('right', 1.310736846201889)
-('several', 1.2953612113332513)
-('good', 1.2864629452207865)
-('best', 1.275111751780457)
-('also', 1.2677609508436798)
-('extremely', 1.2662245882284469)
-('change', 1.2235087576786792)
-('bad', -3.4387027958497076)
-('supposed', -2.797264926869587)
-('worst', -2.7337075598800444)
-('boring', -2.6739342304933906)
-('attempt', -2.378991148100523)
-('talent', -1.8580679699016314)
-('nunfortunately', -1.799920258654435)
-('even', -1.7391752835978391)
-('could', -1.6745530706148388)
-('enough', -1.4880920284379695)
-('minute', -1.4563386277735137)
-('plot', -1.4115748328860578)
-('filmmaker', -1.3960020196522729)
-('script', -1.388075649776971)
-('stupid', -1.3516955480671997)
-('nothing', -1.3504730393766886)
-('made', -1.2900430328110664)
-('material', -1.2856155750135065)
-('would', -1.277589951824847)
-('nnot', -1.2570073755811995)
+('well', 2.50824791277952)
+('fun', 2.436951991432009)
+('light', 1.7882595195876252)
+('great', 1.7294495624452026)
+('throughout', 1.7061176176413593)
+('true', 1.6452204399860664)
+('quite', 1.5931426736865901)
+('different', 1.5476233163332096)
+('performance', 1.4675529163452186)
+('american', 1.4179271843262096)
+('seen', 1.3990891127051481)
+('although', 1.362359787821142)
+('experience', 1.3452521032991265)
+('right', 1.3107359449917042)
+('several', 1.295355563719538)
+('good', 1.2864611878828234)
+('best', 1.2751113160596386)
+('also', 1.2677614532186585)
+('extremely', 1.266226227373827)
+('change', 1.2235076501027076)
+('bad', -3.438705977943765)
+('supposed', -2.7972630482176037)
+('worst', -2.7337088627297055)
+('boring', -2.67393280020219)
+('attempt', -2.3789929270468493)
+('talent', -1.8580649859530747)
+('nunfortunately', -1.7999267627317854)
+('even', -1.7391827826583997)
+('could', -1.674543429878937)
+('enough', -1.4880932092335935)
+('minute', -1.456345945467131)
+('plot', -1.411575690353686)
+('filmmaker', -1.3960017163282632)
+('script', -1.3880784024331934)
+('stupid', -1.3516908703899033)
+('nothing', -1.350472658637505)
+('made', -1.2900407869688664)
+('material', -1.2856156578836404)
+('would', -1.2775912610251439)
+('nnot', -1.2570008764076113)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1000
+[[126  26]
+ [ 22 126]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.83      0.84       152
+           1       0.83      0.85      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.84
 Old f-measure score:  0.8400000000000001
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8275, 0.8225, 0.8075, 0.8475, 0.8025]
 F-measure scores:  [0.8329297820823245, 0.8246913580246914, 0.8108108108108107, 0.8463476070528968, 0.8]
-Final score: 0.8215
+Final accuracy score: 0.8215
 Final f-measure:  0.8229559115941447
 
 Printing terms...
@@ -6167,12 +6607,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1000
+[[119  33]
+ [ 32 116]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.78      0.78       148
+
+    accuracy                           0.78       300
+   macro avg       0.78      0.78      0.78       300
+weighted avg       0.78      0.78      0.78       300
+
 Old score:  0.7833333333333333
 Old f-measure score:  0.781144781144781
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.805, 0.7725, 0.7875, 0.8, 0.7925]
 F-measure scores:  [0.8059701492537314, 0.7684478371501272, 0.7921760391198045, 0.801980198019802, 0.7877237851662405]
-Final score: 0.7915
+Final accuracy score: 0.7915
 Final f-measure:  0.7912596017419411
 
 Printing terms...
@@ -6220,65 +6671,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1000
+[[122  30]
+ [ 21 127]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.80      0.83       152
+           1       0.81      0.86      0.83       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.83
 Old f-measure score:  0.8327868852459017
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.785, 0.815, 0.8125, 0.825, 0.785]
 F-measure scores:  [0.79126213592233, 0.8159203980099502, 0.8091603053435115, 0.8258706467661692, 0.7860696517412936]
-Final score: 0.8045
+Final accuracy score: 0.8045
 Final f-measure:  0.8056566275566508
 
 Printing terms...
-('fun', 2.386130637520786)
-('well', 2.353736616891057)
-('hilarious', 1.9125131024990125)
-('great', 1.7509177598971248)
-('memorable', 1.6865091026728247)
-('solid', 1.6755756836235804)
-('excellent', 1.6108149057886016)
-('definitely', 1.5567484650795123)
-('seen', 1.4764095539053632)
-('flaw', 1.467778990089593)
-('others', 1.4543945820607702)
-('different', 1.4291595473719747)
-('extremely', 1.4138371269002497)
-('animation', 1.3777145442652798)
-('good', 1.3678745506223444)
-('perfectly', 1.3398525993501675)
-('light', 1.3331438118231465)
-('carry', 1.3248957487715878)
-('follows', 1.305539222650858)
-('cameron', 1.2804243581787271)
-('bad', -2.7874165296835054)
-('worst', -2.339485202290286)
-('supposed', -2.2677200264513226)
-('boring', -2.206889109696791)
-('mess', -2.152599706973568)
-('ridiculous', -2.1237571030728954)
-('awful', -2.0620764519544497)
-('waste', -1.908863902861726)
-('attempt', -1.8930170768139136)
-('plot', -1.8019977642415672)
-('poor', -1.5494846593828229)
-('terrible', -1.4967572717408666)
-('nunfortunately', -1.4914785528842744)
-('even', -1.4605435290656927)
-('nothing', -1.4536574912493097)
-('material', -1.443623536991963)
-('nwhy', -1.4338062891552874)
-('catch', -1.4250529019239264)
-('minute', -1.4219568263580185)
-('could', -1.4054478105095745)
+('fun', 2.3861286086833573)
+('well', 2.3537358234294214)
+('hilarious', 1.9125128317202569)
+('great', 1.7509154005995191)
+('memorable', 1.6865102827378529)
+('solid', 1.6755713680702549)
+('excellent', 1.6108115684538877)
+('definitely', 1.556744752700152)
+('seen', 1.476410351065931)
+('flaw', 1.4677771388075362)
+('others', 1.4543879503463553)
+('different', 1.429164186392494)
+('extremely', 1.4138359041964659)
+('animation', 1.3777155672719412)
+('good', 1.367869316656615)
+('perfectly', 1.3398536762251083)
+('light', 1.3331367697238816)
+('carry', 1.324898368081436)
+('follows', 1.3055439060581089)
+('cameron', 1.2804244161838412)
+('bad', -2.7874217978311977)
+('worst', -2.3394873521299355)
+('supposed', -2.2677212088019236)
+('boring', -2.2068891641607857)
+('mess', -2.152602958747343)
+('ridiculous', -2.1237554083325834)
+('awful', -2.0620724096451477)
+('waste', -1.9088684460005645)
+('attempt', -1.8930183478429103)
+('plot', -1.8020040131803725)
+('poor', -1.5494875037289793)
+('terrible', -1.4967573921987376)
+('nunfortunately', -1.4914747276384428)
+('even', -1.4605427476454809)
+('nothing', -1.45365844805515)
+('material', -1.4436252657211004)
+('nwhy', -1.4338083162314796)
+('catch', -1.4250529591286283)
+('minute', -1.4219588953667335)
+('could', -1.405456252383919)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1500
+[[128  24]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.84      0.84       152
+           1       0.84      0.84      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.8433333333333334
 Old f-measure score:  0.8417508417508418
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8575, 0.845, 0.8175, 0.845, 0.8325]
 F-measure scores:  [0.8592592592592593, 0.8465346534653465, 0.8232445520581112, 0.8472906403940887, 0.8286445012787724]
-Final score: 0.8394999999999999
+Final accuracy score: 0.8394999999999999
 Final f-measure:  0.8409947212911156
 
 Printing terms...
@@ -6326,12 +6799,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1500
+[[121  31]
+ [ 33 115]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.80      0.79       152
+           1       0.79      0.78      0.78       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.782312925170068
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.82, 0.79, 0.8025, 0.815, 0.7975]
 F-measure scores:  [0.817258883248731, 0.7889447236180904, 0.8029925187032418, 0.8140703517587939, 0.7917737789203084]
-Final score: 0.8049999999999999
+Final accuracy score: 0.8049999999999999
 Final f-measure:  0.8030080512498332
 
 Printing terms...
@@ -6379,65 +6863,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8425, 0.845, 0.82, 0.8425, 0.815]
 F-measure scores:  [0.8444444444444444, 0.845771144278607, 0.8190954773869347, 0.8436724565756824, 0.8140703517587939]
-Final score: 0.8329999999999999
+Final accuracy score: 0.8329999999999999
 Final f-measure:  0.8334107748888926
 
 Printing terms...
-('fun', 2.2436870741574415)
-('well', 2.1605365680578754)
-('hilarious', 1.655777627009124)
-('good', 1.6001656935564468)
-('great', 1.5619984900947332)
-('seen', 1.5573073684737633)
-('memorable', 1.52712362467237)
-('solid', 1.4966566542434987)
-('terrific', 1.4717495669192124)
-('pulp', 1.4645243945193114)
-('excellent', 1.421740188589496)
-('different', 1.378515125078117)
-('flaw', 1.3488190098640878)
-('easily', 1.2363524963952588)
-('others', 1.2338424745497032)
-('definitely', 1.2235407895538954)
-('many', 1.2179208823994232)
-('pace', 1.2133715632577422)
-('allows', 1.2053540190728755)
-('people', 1.1956458560451013)
-('bad', -2.6453918748612466)
-('awful', -2.01953913151029)
-('worst', -1.9763103579888592)
-('supposed', -1.930997666028676)
-('boring', -1.861192772063146)
-('ridiculous', -1.763485601678997)
-('attempt', -1.757031463205072)
-('mess', -1.728296601324026)
-('minute', -1.661396062226093)
-('plot', -1.589580595582609)
-('nothing', -1.581113576558658)
-('waste', -1.5711789237440887)
-('lame', -1.5534582644855317)
-('material', -1.470868901983416)
-('poorly', -1.454749464116298)
-('even', -1.3862377904573788)
-('could', -1.3664538188735587)
-('poor', -1.341774133100215)
-('terrible', -1.3044275912040277)
-('nthere', -1.2975499424246206)
+('fun', 2.2436885083793667)
+('well', 2.160535688233053)
+('hilarious', 1.6557780582920225)
+('good', 1.600161934334045)
+('great', 1.561997521017492)
+('seen', 1.5573059095449036)
+('memorable', 1.5271316340238505)
+('solid', 1.4966520535808636)
+('terrific', 1.4717552236700617)
+('pulp', 1.4645275647799592)
+('excellent', 1.4217400824928867)
+('different', 1.3785163392360376)
+('flaw', 1.3488212479379476)
+('easily', 1.2363489986470209)
+('others', 1.2338423276587434)
+('definitely', 1.2235375298960682)
+('many', 1.2179236057917862)
+('pace', 1.2133737579380766)
+('allows', 1.205348472004605)
+('people', 1.1956468274783112)
+('bad', -2.645393870601021)
+('awful', -2.0195400026526222)
+('worst', -1.9763109063314537)
+('supposed', -1.930997778692695)
+('boring', -1.8611900921637576)
+('ridiculous', -1.7634881185091806)
+('attempt', -1.757031524323467)
+('mess', -1.7282979968933632)
+('minute', -1.6613880885223027)
+('plot', -1.5895849670546913)
+('nothing', -1.5811129952592209)
+('waste', -1.5711715207977204)
+('lame', -1.5534584559132798)
+('material', -1.4708652815496126)
+('poorly', -1.4547511409394394)
+('even', -1.386240841172623)
+('could', -1.3664519967828794)
+('poor', -1.341774996573355)
+('terrible', -1.3044332764134265)
+('nthere', -1.29754968829248)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 19 129]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.84       152
+           1       0.83      0.87      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.8466666666666667
 Old f-measure score:  0.8486842105263156
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.855, 0.84, 0.8275, 0.8525, 0.8225]
 F-measure scores:  [0.8571428571428571, 0.8415841584158417, 0.8329297820823245, 0.8528678304239402, 0.8193384223918575]
-Final score: 0.8394999999999999
+Final accuracy score: 0.8394999999999999
 Final f-measure:  0.8407726100913642
 
 Printing terms...
@@ -6485,12 +6991,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2000
+[[119  33]
+ [ 31 117]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.79      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.7852348993288591
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8225, 0.805, 0.81, 0.815, 0.7775]
 F-measure scores:  [0.8193384223918575, 0.8030303030303031, 0.8137254901960785, 0.8112244897959185, 0.7651715039577837]
-Final score: 0.806
+Final accuracy score: 0.806
 Final f-measure:  0.8024980418743883
 
 Printing terms...
@@ -6538,65 +7055,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 14 134]]
+              precision    recall  f1-score   support
+
+           0       0.90      0.82      0.86       152
+           1       0.83      0.91      0.87       148
+
+    accuracy                           0.86       300
+   macro avg       0.87      0.86      0.86       300
+weighted avg       0.87      0.86      0.86       300
+
 Old score:  0.8633333333333333
 Old f-measure score:  0.8673139158576052
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8425, 0.85, 0.8175, 0.85, 0.82]
 F-measure scores:  [0.8421052631578947, 0.8522167487684729, 0.8179551122194513, 0.8522167487684729, 0.8153846153846155]
-Final score: 0.836
+Final accuracy score: 0.836
 Final f-measure:  0.8359756976597815
 
 Printing terms...
-('fun', 2.1027801771228822)
-('well', 1.967200757380914)
-('great', 1.539193524409643)
-('hilarious', 1.4453212731588818)
-('seen', 1.3575785569116743)
-('solid', 1.282415333527518)
-('terrific', 1.2682045050979303)
-('different', 1.2654284096456676)
-('pulp', 1.2581029532646812)
-('good', 1.24675797625012)
-('excellent', 1.2314312880416791)
-('memorable', 1.1967655825006114)
-('flaw', 1.1966994789381005)
-('definitely', 1.1798469005884427)
-('many', 1.174525274721221)
-('people', 1.162652092660898)
-('carry', 1.1576423677839252)
-('allows', 1.1329568206791651)
-('always', 1.1264075209623718)
-('life', 1.1165162926023688)
-('bad', -2.57335321474063)
-('supposed', -1.7377607489275928)
-('awful', -1.7243424923123387)
-('boring', -1.7232970859007357)
-('nothing', -1.6636236212171627)
-('attempt', -1.6626959469457365)
-('worst', -1.6598685205674957)
-('plot', -1.6029193186447634)
-('ridiculous', -1.5687934878198464)
-('minute', -1.4973790703670236)
-('waste', -1.4707243373731305)
-('mess', -1.3535759305147108)
-('could', -1.326262194831825)
-('even', -1.3018500216872293)
-('material', -1.2867472337362174)
-('lame', -1.2406530553675812)
-('better', -1.2340217709425454)
-('joan', -1.2168438072651429)
-('poor', -1.2160334496046814)
-('catch', -1.18810714058212)
+('fun', 2.102780690680167)
+('well', 1.967201162553039)
+('great', 1.539194460708047)
+('hilarious', 1.4453206960733873)
+('seen', 1.3575799898425582)
+('solid', 1.2824170322427793)
+('terrific', 1.2682052705512727)
+('different', 1.2654292486607719)
+('pulp', 1.2581060105858404)
+('good', 1.2467582786420301)
+('excellent', 1.2314292898403938)
+('memorable', 1.196768696620067)
+('flaw', 1.196702261591745)
+('definitely', 1.1798456768027041)
+('many', 1.174523108532572)
+('people', 1.162651407259697)
+('carry', 1.1576461771563096)
+('allows', 1.132958565288105)
+('always', 1.126410085384404)
+('life', 1.1165141773506522)
+('bad', -2.5733534554328608)
+('supposed', -1.7377590243236565)
+('awful', -1.7243409654713813)
+('boring', -1.723296887226361)
+('nothing', -1.6636235147057605)
+('attempt', -1.6626998034082394)
+('worst', -1.6598680438616593)
+('plot', -1.6029178381745148)
+('ridiculous', -1.5687924841225211)
+('minute', -1.497377841106208)
+('waste', -1.4707250881636567)
+('mess', -1.3535773210144586)
+('could', -1.3262628313905638)
+('even', -1.301850927938653)
+('material', -1.2867489137374584)
+('lame', -1.2406527115044668)
+('better', -1.2340246239588597)
+('joan', -1.2168453258949603)
+('poor', -1.2160378298201109)
+('catch', -1.1881083710323186)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2500
+[[122  30]
+ [ 20 128]]
+              precision    recall  f1-score   support
+
+           0       0.86      0.80      0.83       152
+           1       0.81      0.86      0.84       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.8333333333333334
 Old f-measure score:  0.8366013071895425
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.85, 0.8375, 0.8325, 0.8475, 0.8225]
 F-measure scores:  [0.8522167487684729, 0.8395061728395061, 0.8393285371702637, 0.8471177944862155, 0.8193384223918575]
-Final score: 0.8380000000000001
+Final accuracy score: 0.8380000000000001
 Final f-measure:  0.8395015351312631
 
 Printing terms...
@@ -6644,12 +7183,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2500
+[[118  34]
+ [ 29 119]]
+              precision    recall  f1-score   support
+
+           0       0.80      0.78      0.79       152
+           1       0.78      0.80      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.79
 Old f-measure score:  0.7906976744186046
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8125, 0.8275, 0.815, 0.8125, 0.78]
 F-measure scores:  [0.8081841432225063, 0.823529411764706, 0.8177339901477833, 0.8041775456919059, 0.7696335078534031]
-Final score: 0.8095000000000001
+Final accuracy score: 0.8095000000000001
 Final f-measure:  0.804651719736061
 
 Printing terms...
@@ -6697,65 +7247,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8325, 0.8575, 0.8325, 0.85, 0.83]
 F-measure scores:  [0.8337468982630273, 0.8606356968215159, 0.8369829683698298, 0.8492462311557788, 0.826530612244898]
-Final score: 0.8404999999999999
+Final accuracy score: 0.8404999999999999
 Final f-measure:  0.84142848137101
 
 Printing terms...
-('fun', 2.038557250851859)
-('well', 1.884847286843033)
-('great', 1.4989245034333887)
-('hilarious', 1.3504781966878034)
-('pulp', 1.317769951020541)
-('seen', 1.2585694310897186)
-('different', 1.2448615679891208)
-('good', 1.1615686311880995)
-('excellent', 1.159817147974011)
-('solid', 1.153032861285831)
-('memorable', 1.130354077942222)
-('terrific', 1.1131817251998262)
-('many', 1.105762677603735)
-('always', 1.077702443492491)
-('people', 1.0758828263262306)
-('job', 1.0714749484636787)
-('allows', 1.0679540704873458)
-('perfect', 1.057197224879868)
-('flaw', 1.0560319305573438)
-('mulan', 1.0464643364634045)
-('bad', -2.5722930883883146)
-('plot', -1.7100118817805392)
-('supposed', -1.704848945295925)
-('attempt', -1.6319698725703322)
-('awful', -1.5946340144123243)
-('worst', -1.5807462107006378)
-('nothing', -1.5703869909717685)
-('boring', -1.5669361508206248)
-('minute', -1.5587431050551253)
-('waste', -1.4469830955055456)
-('ridiculous', -1.4316375189093817)
-('could', -1.329477490466655)
-('mess', -1.3142490241391014)
-('even', -1.2830797967835976)
-('bore', -1.2645238294450045)
-('designed', -1.2634011496262705)
-('poor', -1.2109809344745177)
-('material', -1.1835352936668968)
-('joan', -1.1636205206931451)
-('wasted', -1.1612070461924977)
+('fun', 2.038558811412108)
+('well', 1.88484571968191)
+('great', 1.4989234096155912)
+('hilarious', 1.3504759489763507)
+('pulp', 1.3177690714416768)
+('seen', 1.2585719003587037)
+('different', 1.244861884048558)
+('good', 1.1615670538289102)
+('excellent', 1.1598139192733445)
+('solid', 1.1530318778767776)
+('memorable', 1.13035382281485)
+('terrific', 1.1131834515363266)
+('many', 1.105769977494084)
+('always', 1.077704991788432)
+('people', 1.075880298352511)
+('job', 1.0714761081834574)
+('allows', 1.0679552821786493)
+('perfect', 1.0571917106843494)
+('flaw', 1.056030986229399)
+('mulan', 1.0464632662494884)
+('bad', -2.5722936817047444)
+('plot', -1.710011987257445)
+('supposed', -1.704851525477281)
+('attempt', -1.6319699924298523)
+('awful', -1.5946365350308547)
+('worst', -1.5807462221446846)
+('nothing', -1.5703810791732888)
+('boring', -1.566935269709967)
+('minute', -1.5587437017412964)
+('waste', -1.446977643780247)
+('ridiculous', -1.431633551193143)
+('could', -1.329475825028903)
+('mess', -1.314249851794502)
+('even', -1.2830783907446834)
+('bore', -1.264522687842345)
+('designed', -1.2634007538464762)
+('poor', -1.2109763783698948)
+('material', -1.1835353205470933)
+('joan', -1.1636258495106948)
+('wasted', -1.161205937316144)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  3000
+[[120  32]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.79      0.81       152
+           1       0.80      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.819672131147541
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8525, 0.8425, 0.8325, 0.845, 0.825]
 F-measure scores:  [0.855036855036855, 0.8428927680798004, 0.837772397094431, 0.8442211055276383, 0.825]
-Final score: 0.8394999999999999
+Final accuracy score: 0.8394999999999999
 Final f-measure:  0.8409846251477449
 
 Printing terms...
@@ -6803,12 +7375,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  3000
+[[112  40]
+ [ 34 114]]
+              precision    recall  f1-score   support
+
+           0       0.77      0.74      0.75       152
+           1       0.74      0.77      0.75       148
+
+    accuracy                           0.75       300
+   macro avg       0.75      0.75      0.75       300
+weighted avg       0.75      0.75      0.75       300
+
 Old score:  0.7533333333333333
 Old f-measure score:  0.7549668874172186
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8175, 0.7975, 0.81, 0.815, 0.7875]
 F-measure scores:  [0.8113695090439277, 0.7917737789203084, 0.8128078817733989, 0.8082901554404146, 0.7780678851174935]
-Final score: 0.8055
+Final accuracy score: 0.8055
 Final f-measure:  0.8004618420591086
 
 Printing terms...
@@ -6856,65 +7439,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  3000
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 5 Stratified K-Fold...
 Accuracy scores:  [0.8475, 0.855, 0.825, 0.84, 0.835]
 F-measure scores:  [0.8471177944862155, 0.855, 0.8317307692307693, 0.8415841584158417, 0.8333333333333333]
-Final score: 0.8404999999999999
+Final accuracy score: 0.8404999999999999
 Final f-measure:  0.8417532110932319
 
 Printing terms...
-('fun', 1.998383839366332)
-('well', 1.8277534382202845)
-('great', 1.5862434359727298)
-('hilarious', 1.2868884891096077)
-('seen', 1.2422063275960218)
-('pulp', 1.1998404260943942)
-('different', 1.1363491465139353)
-('excellent', 1.1308378214526327)
-('many', 1.124840278170179)
-('solid', 1.1027578305451686)
-('memorable', 1.0941108714512886)
-('terrific', 1.0736721890207255)
-('people', 1.0713871863037048)
-('always', 1.048017150606674)
-('good', 1.0370216086554025)
-('matrix', 1.0291390246030037)
-('truman', 1.0174089229246508)
-('carry', 1.014273236440926)
-('frank', 1.003020378722052)
-('bulworth', 1.0023861236572351)
-('bad', -2.4750058321681028)
-('plot', -1.6913362362758682)
-('supposed', -1.6632865891828867)
-('attempt', -1.6044008763566082)
-('awful', -1.5287961092690423)
-('nothing', -1.5285001751088796)
-('worst', -1.5221028216527588)
-('boring', -1.501908533424727)
-('minute', -1.4577571536969296)
-('even', -1.3379520879725078)
-('waste', -1.3300016158435188)
-('could', -1.2874282130382255)
-('mess', -1.2870812596298276)
-('ridiculous', -1.2808538559250964)
-('poor', -1.2373470763265073)
-('joan', -1.1848480623657833)
-('tedious', -1.1569411011125788)
-('designed', -1.1465607185219528)
-('talk', -1.1311200000779382)
-('look', -1.125161199426371)
+('fun', 1.9983840115200966)
+('well', 1.8277516270365355)
+('great', 1.5862420417351168)
+('hilarious', 1.286888761501246)
+('seen', 1.242205300941168)
+('pulp', 1.1998404850056277)
+('different', 1.1363504933520348)
+('excellent', 1.1308369932156275)
+('many', 1.1248409660426681)
+('solid', 1.1027567480071732)
+('memorable', 1.0941124394570947)
+('terrific', 1.0736711177222724)
+('people', 1.071389039565353)
+('always', 1.0480193323186677)
+('good', 1.0370221645999107)
+('matrix', 1.0291406354964536)
+('truman', 1.017408218764451)
+('carry', 1.0142747345202652)
+('frank', 1.0030197610773577)
+('bulworth', 1.0023867697250164)
+('bad', -2.4750057759223476)
+('plot', -1.6913375830941206)
+('supposed', -1.663286172515332)
+('attempt', -1.6044001852311487)
+('awful', -1.5287956192695977)
+('nothing', -1.5285000303878022)
+('worst', -1.5221047601316562)
+('boring', -1.5019083906350081)
+('minute', -1.4577570600533531)
+('even', -1.3379478573471446)
+('waste', -1.330000598321772)
+('could', -1.2874287762946524)
+('mess', -1.287080784383487)
+('ridiculous', -1.2808523828625857)
+('poor', -1.2373459968706886)
+('joan', -1.1848482370705256)
+('tedious', -1.1569408358651245)
+('designed', -1.1465612134144711)
+('talk', -1.1311201609146957)
+('look', -1.1251620803818436)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  500
+[[124  28]
+ [ 27 121]]
+              precision    recall  f1-score   support
+
+           0       0.82      0.82      0.82       152
+           1       0.81      0.82      0.81       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.8148148148148149
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.79, 0.8, 0.8, 0.78, 0.785, 0.8, 0.83, 0.79, 0.76, 0.79]
 F-measure scores:  [0.798076923076923, 0.8058252427184467, 0.8058252427184467, 0.7708333333333333, 0.7942583732057417, 0.7938144329896908, 0.8333333333333334, 0.79, 0.7499999999999999, 0.7878787878787878]
-Final score: 0.7925
+Final accuracy score: 0.7925
 Final f-measure:  0.7929845669254705
 
 Printing terms...
@@ -6962,12 +7567,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 40 108]]
+              precision    recall  f1-score   support
+
+           0       0.75      0.81      0.78       152
+           1       0.79      0.73      0.76       148
+
+    accuracy                           0.77       300
+   macro avg       0.77      0.77      0.77       300
+weighted avg       0.77      0.77      0.77       300
+
 Old score:  0.77
 Old f-measure score:  0.7578947368421053
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.77, 0.8, 0.755, 0.76, 0.74, 0.76, 0.79, 0.785, 0.745, 0.75]
 F-measure scores:  [0.7745098039215687, 0.801980198019802, 0.7537688442211055, 0.7499999999999999, 0.7373737373737373, 0.7473684210526317, 0.7857142857142857, 0.7817258883248732, 0.7357512953367875, 0.75]
-Final score: 0.7655000000000001
+Final accuracy score: 0.7655000000000001
 Final f-measure:  0.7618192473964792
 
 Printing terms...
@@ -7015,65 +7631,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  500
+[[123  29]
+ [ 24 124]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.81      0.82       152
+           1       0.81      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8233333333333334
 Old f-measure score:  0.8239202657807307
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.785, 0.755, 0.78, 0.765, 0.78, 0.785, 0.8, 0.79, 0.77, 0.765]
 F-measure scores:  [0.7902439024390244, 0.7655502392344498, 0.7884615384615384, 0.7513227513227513, 0.7821782178217823, 0.7817258883248732, 0.801980198019802, 0.7878787878787878, 0.7722772277227723, 0.7729468599033816]
-Final score: 0.7775
+Final accuracy score: 0.7775
 Final f-measure:  0.7794565611129163
 
 Printing terms...
-('well', 2.5082555473873116)
-('fun', 2.4369598430190567)
-('light', 1.7882664082700757)
-('great', 1.7294476150911613)
-('throughout', 1.7061163754616233)
-('true', 1.645224493853634)
-('quite', 1.5931411948178427)
-('different', 1.5476190238489136)
-('performance', 1.4675547865173115)
-('american', 1.4179308896289509)
-('seen', 1.3990818959020175)
-('although', 1.3623626977841639)
-('experience', 1.345252125810828)
-('right', 1.3107400823627675)
-('several', 1.2953571622540394)
-('good', 1.2864664478760945)
-('best', 1.275107415841219)
-('also', 1.2677666775477554)
-('extremely', 1.2662261610895722)
-('change', 1.2235107408236556)
-('bad', -3.438701718674579)
-('supposed', -2.7972624990803348)
-('worst', -2.733709432604038)
-('boring', -2.6739316978424523)
-('attempt', -2.3789907128564693)
-('talent', -1.8580688055048127)
-('nunfortunately', -1.7999204521084358)
-('even', -1.739181467960273)
-('could', -1.674550970037276)
-('enough', -1.4880878651488765)
-('minute', -1.4563413498089046)
-('plot', -1.4115813726217055)
-('filmmaker', -1.3959986252819359)
-('script', -1.388072494078186)
-('stupid', -1.3516942718661498)
-('nothing', -1.3504701064989826)
-('made', -1.2900394428225805)
-('material', -1.2856166938496418)
-('would', -1.277588875111728)
-('nnot', -1.2570055762289611)
+('well', 2.508254048787809)
+('fun', 2.4369583035875335)
+('light', 1.7882581683939383)
+('great', 1.7294509258923936)
+('throughout', 1.7061166841791222)
+('true', 1.6452146009643582)
+('quite', 1.5931411363964632)
+('different', 1.5476210563381925)
+('performance', 1.4675523272128375)
+('american', 1.417932493348036)
+('seen', 1.399089875692817)
+('although', 1.3623594539081183)
+('experience', 1.3452559385981206)
+('right', 1.310737382973758)
+('several', 1.295356031173588)
+('good', 1.286463352884569)
+('best', 1.2751100849056658)
+('also', 1.2677619092316437)
+('extremely', 1.266224434860234)
+('change', 1.223507137665233)
+('bad', -3.438704400289228)
+('supposed', -2.7972641726458924)
+('worst', -2.7337077927393754)
+('boring', -2.6739316973742744)
+('attempt', -2.3789909692173814)
+('talent', -1.8580684805943581)
+('nunfortunately', -1.799925501310675)
+('even', -1.7391795164035129)
+('could', -1.674553832205737)
+('enough', -1.4880908197580391)
+('minute', -1.4563423578259913)
+('plot', -1.4115786054080772)
+('filmmaker', -1.3959997090916754)
+('script', -1.3880736184267874)
+('stupid', -1.3516926375751328)
+('nothing', -1.3504721346151554)
+('made', -1.290041503209785)
+('material', -1.285616510002308)
+('would', -1.277589737778452)
+('nnot', -1.257005421963445)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1000
+[[126  26]
+ [ 22 126]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.83      0.84       152
+           1       0.83      0.85      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.84
 Old f-measure score:  0.8400000000000001
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.83, 0.875, 0.825, 0.84, 0.805, 0.82, 0.84, 0.84, 0.795, 0.83]
 F-measure scores:  [0.8380952380952381, 0.8743718592964824, 0.8258706467661692, 0.8383838383838385, 0.8115942028985507, 0.82, 0.8383838383838385, 0.8399999999999999, 0.7875647668393783, 0.8333333333333334]
-Final score: 0.8299999999999998
+Final accuracy score: 0.8299999999999998
 Final f-measure:  0.830759772399683
 
 Printing terms...
@@ -7121,12 +7759,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1000
+[[119  33]
+ [ 32 116]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.78      0.78       148
+
+    accuracy                           0.78       300
+   macro avg       0.78      0.78      0.78       300
+weighted avg       0.78      0.78      0.78       300
+
 Old score:  0.7833333333333333
 Old f-measure score:  0.781144781144781
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.795, 0.825, 0.78, 0.8, 0.765, 0.785, 0.83, 0.785, 0.79, 0.805]
 F-measure scores:  [0.8, 0.8223350253807107, 0.7777777777777778, 0.7916666666666667, 0.7729468599033816, 0.7839195979899497, 0.83, 0.7817258883248732, 0.7765957446808511, 0.8097560975609757]
-Final score: 0.796
+Final accuracy score: 0.796
 Final f-measure:  0.7946723658285186
 
 Printing terms...
@@ -7174,65 +7823,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1000
+[[122  30]
+ [ 21 127]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.80      0.83       152
+           1       0.81      0.86      0.83       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.83
 Old f-measure score:  0.8327868852459017
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.8, 0.84, 0.825, 0.85, 0.785, 0.84, 0.805, 0.85, 0.815, 0.795]
 F-measure scores:  [0.8095238095238095, 0.8431372549019608, 0.8241206030150754, 0.8529411764705882, 0.7839195979899497, 0.8431372549019608, 0.802030456852792, 0.8484848484848485, 0.8062827225130889, 0.7980295566502462]
-Final score: 0.8205
+Final accuracy score: 0.8205
 Final f-measure:  0.821160728130432
 
 Printing terms...
-('fun', 2.3861290513583207)
-('well', 2.353737644914713)
-('hilarious', 1.9125187647394861)
-('great', 1.7509179864149487)
-('memorable', 1.6865071787380097)
-('solid', 1.675572517821096)
-('excellent', 1.6108112626088387)
-('definitely', 1.5567472314795294)
-('seen', 1.476408530025117)
-('flaw', 1.4677841606030615)
-('others', 1.4543934140736856)
-('different', 1.4291636418794724)
-('extremely', 1.4138356979820945)
-('animation', 1.3777141189791435)
-('good', 1.3678750652589902)
-('perfectly', 1.3398515436474987)
-('light', 1.333136247180658)
-('carry', 1.3249016001250244)
-('follows', 1.3055383580287074)
-('cameron', 1.2804283294657735)
-('bad', -2.787418420659945)
-('worst', -2.3394886184093804)
-('supposed', -2.2677198554349727)
-('boring', -2.20688672736203)
-('mess', -2.152604781618127)
-('ridiculous', -2.1237620924758858)
-('awful', -2.0620736666925907)
-('waste', -1.908867567767342)
-('attempt', -1.8930173105252144)
-('plot', -1.802000188741207)
-('poor', -1.549486254647425)
-('terrible', -1.4967601826710903)
-('nunfortunately', -1.4914762704223752)
-('even', -1.4605449231401129)
-('nothing', -1.4536555828548958)
-('material', -1.4436249051018895)
-('nwhy', -1.4338057412284237)
-('catch', -1.4250580966296864)
-('minute', -1.4219583332953343)
-('could', -1.405456770550175)
+('fun', 2.386127640395861)
+('well', 2.353733898777731)
+('hilarious', 1.9125132523256307)
+('great', 1.7509181776263971)
+('memorable', 1.686508644109018)
+('solid', 1.675573320729776)
+('excellent', 1.6108165298411707)
+('definitely', 1.5567483878190762)
+('seen', 1.4764073961908215)
+('flaw', 1.4677766851406773)
+('others', 1.4543932195307594)
+('different', 1.4291611924851049)
+('extremely', 1.4138366990386337)
+('animation', 1.3777152105997865)
+('good', 1.3678733055237822)
+('perfectly', 1.3398530010568999)
+('light', 1.3331388641136923)
+('carry', 1.3248978712028256)
+('follows', 1.3055402888857668)
+('cameron', 1.280425072660901)
+('bad', -2.787418764522848)
+('worst', -2.3394869546225934)
+('supposed', -2.2677180367795695)
+('boring', -2.206890774991161)
+('mess', -2.152604043536929)
+('ridiculous', -2.1237588950683866)
+('awful', -2.0620726298886747)
+('waste', -1.908865611915658)
+('attempt', -1.893019766147572)
+('plot', -1.8019976405417186)
+('poor', -1.5494880541789056)
+('terrible', -1.4967537090888796)
+('nunfortunately', -1.4914758851922685)
+('even', -1.4605467934864338)
+('nothing', -1.4536560533930576)
+('material', -1.4436225569014898)
+('nwhy', -1.433809005206549)
+('catch', -1.4250543580680735)
+('minute', -1.4219536614165664)
+('could', -1.4054544431414617)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  1500
+[[128  24]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.84      0.84       152
+           1       0.84      0.84      0.84       148
+
+    accuracy                           0.84       300
+   macro avg       0.84      0.84      0.84       300
+weighted avg       0.84      0.84      0.84       300
+
 Old score:  0.8433333333333334
 Old f-measure score:  0.8417508417508418
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.835, 0.875, 0.85, 0.825, 0.81, 0.84, 0.865, 0.85, 0.81, 0.845]
 F-measure scores:  [0.8421052631578948, 0.8756218905472637, 0.8514851485148515, 0.8223350253807107, 0.8137254901960785, 0.8399999999999999, 0.864321608040201, 0.8529411764705882, 0.8041237113402062, 0.8472906403940887]
-Final score: 0.8405000000000001
+Final accuracy score: 0.8405000000000001
 Final f-measure:  0.8413949954041883
 
 Printing terms...
@@ -7280,12 +7951,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  1500
+[[121  31]
+ [ 33 115]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.80      0.79       152
+           1       0.79      0.78      0.78       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.782312925170068
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.795, 0.865, 0.79, 0.81, 0.78, 0.82, 0.835, 0.805, 0.755, 0.83]
 F-measure scores:  [0.7918781725888325, 0.8629441624365483, 0.79, 0.8041237113402062, 0.7843137254901961, 0.82, 0.8341708542713568, 0.8078817733990147, 0.743455497382199, 0.83]
-Final score: 0.8084999999999999
+Final accuracy score: 0.8084999999999999
 Final f-measure:  0.8068767896908353
 
 Printing terms...
@@ -7333,65 +8015,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  1500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.81, 0.875, 0.88, 0.825, 0.775, 0.85, 0.84, 0.845, 0.815, 0.795]
 F-measure scores:  [0.8173076923076923, 0.8743718592964824, 0.88, 0.8258706467661692, 0.7738693467336684, 0.85, 0.8399999999999999, 0.848780487804878, 0.8121827411167513, 0.7960199004975126]
-Final score: 0.8310000000000001
+Final accuracy score: 0.8310000000000001
 Final f-measure:  0.8318402674523154
 
 Printing terms...
-('fun', 2.243690889961808)
-('well', 2.1605348370932633)
-('hilarious', 1.6557773882914777)
-('good', 1.6001667644421926)
-('great', 1.5619981019858338)
-('seen', 1.557306295302076)
-('memorable', 1.5271285753289388)
-('solid', 1.49665019424469)
-('terrific', 1.4717494655654066)
-('pulp', 1.4645199474338972)
-('excellent', 1.421740598388821)
-('different', 1.3785122442092141)
-('flaw', 1.3488182163335252)
-('easily', 1.2363483096557266)
-('others', 1.2338374803261878)
-('definitely', 1.223537730938871)
-('many', 1.2179232849027293)
-('pace', 1.21337261003426)
-('allows', 1.205354382660116)
-('people', 1.1956434184634828)
-('bad', -2.64539512021126)
-('awful', -2.0195420768906414)
-('worst', -1.9763079468185694)
-('supposed', -1.9309975357674045)
-('boring', -1.8611921223897863)
-('ridiculous', -1.7634861112106983)
-('attempt', -1.757029418017238)
-('mess', -1.7282965544395787)
-('minute', -1.6613890115732928)
-('plot', -1.5895832236084873)
-('nothing', -1.5811113423301446)
-('waste', -1.5711778809955157)
-('lame', -1.5534595489536238)
-('material', -1.4708674559971853)
-('poorly', -1.4547461272457367)
-('even', -1.3862393073451762)
-('could', -1.366455877322507)
-('poor', -1.3417757890658013)
-('terrible', -1.3044297120695882)
-('nthere', -1.2975477460302232)
+('fun', 2.2436937533976713)
+('well', 2.1605396809404938)
+('hilarious', 1.655775301109471)
+('good', 1.600168694212124)
+('great', 1.5620022644758411)
+('seen', 1.5573058742930457)
+('memorable', 1.5271321395601811)
+('solid', 1.4966498340233085)
+('terrific', 1.4717526338665399)
+('pulp', 1.4645256332671694)
+('excellent', 1.4217404445742245)
+('different', 1.3785165589174309)
+('flaw', 1.3488181268333737)
+('easily', 1.236348418359448)
+('others', 1.23383764733784)
+('definitely', 1.2235364784343132)
+('many', 1.2179199620946717)
+('pace', 1.2133727880622696)
+('allows', 1.2053517560723759)
+('people', 1.1956479785624028)
+('bad', -2.6453992310726986)
+('awful', -2.0195409585078035)
+('worst', -1.9763092427629807)
+('supposed', -1.9310039654439932)
+('boring', -1.8611921319655649)
+('ridiculous', -1.763487807680571)
+('attempt', -1.757030061984334)
+('mess', -1.7282964464403758)
+('minute', -1.6613917368886308)
+('plot', -1.5895834211767408)
+('nothing', -1.5811124670179963)
+('waste', -1.5711810519847966)
+('lame', -1.5534545258937045)
+('material', -1.4708640006489757)
+('poorly', -1.4547432651326182)
+('even', -1.3862373134820085)
+('could', -1.3664522558747882)
+('poor', -1.341778543481252)
+('terrible', -1.304433107496335)
+('nthere', -1.2975473845620398)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 19 129]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.84       152
+           1       0.83      0.87      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.8466666666666667
 Old f-measure score:  0.8486842105263156
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.85, 0.88, 0.865, 0.86, 0.825, 0.85, 0.87, 0.86, 0.815, 0.86]
 F-measure scores:  [0.8557692307692307, 0.88, 0.8682926829268293, 0.8571428571428572, 0.8292682926829269, 0.8529411764705882, 0.8686868686868686, 0.8613861386138614, 0.8042328042328041, 0.8627450980392156]
-Final score: 0.8534999999999998
+Final accuracy score: 0.8534999999999998
 Final f-measure:  0.8540465149565183
 
 Printing terms...
@@ -7439,12 +8143,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2000
+[[119  33]
+ [ 31 117]]
+              precision    recall  f1-score   support
+
+           0       0.79      0.78      0.79       152
+           1       0.78      0.79      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.7866666666666666
 Old f-measure score:  0.7852348993288591
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.79, 0.845, 0.81, 0.825, 0.81, 0.825, 0.85, 0.835, 0.755, 0.82]
 F-measure scores:  [0.7878787878787878, 0.8393782383419689, 0.81, 0.8167539267015708, 0.81, 0.8241206030150754, 0.8453608247422681, 0.8341708542713568, 0.7379679144385026, 0.8217821782178217]
-Final score: 0.8164999999999999
+Final accuracy score: 0.8164999999999999
 Final f-measure:  0.8127413327607353
 
 Printing terms...
@@ -7492,65 +8207,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2000
+[[125  27]
+ [ 14 134]]
+              precision    recall  f1-score   support
+
+           0       0.90      0.82      0.86       152
+           1       0.83      0.91      0.87       148
+
+    accuracy                           0.86       300
+   macro avg       0.87      0.86      0.86       300
+weighted avg       0.87      0.86      0.86       300
+
 Old score:  0.8633333333333333
 Old f-measure score:  0.8673139158576052
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.815, 0.855, 0.895, 0.86, 0.79, 0.875, 0.865, 0.85, 0.82, 0.825]
 F-measure scores:  [0.8212560386473431, 0.849740932642487, 0.8944723618090452, 0.8613861386138614, 0.79, 0.8743718592964824, 0.864321608040201, 0.8529411764705882, 0.8105263157894737, 0.8241206030150754]
-Final score: 0.845
+Final accuracy score: 0.845
 Final f-measure:  0.8443137034324557
 
 Printing terms...
-('fun', 2.1027817056906786)
-('well', 1.9671984670775775)
-('great', 1.5391933830675473)
-('hilarious', 1.4453196843630474)
-('seen', 1.357578421734754)
-('solid', 1.282416190717572)
-('terrific', 1.268207332269591)
-('different', 1.2654290224664737)
-('pulp', 1.2581055410516597)
-('good', 1.2467587896598877)
-('excellent', 1.2314312903170654)
-('memorable', 1.196766977755031)
-('flaw', 1.1966996942235977)
-('definitely', 1.1798475384563831)
-('many', 1.1745248582143495)
-('people', 1.1626522861212103)
-('carry', 1.157643936760968)
-('allows', 1.1329568894026565)
-('always', 1.1264101613032664)
-('life', 1.1165193949338585)
-('bad', -2.57335520045492)
-('supposed', -1.7377599418635317)
-('awful', -1.7243426519793539)
-('boring', -1.7232971437936635)
-('nothing', -1.6636243786532856)
-('attempt', -1.662698309293817)
-('worst', -1.6598673902940766)
-('plot', -1.6029160008208976)
-('ridiculous', -1.5687953229533702)
-('minute', -1.497378993627313)
-('waste', -1.4707261243368726)
-('mess', -1.3535792353019436)
-('could', -1.3262623074451085)
-('even', -1.3018489080156175)
-('material', -1.2867489940728556)
-('lame', -1.2406519867843688)
-('better', -1.2340244283620128)
-('joan', -1.2168424108111713)
-('poor', -1.216033164008024)
-('catch', -1.1881088399799036)
+('fun', 2.1027773176333127)
+('well', 1.967201254492725)
+('great', 1.5391944871328858)
+('hilarious', 1.4453212786855592)
+('seen', 1.3575788977695658)
+('solid', 1.2824173435169526)
+('terrific', 1.2682086915918314)
+('different', 1.2654314091372945)
+('pulp', 1.2581048242519868)
+('good', 1.2467590610406798)
+('excellent', 1.2314294272471138)
+('memorable', 1.1967662864689304)
+('flaw', 1.1966999039231416)
+('definitely', 1.1798454638105285)
+('many', 1.1745246145252841)
+('people', 1.16265264042494)
+('carry', 1.1576436260793281)
+('allows', 1.1329582935279445)
+('always', 1.1264080777608472)
+('life', 1.1165186150397168)
+('bad', -2.573354955500451)
+('supposed', -1.737761701154746)
+('awful', -1.7243398804444163)
+('boring', -1.723297277898906)
+('nothing', -1.66362355407013)
+('attempt', -1.6626989314382654)
+('worst', -1.6598685929487518)
+('plot', -1.6029196047086973)
+('ridiculous', -1.5687939305735024)
+('minute', -1.4973776098667302)
+('waste', -1.4707243094638824)
+('mess', -1.3535767775072731)
+('could', -1.3262634759288872)
+('even', -1.3018494131033964)
+('material', -1.28674600865277)
+('lame', -1.2406524572030004)
+('better', -1.2340236025735138)
+('joan', -1.2168457600598634)
+('poor', -1.2160343283968424)
+('catch', -1.1881084470796202)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  2500
+[[122  30]
+ [ 20 128]]
+              precision    recall  f1-score   support
+
+           0       0.86      0.80      0.83       152
+           1       0.81      0.86      0.84       148
+
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
+
 Old score:  0.8333333333333334
 Old f-measure score:  0.8366013071895425
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.82, 0.875, 0.85, 0.855, 0.825, 0.855, 0.875, 0.84, 0.815, 0.84]
 F-measure scores:  [0.8285714285714286, 0.8743718592964824, 0.8529411764705882, 0.8512820512820513, 0.8309178743961353, 0.8585365853658538, 0.8743718592964824, 0.8399999999999999, 0.8021390374331552, 0.8431372549019608]
-Final score: 0.845
+Final accuracy score: 0.845
 Final f-measure:  0.8456269127014139
 
 Printing terms...
@@ -7598,12 +8335,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  2500
+[[118  34]
+ [ 29 119]]
+              precision    recall  f1-score   support
+
+           0       0.80      0.78      0.79       152
+           1       0.78      0.80      0.79       148
+
+    accuracy                           0.79       300
+   macro avg       0.79      0.79      0.79       300
+weighted avg       0.79      0.79      0.79       300
+
 Old score:  0.79
 Old f-measure score:  0.7906976744186046
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.78, 0.85, 0.815, 0.825, 0.81, 0.815, 0.84, 0.8, 0.775, 0.8]
 F-measure scores:  [0.7755102040816326, 0.8453608247422681, 0.8121827411167513, 0.8186528497409327, 0.8137254901960785, 0.8159203980099502, 0.831578947368421, 0.7916666666666667, 0.7540983606557377, 0.801980198019802]
-Final score: 0.8110000000000002
+Final accuracy score: 0.8110000000000002
 Final f-measure:  0.806067668059824
 
 Printing terms...
@@ -7651,65 +8399,87 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  2500
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.81, 0.88, 0.885, 0.87, 0.815, 0.875, 0.86, 0.815, 0.83, 0.825]
 F-measure scores:  [0.8137254901960785, 0.8811881188118812, 0.8866995073891626, 0.87, 0.8159203980099502, 0.8768472906403941, 0.8585858585858585, 0.8140703517587939, 0.8229166666666666, 0.8292682926829269]
-Final score: 0.8465
+Final accuracy score: 0.8465
 Final f-measure:  0.8469221974741712
 
 Printing terms...
-('fun', 2.038557124926164)
-('well', 1.8848464555312505)
-('great', 1.498922221865755)
-('hilarious', 1.350477513506365)
-('pulp', 1.3177688106494343)
-('seen', 1.258571278142944)
-('different', 1.244862269770169)
-('good', 1.1615691924034328)
-('excellent', 1.159812855288944)
-('solid', 1.153032395565798)
-('memorable', 1.1303553742428918)
-('terrific', 1.113181855028693)
-('many', 1.1057684089352362)
-('always', 1.077707205819985)
-('people', 1.0758801402518419)
-('job', 1.0714772019784635)
-('allows', 1.0679563351146601)
-('perfect', 1.0571905310404777)
-('flaw', 1.056030296688888)
-('mulan', 1.0464639574640444)
-('bad', -2.57229306204887)
-('plot', -1.710011871990486)
-('supposed', -1.7048497982915665)
-('attempt', -1.6319699633449294)
-('awful', -1.5946355307727094)
-('worst', -1.5807434223464654)
-('nothing', -1.5703838295280086)
-('boring', -1.5669341765337537)
-('minute', -1.5587438350140936)
-('waste', -1.4469772131167884)
-('ridiculous', -1.4316371701887265)
-('could', -1.3294741371875551)
-('mess', -1.3142549705124325)
-('even', -1.2830778890414833)
-('bore', -1.2645190639461499)
-('designed', -1.2634002891975236)
-('poor', -1.210980460590209)
-('material', -1.1835329734613669)
-('joan', -1.1636234458123256)
-('wasted', -1.1612017959139143)
+('fun', 2.038557358060025)
+('well', 1.8848478994532176)
+('great', 1.4989232331737945)
+('hilarious', 1.3504778788675744)
+('pulp', 1.317770743464783)
+('seen', 1.258567032406106)
+('different', 1.2448548371801387)
+('good', 1.161566291725366)
+('excellent', 1.1598128795322973)
+('solid', 1.1530334457734681)
+('memorable', 1.1303549110359563)
+('terrific', 1.1131806398297477)
+('many', 1.10576334522985)
+('always', 1.0777073559154038)
+('people', 1.0758868574802907)
+('job', 1.0714788177080294)
+('allows', 1.067955790661594)
+('perfect', 1.057190464675438)
+('flaw', 1.0560266556491176)
+('mulan', 1.046462632182093)
+('bad', -2.5722936021108054)
+('plot', -1.7100102365844814)
+('supposed', -1.7048469297301012)
+('attempt', -1.631972469228023)
+('awful', -1.5946359557427883)
+('worst', -1.5807407761895775)
+('nothing', -1.570383127237075)
+('boring', -1.5669380685584993)
+('minute', -1.5587477397947183)
+('waste', -1.4469814613351173)
+('ridiculous', -1.4316419275623975)
+('could', -1.329475691939303)
+('mess', -1.3142578881454767)
+('even', -1.2830787195314368)
+('bore', -1.2645207321495266)
+('designed', -1.2634036635681576)
+('poor', -1.2109787738076991)
+('material', -1.1835349469816965)
+('joan', -1.1636253434330976)
+('wasted', -1.1612034687799135)
 
 Running logistic regression...
 Running with testing sets...
 Feature size:  3000
+[[120  32]
+ [ 23 125]]
+              precision    recall  f1-score   support
+
+           0       0.84      0.79      0.81       152
+           1       0.80      0.84      0.82       148
+
+    accuracy                           0.82       300
+   macro avg       0.82      0.82      0.82       300
+weighted avg       0.82      0.82      0.82       300
+
 Old score:  0.8166666666666667
 Old f-measure score:  0.819672131147541
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.83, 0.885, 0.86, 0.85, 0.83, 0.86, 0.86, 0.84, 0.805, 0.84]
 F-measure scores:  [0.8349514563106797, 0.8855721393034827, 0.8640776699029127, 0.8469387755102041, 0.8365384615384616, 0.8640776699029127, 0.8613861386138614, 0.8415841584158417, 0.7979274611398963, 0.8415841584158417]
-Final score: 0.8459999999999999
+Final accuracy score: 0.8459999999999999
 Final f-measure:  0.8474638089054096
 
 Printing terms...
@@ -7757,12 +8527,23 @@ Printing terms...
 Running multinomial naive bayers classifier...
 Running with testing sets...
 Feature size:  3000
+[[112  40]
+ [ 34 114]]
+              precision    recall  f1-score   support
+
+           0       0.77      0.74      0.75       152
+           1       0.74      0.77      0.75       148
+
+    accuracy                           0.75       300
+   macro avg       0.75      0.75      0.75       300
+weighted avg       0.75      0.75      0.75       300
+
 Old score:  0.7533333333333333
 Old f-measure score:  0.7549668874172186
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.8, 0.855, 0.79, 0.82, 0.805, 0.8, 0.845, 0.8, 0.775, 0.81]
 F-measure scores:  [0.8000000000000002, 0.849740932642487, 0.7857142857142857, 0.8105263157894737, 0.8097560975609757, 0.8000000000000002, 0.837696335078534, 0.7959183673469388, 0.7593582887700535, 0.8155339805825242]
-Final score: 0.8099999999999999
+Final accuracy score: 0.8099999999999999
 Final f-measure:  0.8064244603485273
 
 Printing terms...
@@ -7810,53 +8591,64 @@ Printing terms...
 Running linear SVC...
 Running with testing sets...
 Feature size:  3000
+[[125  27]
+ [ 18 130]]
+              precision    recall  f1-score   support
+
+           0       0.87      0.82      0.85       152
+           1       0.83      0.88      0.85       148
+
+    accuracy                           0.85       300
+   macro avg       0.85      0.85      0.85       300
+weighted avg       0.85      0.85      0.85       300
+
 Old score:  0.85
 Old f-measure score:  0.8524590163934427
 Cross validating with 10 Stratified K-Fold...
 Accuracy scores:  [0.815, 0.88, 0.88, 0.875, 0.825, 0.875, 0.85, 0.835, 0.835, 0.815]
 F-measure scores:  [0.8177339901477833, 0.8811881188118812, 0.8823529411764707, 0.8743718592964824, 0.8275862068965517, 0.8743718592964824, 0.8514851485148515, 0.8390243902439023, 0.83248730964467, 0.8177339901477833]
-Final score: 0.8484999999999999
+Final accuracy score: 0.8484999999999999
 Final f-measure:  0.8498335814176858
 
 Printing terms...
-('fun', 1.998384128084789)
-('well', 1.827751870434)
-('great', 1.5862419720954233)
-('hilarious', 1.2868901280350726)
-('seen', 1.242206277028796)
-('pulp', 1.1998395427621422)
-('different', 1.1363495223754314)
-('excellent', 1.1308368696469315)
-('many', 1.1248420809762427)
-('solid', 1.1027581149343235)
-('memorable', 1.0941125389753268)
-('terrific', 1.0736726185913181)
-('people', 1.0713884435008625)
-('always', 1.0480219949709422)
-('good', 1.0370193580066778)
-('matrix', 1.0291404949809235)
-('truman', 1.0174084296527444)
-('carry', 1.014273361726386)
-('frank', 1.003021621292282)
-('bulworth', 1.0023859451157857)
-('bad', -2.4750056198910486)
-('plot', -1.6913367815590477)
-('supposed', -1.6632850212093895)
-('attempt', -1.6043998374215063)
-('awful', -1.5287960225006505)
-('nothing', -1.528500084057713)
-('worst', -1.522104001196147)
-('boring', -1.501907077892996)
-('minute', -1.4577566162211946)
-('even', -1.3379495571678626)
-('waste', -1.330000219062175)
-('could', -1.2874282226716776)
-('mess', -1.2870825031117679)
-('ridiculous', -1.2808526715256003)
-('poor', -1.2373460451426217)
-('joan', -1.18484646568687)
-('tedious', -1.1569427617762609)
-('designed', -1.1465619372278586)
-('talk', -1.131120465639749)
-('look', -1.1251611521841791)
+('fun', 1.998381314166911)
+('well', 1.8277500204124904)
+('great', 1.5862398231878918)
+('hilarious', 1.2868903132177485)
+('seen', 1.2422052689312137)
+('pulp', 1.1998377820151438)
+('different', 1.1363498955845213)
+('excellent', 1.1308361590554739)
+('many', 1.1248388593584833)
+('solid', 1.102752773716537)
+('memorable', 1.0941127118426623)
+('terrific', 1.073671356531689)
+('people', 1.0713888913115273)
+('always', 1.0480201995339595)
+('good', 1.0370188569462622)
+('matrix', 1.029141623306369)
+('truman', 1.0174114007816801)
+('carry', 1.0142737561624817)
+('frank', 1.0030196952715633)
+('bulworth', 1.0023874197274727)
+('bad', -2.4750049225486066)
+('plot', -1.691339934218462)
+('supposed', -1.6632825847406567)
+('attempt', -1.6043989394257228)
+('awful', -1.5287996954843528)
+('nothing', -1.528501682878651)
+('worst', -1.5221013734774413)
+('boring', -1.5019088245162755)
+('minute', -1.4577549589525531)
+('even', -1.3379488659548189)
+('waste', -1.3300008655258857)
+('could', -1.2874324359475986)
+('mess', -1.2870824387163722)
+('ridiculous', -1.2808517758951075)
+('poor', -1.2373458023982211)
+('joan', -1.1848460532660452)
+('tedious', -1.156939603792991)
+('designed', -1.1465604779113878)
+('talk', -1.1311199141224004)
+('look', -1.1251596632506156)
 vic@Hacker:~/Documents/GitHub/movie-classification-nlp$ 
