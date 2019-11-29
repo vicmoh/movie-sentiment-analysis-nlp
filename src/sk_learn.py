@@ -95,7 +95,8 @@ class SkLearn():
         print('Final accuracy score:', _Numpy.average(scores))
         print('Final f-measure: ', _Numpy.average(fMeasures))
         predictions = cross_val_predict(old_model, X, y, cv=5)
-        printResult(y_test, y_pred)
+        print('Result')
+        SkLearn.printResult(y_test, y_pred)
         SkLearn.printTerms(cv, old_model)
 
     @staticmethod
