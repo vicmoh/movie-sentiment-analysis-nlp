@@ -83,6 +83,8 @@ class SkLearn():
         y_pred, old_model = classifier(X_train, X_test, y_train)
         accuracy_score = old_model.score(X_test, y_test)
         f1_measure = f1_score(y_test, y_pred)
+        predictions = cross_val_predict(old_model, X, y, cv=5)
+        SkLearn.printResult(y_test, y_pred)
         print('Old score: ', accuracy_score)
         print('Old f-measure score: ', f1_measure)
         # Cross validation
@@ -94,9 +96,6 @@ class SkLearn():
         print('F-measure scores: ', fMeasures)
         print('Final accuracy score:', _Numpy.average(scores))
         print('Final f-measure: ', _Numpy.average(fMeasures))
-        predictions = cross_val_predict(old_model, X, y, cv=5)
-        print('Result')
-        SkLearn.printResult(y_test, y_pred)
         SkLearn.printTerms(cv, old_model)
 
     @staticmethod
@@ -151,7 +150,6 @@ class SkLearn():
         confusion matrix, classification report, and accuracy score."""
         print(confusion_matrix(y_test, y_pred))
         print(classification_report(y_test, y_pred))
-        print(accuracy_score(y_test, y_pred))
 
     @staticmethod
     def __loadData(pathFolder):
