@@ -24,7 +24,7 @@ class Main:
         Main.runSelectedModels()
 
     @staticmethod
-    def runDataAnalysis():
+    def runDataAnalysis(showEachDocData=True):
         posData = DataAnalysis(_PATH_DATA + '/pos/*.txt')
         negData = DataAnalysis(_PATH_DATA + '/neg/*.txt')
         print('\n---------- Positive data analysis ----------')
@@ -33,6 +33,14 @@ class Main:
         negData.printResult()
         print('\n---------- Positive and negative data analysis ----------')
         posData.printCombinedResultWith(negData)
+        print(
+            '\n---------- Avg sentence lengths for collection and each document ----------')
+        if showEachDocData:
+            for each in posData.listOfAvgSenPerDoc:
+                print(each['fileName'] + ': ', each['avg'])
+        if showEachDocData:
+            for each in negData.listOfAvgSenPerDoc:
+                print(each['fileName'] + ':', each['avg'])
 
     @staticmethod
     def runSelectedModels():

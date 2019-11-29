@@ -24,6 +24,8 @@ class DataAnalysis:
     minToken = 0
     maxToken = 0
     totalToken = 0
+    listOfAvgSenPerDoc = []
+    docNames = []
 
     def __init__(self, folderPath=None):
         """This object is used to process the data analysis.
@@ -166,7 +168,16 @@ class DataAnalysis:
             docs.append(lines)
         # Track the number sentence in preprocess data
         preData = SkLearn.preprocess(docs)
+        count = 0
         for each in preData:
-            tokens = re.split('[ \r\n]+|[ \n]+', each)
-            self.__trackTokenData(len(tokens))
+            tokens = len(re.split('[ \r\n]+|[ \n]+', each))
+            lines = len(re.split('[\r\n]+|[\n]+', each))
+            self.__trackTokenData(tokens)
+            self.listOfAvgSenPerDoc.append({
+                'fileName': fileNames[count],
+                'avg':  (tokens / lines),
+                'tokens': tokens,
+                'lines': lines
+            })
+            count += 1
         return docs
