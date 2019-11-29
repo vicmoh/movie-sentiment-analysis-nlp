@@ -71,8 +71,8 @@ class SkLearn():
         # Check if the classifier is empty
         if classifier is None:
             classifier = Classifier.logisticRegression
+        # Feature selection
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
-        # N-gram bag of words and tf idf the data
         X, cv = SkLearn.__featureSelectionProcess(
             X, self.docs, self.stopwords, featureSize=featureSize)
         # Cross validation
