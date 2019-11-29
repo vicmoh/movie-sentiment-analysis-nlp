@@ -42,6 +42,7 @@ class SkLearn():
     y_test = None
     dataFolderPath = ''
     stopwords = stopwords.words('english')
+    docs = None
 
     def __init__(self, dataFolderPath=None, testFolderPath=None):
         """Scikit learn class for processing the sentiment analysis to
@@ -62,6 +63,8 @@ class SkLearn():
         # Load the data
         self.X, self.y = SkLearn.__loadData(dataFolderPath)
         self.X_test, self.y_test = SkLearn.__loadData(testFolderPath)
+        print('\nPreprocessing...')
+        self.docs = SkLearn.preprocess(self.X)
 
     def run(self, classifier=None, num_kFold=5, featureSize=500, isTfidfVec=False, isCountVec=False):
         """Run the model specified."""
@@ -71,7 +74,7 @@ class SkLearn():
         X, y, X_test, y_test = self.X, self.y, self.X_test, self. y_test
         # N-gram bag of words and tf idf the data
         X, cv = SkLearn.__featureSelectionProcess(
-            X, self.stopwords, featureSize=featureSize)
+            X, self.docs, self.stopwords, featureSize=featureSize)
         # Cross validation
         print('Feature size: ', featureSize)
         print('Cross validating with ' +
@@ -121,18 +124,22 @@ class SkLearn():
     @staticmethod
     def printTerms(cv, final_model):
         """Print the term and accuracy of the models."""
-        feature_to_coef = {
-            word: coef for word, coef in zip(cv.get_feature_names(), final_model.coef_[0])
-        }
-        for highest_positives in sorted(
-                feature_to_coef.items(),
-                key=lambda x: x[1],
-                reverse=True)[:20]:
-            print(highest_positives)
-        for highest_negatives in sorted(
-                feature_to_coef.items(),
-                key=lambda x: x[1])[:20]:
-            print(highest_negatives)
+        print('\nPrinting terms...')
+        try:
+            feature_to_coef = {
+                word: coef for word, coef in zip(cv.get_feature_names(), final_model.coef_[0])
+            }
+            for highest_positives in sorted(
+                    feature_to_coef.items(),
+                    key=lambda x: x[1],
+                    reverse=True)[:20]:
+                print(highest_positives)
+            for highest_negatives in sorted(
+                    feature_to_coef.items(),
+                    key=lambda x: x[1])[:20]:
+                print(highest_negatives)
+        except:
+            print('Could not print term results.')
 
     @staticmethod
     def printResult(y_test, y_pred):
@@ -172,12 +179,11 @@ class SkLearn():
         return data, vec
 
     @staticmethod
-    def __featureSelectionProcess(X, stopwords, isCountVec=False, isTfidfVec=False, featureSize=None):
+    def __featureSelectionProcess(X, docs, stopwords, isCountVec=False, isTfidfVec=False, featureSize=None):
         # Check type of selection being used
         if isCountVec is False and isTfidfVec is False:
             isCountVec = True
             isTfidfVec = True
-        docs = SkLearn.preprocess(X)
         # N-gram bag of words and tf idf the data
         X, model = None, None
         if isCountVec:
