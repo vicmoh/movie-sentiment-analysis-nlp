@@ -11,7 +11,7 @@ from nltk.stem import PorterStemmer
 from nltk.stem import lancaster
 # Sklearn libs
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score  # For printing
-from sklearn.model_selection import train_test_split, cross_validate, StratifiedKFold, KFold
+from sklearn.model_selection import train_test_split, cross_validate, StratifiedKFold, KFold, cross_val_predict
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer, TfidfVectorizer
 # Classifier
 from sklearn.ensemble import RandomForestClassifier
@@ -87,14 +87,17 @@ class SkLearn():
         print('Average score:', _Numpy.average(scores))
         print('Average f-measure: ', _Numpy.average(fMeasures))
         # final test with the 15 percent
-        print('Running final model and testing with 15% validation set...')
+        print('Running with 15% testing sets...')
         X_train, X_test, y_train, y_test = self.__trainSplit(X, y)
-        y_pred, final_model = classifier(X_train, X_test, y_train)
-        accuracy_score = final_model.score(X_test, y_test)
+        y_pred, old_model = classifier(X_train, X_test, y_train)
+        accuracy_score = old_model.score(X_test, y_test)
         f1_measure = f1_score(y_test, y_pred)
-        print('Final score: ', accuracy_score)
-        print('final f-measure score: ', f1_measure)
-        SkLearn.printTerms(cv, final_model)
+        print('Model score: ', accuracy_score)
+        print('Model f-measure score: ', f1_measure)
+        SkLearn.printTerms(cv, old_model)
+        predictions = cross_val_predict(old_model, X, y, cv=5)
+         
+        
 
     @staticmethod
     def preprocess(data):
@@ -155,7 +158,7 @@ class SkLearn():
         """Load data from the @pathFolder that contain
         'pos' and 'neg' folder of the txt files.
         Returns data, target."""
-        reviewFile = _SkData.load_files(pathFolder)
+        reviewFile = _SkData.load_files(pathFolder, shuffle=True)
         return reviewFile.data, reviewFile.target
 
     @staticmethod
