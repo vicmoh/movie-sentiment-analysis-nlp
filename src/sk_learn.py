@@ -43,6 +43,7 @@ class SkLearn():
     y_test = None
     dataFolderPath = ''
     stopwords = stopwords.words('english')
+    results = []
 
     def __init__(self, dataFolderPath=None, testFolderPath=None):
         """Scikit learn class for processing the sentiment analysis to
@@ -84,8 +85,6 @@ class SkLearn():
         f1_measure = f1_score(y_test, y_pred)
         print('Old score: ', accuracy_score)
         print('Old f-measure score: ', f1_measure)
-        SkLearn.printTerms(cv, old_model)
-        predictions = cross_val_predict(old_model, X, y, cv=5)
         # Cross validation
         print('Cross validating with ' +
               str(num_kFold) + ' Stratified K-Fold...')
@@ -95,6 +94,8 @@ class SkLearn():
         print('F-measure scores: ', fMeasures)
         print('Final score:', _Numpy.average(scores))
         print('Final f-measure: ', _Numpy.average(fMeasures))
+        SkLearn.printTerms(cv, old_model)
+        predictions = cross_val_predict(old_model, X, y, cv=5)
 
     @staticmethod
     def preprocess(data):
