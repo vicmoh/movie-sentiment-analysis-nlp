@@ -43,7 +43,6 @@ class SkLearn():
     y_test = None
     dataFolderPath = ''
     stopwords = stopwords.words('english')
-    docs = None
 
     def __init__(self, dataFolderPath=None, testFolderPath=None):
         """Scikit learn class for processing the sentiment analysis to
