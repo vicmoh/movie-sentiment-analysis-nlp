@@ -44,8 +44,8 @@ class Main:
                 print('\nRunning logistic regression...')
                 sk.run(classifier=Classifier.logisticRegression,
                        featureSize=f_size, isTfidfVec=True, num_kFold=kFoldSize)
-                print('\nRunning random forest classifier...')
-                sk.run(classifier=Classifier.randomForestClassifier,
+                print('\nRunning multinomial naive bayers classifier...')
+                sk.run(classifier=Classifier.multinomialNB,
                        featureSize=f_size, isTfidfVec=True, num_kFold=kFoldSize)
                 print('\nRunning linear SVC...')
                 sk.run(classifier=Classifier.linearSVC,
@@ -57,8 +57,8 @@ class Main:
                 print('\nRunning logistic regression...')
                 sk.run(classifier=Classifier.logisticRegression,
                        featureSize=f_size, isCountVec=True, num_kFold=kFoldSize)
-                print('\nRunning random forest classifier...')
-                sk.run(classifier=Classifier.randomForestClassifier,
+                print('\nRunning multinomial naive bayers classifier...')
+                sk.run(classifier=Classifier.multinomialNB,
                        featureSize=f_size, isCountVec=True, num_kFold=kFoldSize)
                 print('\nRunning linear SVC...')
                 sk.run(classifier=Classifier.linearSVC,

@@ -244,6 +244,13 @@ class Classifier():
     for the classification for the SkLearn."""
 
     @staticmethod
+    def multinomialNB(X_train, X_test, y_train):
+        model = MultinomialNB(alpha=1)
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        return y_pred, model
+
+    @staticmethod
     def randomForestClassifier(X_train, X_test, y_train):
         model = RandomForestClassifier(n_estimators=1000, random_state=0)
         model.fit(X_train, y_train)
