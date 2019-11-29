@@ -67,7 +67,8 @@ class Main:
     @staticmethod
     def run():
         print('Running...')
-        SkLearn(classifier=Classifier.linearSVC)
+        SkLearn().run(classifier=Classifier.KNeighbors,
+                      featureSize=1500, isTfidfVec=True, num_kFold=10)
 
 
 Main()
