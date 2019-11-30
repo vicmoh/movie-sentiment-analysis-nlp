@@ -96,12 +96,34 @@ _TERM_LABELS_NEG = [
     "catch"
 ]
 
+_POS_ANALYSIS = [5, 112, 32.937, 114, 2303, 668.087, ]
+_NEG_ANALYSIS = [1, 112, 31.783, 16, 1799, 596.265, ]
+_ANALYSIS_LABELS = [
+    "Min sentences",
+    "Max sentences",
+    "Avg sentences",
+    "Min tokens",
+    "Max tokens",
+    "Avg tokens",
+]
+
 
 class Plot:
     def __init__(self):
         super().__init__()
+        Plot.runStats()
         Plot.runTermPosResult()
         Plot.runTermNegResult()
+
+    @staticmethod
+    def runStats():
+        # Init variable
+        _matplot.title('Data analysis')
+        _matplot.ylabel('Total')
+        _matplot.xticks(rotation=45)
+        _matplot.plot(_ANALYSIS_LABELS, _POS_ANALYSIS, color='green')
+        _matplot.plot(_ANALYSIS_LABELS, _NEG_ANALYSIS, color='red')
+        _matplot.show()
 
     @staticmethod
     def runTermPosResult():
